@@ -1,0 +1,62 @@
+    <!-- Navigation -->
+    
+    <nav id="mainNav" class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <a id="logo" class="navbar-brand" href="{{ @schemeHost }}{{ @langSubdirectory.'_home' | alias }}">
+                <img class="d-inline-block align-top w-auto" src="{{ @schemeHost }}/images/Site-Construction-Logo.png" alt="Site Construction logo - a hardhat safety icon" title="Constructing a website with Bootstrap and Fat-Free">
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-toggle="offcanvas" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="sr-only">({{ @dictMenuToggle }})</span>
+                <span class="navbar-toggle-icon">
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </span>
+            </button>
+          
+            <div class="sidebar-offcanvas ml-auto" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+<check if="{{ @isHomePage }}"><true>
+<repeat group="@mainMenu" key="@slug" value="@title">
+                    <li class="nav-item menu-item">
+                        <a class="nav-link js-scroll-trigger" href="#{{ @slug }}">{{ @title }}</a>
+                    </li>
+</repeat>
+</true>
+<false>
+<repeat group="@mainMenu" key="@slug" value="@title">
+                    <li class="nav-item menu-item">
+                        <a class="nav-link" href="{{ @schemeHost }}{{ @langSubdirectory.'_home' | alias }}#{{ @slug }}">{{ @title }}</a>
+                    </li>
+</repeat>
+</false>
+</check>
+                    <li class="nav-item menu-item dropdown">
+                        <button class="btn btn-dropdown dropdown-toggle{{ @isDetailPage ? ' active' : ''  }}" id="navbarDropdownDetailsMenu" data-toggle="dropdown" aria-expanded="false">
+                            {{ @dictNavDetails }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right ie-detail-menu" aria-labelledby="navbarDropdownDetailsMenu">
+<repeat group="@dropdownMenu" key="@slug" value="@title">
+                            <a class="dropdown-item{{ substr(urldecode(@PATH),4) === @slug ? ' active' : '' }}" href="{{ @schemeHost }}/{{ @langSubdirectory }}/{{ @slug }}">{{ @title }}</a>
+</repeat>
+                        </div>
+                    </li>
+                </ul>
+            </div><!--.sidebar-offcanvas -->
+            <div class="dropdown lang-dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdownLanguageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="flag-icon flag-icon-lg flag-icon-{{ @langSubdirectory }}"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right-md ie-lang-menu" aria-labelledby="navbarDropdownLanguageMenu">
+<repeat group="@languageLinks" value="@link">
+                    <a class="dropdown-item lang-selector-{{ @link[1] }}{{ @link[1]===@langSubdirectory ? ' current-language' : '' }}" href="{{ @schemeHost }}{{ @link[0] | alias }}">
+                        <span class="flag-icon flag-icon-{{ @link[1] }}"></span>{{ @link[3] }}</a>
+</repeat>
+                </div>
+            </div>
+        </div><!-- .container -->
+    </nav>

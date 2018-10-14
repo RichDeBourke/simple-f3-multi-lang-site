@@ -1,0 +1,35 @@
+    <section id="content" class="detail-first-section bg-white">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4">
+                    <div class="page-not-found-warning">
+                        <img class="warning-triangle" src="{{ @schemeHost }}/images/404-Triangle.png" alt="Warning symbol" width="417" height="372">
+                        <div id="eyes">
+                            <div class="eye left">
+                                <div class="iris"></div>
+                            </div>
+                            <div class="eye right">
+                                <div class="iris"></div>
+                            </div>
+                        </div>
+                        <div class="mouth"></div>
+                        <div class="oops">
+                            <h3>{{ @dict404Looked | raw }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 offset-lg-1">
+                    <h1>{{ @dict404NotFoundHeader }}</h1>
+                    <p>{{ @dict404PageURL, @schemeHost.urldecode(@PATH) | format,raw }}</p>
+
+                    <p>{{ @dict404Notice1 }}</p>
+                    <ul>
+                        <li>{{ @dict404Notice2 }}</li>
+                        <li>{{ @dict404Notice3 }}</li>
+                        <li>{{ @dict404Notice4, urldecode(@PATH) | format,raw }}</li>
+                    </ul>
+                    <p>{{ @dict404Notice5 }}</p>
+                </div>
+            </div>
+        </div>
+    </section>

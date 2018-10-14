@@ -1,0 +1,99 @@
+        <header id="{{ @loadID(@mainMenu,0) }}" class="text-white">
+            <div class="header-fixed-background">
+<include href="image-Hero-Placeholder.html" />
+                <a href="#" class="attribution" title="Image used under a 2.0 Creative Commons license">Image Attribution</a>
+            </div>
+            <div id="content" class="header-text text-center">
+                <h1>
+                    <span class="header-text-line-1">Constructing a website with</span><br>
+                    <span class="header-text-line-2">Bootstrap and Fat&#8209;Free</span>
+                </h1>
+                <a class="github-link btn btn-outline-dark btn-lg" href="{{ @schemeHost }}/github/index.html" role="button">See the code
+                    <br>on
+                    <br>GitHub
+                </a>
+            </div>
+        </header>
+
+        <section class="bg-light">
+            <div class="container">
+                <div class="card-group">
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<include href="image-FrontPageCard-Learn.html" />
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Learning</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">I built this site to get experience with Bootstrap 4 and the Fat-Free Framework.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<include href="image-FrontPageCard-Bootstrap.html" />
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Bootstrap 4</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Bootstrap is a popular front-end framework for building responsive websites.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<include href="image-FrontPageCard-FatFree.html" />
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Fat-Free Framework</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Fat-Free is ranked in the top ten PHP frameworks.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,1) }}" class="bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Overview</h2>
+                        <p>It&rsquo;s easy to create a professional looking website using WordPress or other content management system (CMS), but if you want your site to look a little different from a stock theme, you have to customize the design. That can get complicated. (<em>I find it easier to modify straight HTML code than to modify a WordPress theme.</em>)</p>
+                        <p>If you&rsquo;re creating an e-commerce site, or need users to login, then WordPress is a good option as it includes the security you&rsquo;ll want.</p>
+                        <p>But, if the most complicated interaction you require with users is a contact form, and you want pages built from shared templates, clean URLs, automatic language selection, and more flexibility in the site design, then the setup demonstrated here could be a good solution.</p>
+                        <p>I&rsquo;ve provided explanations for how I setup the site in the <a href="{{ @schemeHost }}{{ 'en_details1' | alias }}">Detail</a> sections, and all of my files are on <a href="{{ @schemeHost }}/github/index.html">GitHub</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,2) }}" class="bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Bootstrap</h2>
+                        <p><a href="https://getbootstrap.com/" title="Visit the Bootstrap website for more information">Bootstrap</a> provides a responsive grid that adjusts across different display sizes, and, because of its popularity, there are a large number of code snippets available at <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" title="Bootstrap's documentation">Bootstrap</a> and on <a href="https://github.com/search?q=%22bootstrap+4%22" title="GitHub repositories for Bootstrap 4">GitHub</a>. There&rsquo;s also plenty of information about using Bootstrap available via Google.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,3) }}" class="bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Fat-Free</h2>
+                        <p>While <a href="https://fatfreeframework.com/" title="Visit Fat-Free&rsquo;s website for more information">Fat-Free</a> isn&rsquo;t <em>the</em> most <a href="http://www.ifourtechnolab.com/blog/top-10-free-php-frameworks-of-2018-for-web-development" title="Article on the top 10 free PHP frameworks of 2018 for web development">popular PHP frameworks</a> (that would be <a href="https://laravel.com/" title="Visit Laravel&rsquo;s website for more information">Laravel)</a>, it <em>does</em> work on shared hosting plans (Laravel <a href="https://coderseye.com/best-php-frameworks-for-web-developers/#What_are_the_Top_Rated_PHP_Frameworks_of_2018" title="Review of PHP frameworks">doesn&rsquo;t</a>, at least not easily) and Fat-Free is considered to have a fast learning curve.</p>
+                        <p>The main Fat-Free components I&rsquo;m using are:</p>
+                        <ul>
+                            <li class="mb-3"><strong>Routing engine</strong> &ndash; <em>Routes</em> a user&rsquo;s request to the appropriate control function.</li>
+                            <li class="mb-3"><strong>Template engine</strong> &ndash; Combines HTML templates with data that has been stored in Fat-Free&rsquo;s &ldquo;hive&rdquo;, the array in memory that holds variables in the form of key / value pairs, to form web pages.</li>
+                            <li class="mb-3"><strong>Multi-language support</strong> &ndash; Fat-Free supports multiple languages through a dictionary lookup function using key/value pairs. Dictionary files for each language are located in the dict directory and Fat-Free selects the desired language string from the dictionary files based on a token in the template and the LANGUAGE setting.<ul>
+                                    <li>I use Fat-Free language support for content that is the same across all pages (e.g., the Scroll-to-top button) or for pages that are common across all languages and that have limited text (e.g., the contact page).</li>
+                                </ul></li>
+                            <li class="mb-3"><strong>Language detection</strong> &ndash; Fat-Free captures the <code>Accept-Language</code> string from a user&rsquo;s <code>GET</code> request, which I use for selecting the <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#preferred-language" title="Section on language detection">appropriate language subdirectory</a> when a user requests the root directory.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>

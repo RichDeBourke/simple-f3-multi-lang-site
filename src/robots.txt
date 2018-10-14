@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://sbf-testing.byethost7.com/sitemap.xml

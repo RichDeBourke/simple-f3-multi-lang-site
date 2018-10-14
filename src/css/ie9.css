@@ -1,0 +1,46 @@
+body {
+    min-width: 1000px;
+}
+
+/* increase the padding top and bottom because the navbar thickness remains the same */
+section {
+    padding: 5rem 0;
+}
+
+#mainNav .sidebar-offcanvas {
+    width: 50%;
+    float: left;
+}
+
+#mainNav .lang-dropdown {
+    width: 10%;
+    float: right;
+    padding-top: 18px;
+}
+
+/* Same size before small-logo as IE9 doesn't transition */
+#mainNav.small-logo img {
+    height: 3.875rem;
+}
+
+.sidebar-offcanvas {
+    padding-top: 16px;
+}
+
+/* set the menu positions left to right */
+.ie-detail-menu {
+    top: 42px;
+    right: 16px;
+    left: auto;
+}
+
+.ie-lang-menu {
+    width: 220px;
+    top: 58px;
+    right: 48px;
+    left: auto;
+}
+
+.justify-content-center div {
+    text-align: left;
+}

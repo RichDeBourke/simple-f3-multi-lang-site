@@ -1,0 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+.ie-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: medium;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background-color: #fdf2ab;
+    border-bottom: solid 1px #adb5bd;
+    z-index: 1100;
+}
+
+.ie-warning p {
+    margin: 0;
+}
+
+.ie-warning img {
+    margin-right: 8px;
+    vertical-align: text-bottom;
+}
+
+.offcanvas, footer {
+    padding-left: 32px;
+}
+
+.navbar {
+    padding-top: 48px;
+}
+
+#eu-cookie, #skippy, .header-fixed-background, .navbar-toggler {
+    display: none;
+}
+
+li.overlay, .carousel-item {
+    display: none;
+}
+
+.alert-success {
+    display: none;
+}

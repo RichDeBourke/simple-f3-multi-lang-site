@@ -1,0 +1,45 @@
+    <div class="lds-container">
+        <div class="lds-spinner">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+    
+    <a href="#" id="scroll-to-top" title="Scroll to the top of the page">
+        <svg viewBox="0 0 116 116">
+            <rect x="0" y="0" width="116" height="116" rx="15" ry="15"
+                fill="#0024a7" fill-opacity="0.5" ></rect>
+            <polyline points="20 80, 58 40, 96 80" fill="none" stroke="#fff"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="10"
+                stroke-miterlimit="10" ></polyline>
+        </svg>
+    </a>
+    
+    <footer class="footer offcanvas-right text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 ie-footer-left" >
+                    <h4 class="text-center">{{ @dictFooterHeading1 }}</h4>
+                    <p class="text-justify">{{ @dictFooterContent1 | raw }}</p>
+                </div>
+                <div class="col-12 col-md-4 order-md-last ie-footer-right">
+                    <h4 class="text-center">{{ @dictFooterHeading2 }}</h4>
+                    <p class="text-justify">{{ @dictFooterContent2 | raw }}</p>
+                </div>
+                <div class="col-12 col-md-4 ie-footer-center">
+                    <h4 class="text-center">{{ @dictFooterHeading3 }}</h4>
+                    <p class="text-justify">{{ @dictFooterContent3 | raw }}</p>
+                </div>              
+            </div>
+            <div class="row">
+                <div class="col-12 pt-3 terms-link">
+                    <p class="text-center mb-0"><a href="{{ @schemeHost}}{{ @langSubdirectory.'_termsx' | alias }}" title="{{ @dictFooterTermsTitle }}">{{ @dictFooterTerms}}</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-3 ie-copyright">
+                    <!-- To get the date, the F3 template engine accepts the PHP date function -->
+                    <p class="m-0 text-center small">&copy; {{ date('Y') === @yearBuilt ? @yearBuilt : @yearBuilt.'~'.date('Y')  }} &ndash; <a href="https://www.sbwfc.co.kr" title="{{ @dictFooterCopyrightTitle }}">{{ @siteOwner }}</a></p>
+                </div> 
+            </div>  
+        </div>
+    </footer>

@@ -1,0 +1,122 @@
+        <header id="{{ @loadID(@mainMenu,0) }}" class="text-white">
+            <div class="header-fixed-background">
+<include href="image-Hero-Placeholder.html" />
+                <a href="#" class="attribution" title="Image used under a 2.0 Creative Commons license">Image Attribution</a>
+            </div>
+            <div id="content" class="header-text text-center">
+                <h1>
+                    <span class="header-text-line-1">Constructing a website with</span><br>
+                    <span class="header-text-line-2">Bootstrap and Fat-Free</span>
+                </h1>
+                <a class="github-link btn btn-outline-dark btn-lg" href="{{ @schemeHost }}/github/index.html" role="button">请参阅
+                    <br>GitHub
+                    <br>上的代码
+                </a>
+            </div>
+        </header>
+
+        <section class="bg-white">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-med-8 col-lg-6">
+                            <h2>翻译说明 / Translation note</h2>
+                            <p>此页面是使用Google Translate从英文版本翻译而来演示中文版本。 尚未检查翻译的准确性或正确性。</p>
+                            <p>This page was translated from the English version using Google Translate to demonstrate a Chinese version. The translation has not been checked for accuracy or correctness.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+
+        <section class="bg-light">
+            <div class="container">
+                <div class="card-group">
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-Learn.html" /></true><false>
+                            <img src="../images/FrontPageCard-Learn.png" alt="Learning – computer generated graphic of three textbooks on programming" width="180" height="180"></false>
+</check>
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">学习</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">我建立了这个网站，以获得Bootstrap 4和Fat-Free Framework的体验。</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-Bootstrap.html" /></true><false>
+                            <img src="../images/FrontPageCard-Bootstrap.png" alt="Bootstrap – the Bootstrap logo" width="180" height="180"></false>
+</check> 
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Bootstrap 4</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Bootstrap是用于构建响应式网站的流行前端框架。</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-FatFree.html" /></true><false>
+                            <img src="../images/FrontPageCard-FatFree.png" alt="Fat-Free – the Fat-Free logo" width="180" height="180"></false>
+</check>
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Fat-Free Framework</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Fat-Free排名前十的PHP框架。</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,1) }}" class="bg-white">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-med-8 col-lg-6">
+                            <h2>概观</h2>
+                            <p>使用WordPress或其他内容管理系统（CMS）创建一个专业的网站很容易，但如果您希望您的网站看起来与股票主题略有不同，您必须自定义设计。 这可能会变得复杂。 （ 我发现修改直接HTML代码比修改WordPress主题更容易。 ）</p>
+                            <p>如果您正在创建电子商务网站，或者需要用户登录，那么WordPress是一个不错的选择，因为它包含您想要的安全性。</p>
+                            <p>但是，如果您需要与用户进行的最复杂的交互是联系表单，并且您希望页面由共享模板，干净的URL，自动语言选择以及站点设计中的更多灵活性构建，那么此处演示的设置可能是一个很好的解决方案。</p>
+                            <p>我已经提供了有关如何在详细信息部分中设置网站的说明 ，并且我的所有文件都在<a href="{{ @schemeHost }}/github/index.html">GitHub上</a>。</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,2) }}" class="bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Bootstrap</h2>
+                        <p><a href="https://getbootstrap.com/" title="Visit the Bootstrap website for more information">Bootstrap</a>提供了一个响应式网格，可以调整不同的显示大小，并且由于它的流行， <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" title="Bootstrap's documentation">Bootstrap</a>和<a href="https://github.com/search?q=%22bootstrap+4%22" title="GitHub repositories for Bootstrap 4">GitHub</a>有大量的代码片段。 还有很多关于使用Google提供的Bootstrap的信息。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,3) }}" class="bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Fat-Free</h2>
+                        <p>虽然<a href="https://fatfreeframework.com/" title="Visit Fat-Free&rsquo;s website for more information">Fat-Free</a>不是最<a href="http://www.ifourtechnolab.com/blog/top-10-free-php-frameworks-of-2018-for-web-development" title="Article on the top 10 free PHP frameworks of 2018 for web development">流行的PHP框架</a>（可能是<a href="https://laravel.com/" title="Visit Laravel&rsquo;s website for more information">Laravel</a>） ，但它确实适用于共享主机方案（Laravel<a href="https://coderseye.com/best-php-frameworks-for-web-developers/#What_are_the_Top_Rated_PHP_Frameworks_of_2018" title="Review of PHP frameworks">不能</a>，至少不容易），而Fat-Free被认为具有快速的学习曲线</p>
+                        <p>我正在使用的主要无脂组件是：</p>
+                        <ul>
+                            <li class="mb-3"><strong>路由引擎</strong> &ndash; 将用户的请求路由到适当的控制功能。</li>
+                            <li class="mb-3"><strong>模板引擎</strong> &ndash; 将HTML模板与存储在Fat-Free的“hive”中的数据相结合，内存中的数组以键/值对的形式保存变量，以形成网页。</li>
+                            <li class="mb-3"><strong>多语言支持</strong> &ndash; Fat-Free通过使用键/值对的字典查找功能支持多种语言。 每种语言的字典文件都位于dict目录中，Fat-Free根据模板中的标记和LANGUAGE设置从字典文件中选择所需的语言字符串。<ul>
+                                    <li>我对所有页面中相同的内容（例如，滚动到顶部按钮）或对所有语言都有共同且文本有限的页面（例如，联系页面）使用无Fat语言支持。</li>
+                                </ul></li>
+                            <li class="mb-3"><strong>语言检测</strong> Fat-Free从用户的<code>GET</code>请求中捕获<code>Accept-Language</code>字符串，用于在用户请求根目录时选择适当的语言子目录 。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    

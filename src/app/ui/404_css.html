@@ -1,0 +1,73 @@
+    <style>
+        #eyes {
+            position: absolute;
+            top: 9.625rem;
+            left: 8.375rem;
+            width: 7rem;
+        }
+
+        .eye {
+            display: none;
+            width: 30px;
+            height: 0;
+            background: #fff;
+            border-radius: 50%;
+            border: 2px solid #000;
+            cursor: none;
+            position: relative;
+            top: 32px;
+            overflow: hidden;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .iris {
+            display: none;
+            width: 10px;
+            height: 10px;
+            background: #000;
+            border-radius: 50%;
+            border: 2px solid #000;
+            position: absolute;
+            top: -3px; /* 20 */
+            left: 8px;
+        }
+
+        .page-not-found-warning {
+            width: 100%;
+            text-align: center;
+        }
+
+        .warning-triangle {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .mouth {
+            position: absolute;
+            width: 42px;
+            height: 34px;
+            background-color: #000;
+            left: 169px;
+            top: 220px;
+            border-radius: 0;
+            transition: border-radius 500ms ease-in-out, left 500ms ease-in-out, width 500ms ease-in-out;
+        }
+
+        .mouth.oval {
+            width: 34px;
+            left: 173px;
+            border-radius: 50%;
+        }
+
+        .oops {
+            opacity: 0;
+        }                    
+    </style>

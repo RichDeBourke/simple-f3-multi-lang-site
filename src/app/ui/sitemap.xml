@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<repeat group="@sitemapAliases" key="@route_name" value="@path">
+<url>
+  <loc>{{ @schemeHost }}{{ @route_name | alias }}</loc>
+  <lastmod>{{ @fdate(@route_name) }}</lastmod>
+<repeat group="@languages" key="@prefix" value="@values">
+  <xhtml:link rel="alternate" hreflang="{{ @values[0] }}" href="{{ @schemeHost }}{{ @prefix.substr(@route_name,2) | alias }}" />
+</repeat>
+</url>
+</repeat>
+</urlset>

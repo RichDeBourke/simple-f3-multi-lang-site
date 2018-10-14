@@ -1,0 +1,207 @@
+<head>
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <title>{{ @pageTitle }}</title>
+    <meta name="description" content="{{ @pageDescription }}">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<check if="{{ @googleNoIndex }}">
+    <meta name="robots" content="noindex,nofollow">
+</check>
+
+    <script>
+        if (!("classList" in document.documentElement)) {
+            document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
+        }
+        if (!("Promise" in window && "all" in window.Promise)) {
+            document.write('<script src="{{ @schemeHost }}/js/fontfacepolyfill.min.js"><\/script>');
+        }
+        // Polyfill for old Internet Explorers
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+            };
+        }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ @googleAnalyticsID }}"></script>
+    <script>
+        // Disable tracking if the opt-out cookie exists.
+        if (document.cookie.indexOf("ga-disable-{{ @googleAnalyticsID }}=true") > -1) {
+            window["ga-disable-{{ @googleAnalyticsID }}"] = true;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        if (document.cookie.indexOf("eu-cookie-notice-accepted=true") > -1) {
+            // The notice has been seen and accepted, so process tracking
+            gtag('config', '{{ @googleAnalyticsID }}', { 'anonymize_ip': true });
+        }
+    </script>
+
+<check if="{{ !@googleNoIndex }}">
+    <link rel="canonical" href="{{ @schemeHost }}{{ urldecode(@PATH) }}">
+</check>
+    <meta itemprop="url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}" />
+    <meta itemprop="name" content="{{ @siteOwner }}">
+    <meta itemprop="description" content="{{ @pageDescription }}">
+    <meta itemprop="primaryImageOfPage" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
+    <meta property="og:description" content="{{ @pageDescription }}">
+    <meta property="og:url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
+    <meta property="og:site_name" content="{{ @siteOwner }}">
+    <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage }}">
+    <meta name="twitter:card" content="summary">
+<check if="{{ @socialMedia.twitterID != 'none' }}">    <meta name="twitter:site" content="@{{ @socialMedia.twitterID }}">
+</check>
+    <meta name="twitter:description" content="{{ @pageDescription }}">
+    <meta name="twitter:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
+    <meta name="twitter:image" content="{{ @schemeHost }}/images/{{ @socialMedia.twitterImage }}">
+
+<check if="{{ @isHomePage && !@imageEmbed }}">
+    <!-- Preload the hero image to reduce the momentary flash of the background color-->
+    <link rel="preload" as="image" href="{{ @schemeHost }}/images/Building-gray.jpg">
+    
+</check>
+<check if="{{ !@googleNoIndex }}">
+<repeat group="@languageLinks" value="@link">
+    <link rel="alternate" hreflang="{{ @link[2] }}" href="{{ @schemeHost }}{{ @link[0] | alias }}">
+</repeat>
+</check>
+
+    <!-- Load Google webfonts -->
+    <!--[if gte IE 9]><!-->
+<check if="{{ @langSubdirectory === 'ko' }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro|Noto+Sans+KR');
+    </style>
+</check><check if="{{ @langSubdirectory === 'zh' }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
+        @import url('https://fonts.googleapis.com/earlyaccess/notosanssc.css');
+    </style>
+</check><check if="{{ @langSubdirectory === 'tw' }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
+        @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
+    </style>
+</check><check if="{{ @langSubdirectory === 'en' }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
+    </style>
+</check>
+
+<include href="fontFaceObserver_script.html" />
+    <script>
+        (function (d, w) {
+            "use strict";
+
+            if (w.sessionStorage.fonts) {
+                d.documentElement.className += " wf-active";
+            } else {
+                var timeout = 6000;
+<check if="{{ @langSubdirectory === 'ko' }}">
+                var notoSans = new FontFaceObserver("Noto Sans", {
+                    weight: 400
+                });
+                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
+                    weight: 400
+                });
+                var notoSansKR = new FontFaceObserver("Noto Sans KR", {
+                    weight: 400
+                });
+</check><check if="{{ @langSubdirectory === 'zh' }}">
+                var notoSans = new FontFaceObserver("Noto Sans", {
+                    weight: 400
+                });
+                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
+                    weight: 400
+                });
+                var notoSansSC = new FontFaceObserver("Noto Sans SC", {
+                    weight: 400
+                });
+</check><check if="{{ @langSubdirectory === 'tw' }}">
+                var notoSans = new FontFaceObserver("Noto Sans", {
+                    weight: 400
+                });
+                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
+                    weight: 400
+                });
+                var notoSansTC = new FontFaceObserver("Noto Sans TC", {
+                    weight: 400
+                });
+</check><check if="{{ @langSubdirectory === 'en' }}">
+                var notoSans = new FontFaceObserver("Noto Sans", {
+                    weight: 400
+                });
+                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
+                    weight: 400
+                });
+</check>
+                
+                Promise.all([
+<check if="{{ @langSubdirectory === 'ko' }}">
+                    notoSans.load(null, timeout),
+                    sourceCodePro.load(null, timeout),
+                    notoSansKR.load("서울", timeout)
+</check><check if="{{ @langSubdirectory === 'zh' }}">
+                    notoSans.load(null, timeout),
+                    sourceCodePro.load(null, timeout),
+                    notoSansSC.load("简单的中文", timeout)
+</check><check if="{{ @langSubdirectory === 'tw' }}">
+                    notoSans.load(null, timeout),
+                    sourceCodePro.load(null, timeout),
+                    notoSansTC.load("繁体中文", timeout)
+</check><check if="{{ @langSubdirectory === 'en' }}">
+                    notoSans.load(null, timeout),
+                    sourceCodePro.load(null, timeout)
+</check>
+                ]).then(function () {
+                    d.documentElement.className += " wf-active";
+                    w.sessionStorage.fonts = true;
+                }, function () {
+                    w.console.log("There was a problem loading the fonts");
+                });
+            }
+        }(document, window));
+    </script>
+    
+<check if="{{ @langSubdirectory === 'ko' }}">
+    <link href="{{ @schemeHost }}/css/style-kr.min.css" rel="stylesheet">
+</check><check if="{{ @langSubdirectory === 'zh' }}">
+    <link href="{{ @schemeHost }}/css/style-sc.min.css" rel="stylesheet">
+</check><check if="{{ @langSubdirectory === 'tw' }}">
+    <link href="{{ @schemeHost }}/css/style-tc.min.css" rel="stylesheet">
+</check><check if="{{ @langSubdirectory === 'en' }}">
+    <link href="{{ @schemeHost }}/css/style-en.min.css" rel="stylesheet">
+</check>
+<check if="{{ @pageCSS }}">
+<include href="{{ @pageCSS }}" />
+</check>
+    <!--<![endif]-->
+    <!--[if IE 9]>
+        <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/ie9.css" rel="stylesheet">
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script src="{{ @schemeHost}}/js/html5shiv.min.js"></script>
+        <link href="{{ @schemeHost }}/css/ie8.css" rel="stylesheet">
+    <![endif]-->
+    <link rel="icon" type="image/x-icon" href="{{ @schemeHost }}/favicon.ico?20181005">
+
+    <!-- Mobile icons -->
+    <link href="{{ @schemeHost }}/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ @schemeHost }}/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+    <link href="{{ @schemeHost }}/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167">
+    <link href="{{ @schemeHost }}/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="{{ @schemeHost }}/icon-hires.png" rel="icon" sizes="192x192">
+    <link href="{{ @schemeHost }}/icon-normal.png" rel="icon" sizes="128x128">
+
+</head>

@@ -1,0 +1,53 @@
+<IfModule mod_deflate.c>
+<filesMatch "\.(js|css|html|php)$">
+SetOutputFilter DEFLATE
+</filesMatch>
+
+RedirectMatch 301 ^/en/$ http://sbf-testing.byethost7.com/en/home
+RedirectMatch 301 ^/ko/$ http://sbf-testing.byethost7.com/ko/집
+RedirectMatch 301 ^/zh/$ http://sbf-testing.byethost7.com/zh/主页
+RedirectMatch 301 ^/en/details/$ http://sbf-testing.byethost7.com/en/details
+
+</IfModule>
+
+# Enable rewrite engine and route requests to framework
+RewriteEngine On
+
+php_flag short_open_tag off
+
+# Some servers require you to specify the `RewriteBase` directive
+# In such cases, it should be the path (relative to the document root)
+# containing this .htaccess file
+#
+# RewriteBase /
+
+RewriteRule ^lib - [R=404]
+
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,QSA]
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+AddType image/svg+xml .svg .svgz
+AddEncoding gzip svgz
+
+<IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE application/atom+xml \
+                                    application/javascript \
+                                    application/json \
+                                    application/rss+xml \
+                                    application/vnd.ms-fontobject \
+                                    application/x-font-ttf \
+                                    application/x-web-app-manifest+json \
+                                    application/xhtml+xml \
+                                    application/xml \
+                                    font/opentype \
+                                    image/svg+xml \
+                                    image/x-icon \
+                                    text/css \
+                                    text/html \
+                                    text/plain \
+                                    text/x-component \
+                                    text/xml
+</IfModule>

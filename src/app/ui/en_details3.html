@@ -1,0 +1,345 @@
+<section id="content" class="detail-first-section bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1>Configuring Fat-Free</h1>
+                <h2><em>Note: This site is currently under construction</em></h2>
+                <p>Configuring Fat-Free requires creating:</p>
+                <ul>
+                    <li><a href="#htacess" class="same-page-link">htaccess</a> &ndash; Routes page requests to index.php</li>
+                    <li><a href="#indexphp" class="same-page-link">index.php</a> &ndash; Gets the instance of Fat-Free and executes it</li>
+                    <li><a href="#config" class="same-page-link">config.ini</a> &ndash; Configuration information and site data</li>
+                    <li><a href="#routes" class="same-page-link">routes.ini</a> &ndash; Sets the controller for each page</li>
+                    <li>controllers &ndash; Code that generates the response to requests<ul>
+                        <li><a href="#page-controller" class="same-page-link">page controllers</a> &ndash; language specific controllers for content pages</li>
+                        <li><a href="#common-controller" class="same-page-link">common pages controller</a> &ndash; controller for the pages that are common across all languages</li>
+                        <li><a href="#utility-controller" class="same-page-link">utility controller</a> &ndash; routing utility functions</li>
+                    </ul></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="htacess" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>htaccess</h2>
+                <p><code>htaccess</code> routes requests for pages to index.php.</p>
+                <pre><code class="php hljs"># Enable rewrite engine and route requests to framework
+
+php_flag short_open_tag Off
+
+RewriteEngine On
+
+# Some servers require you to specify the `RewriteBase` directive
+# In such cases, it should be the path (relative to the document root)
+# containing this .htaccess file
+#
+RewriteBase /
+
+RewriteRule ^lib - [R=404]
+
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,QSA]
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]</code></pre>
+                <p><em>Note: These instructions are placed after redirects for https &amp; www (or no www), and changed and deleted pages.</em></p>
+                <h3>What&rsquo;s happening:</h3>
+                <p><code>htaccess</code> tells an Apache server to:</p>
+                <ul>
+                    <li>check if the request contains the string <code>tmp/</code> or ends in <code>.ini</code> &ndash; if it does, reject the request with a <code>404 Page not found</code> response
+                        <ul>
+                            <li><em>The tmp directory and the ini files are private to Fat-Free</em></li>
+                        </ul>
+                    </li>
+                    <li>check if the request is for an existing symbolic link, file, or directory &ndash; if it is, Apache will process the request
+                        <ul>
+                            <li><code>%{REQUEST_FILENAME}</code> &ndash; is a server variable for the name of the requested file (or link or directory)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>If the request is not for an existing link, file, or directory (the conditions), then the request is passed to index.php.</p>
+                <p><code>php_flag short_open_tag off</code> &ndash; needs to be set to <em>off</em>. Having it set to <em>on</em> can cause problems with the opening <code>&lt;?xml</code> tag for the site map. Some servers default to having <code>short_open_tag</code> set to on.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="indexphp" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>index.php</h2>
+                <p><code>index.php</code> sets up the framework and processes the request for the desired page.</p>
+                <pre><code class="php hljs">&lt;?php
+// Retrieve instance of the framework
+$f3=require(&apos;lib/base.php&apos;);
+
+// Load configuration
+$f3-&gt;config(&apos;app/config.ini&apos;);
+
+// Define routes
+$f3-&gt;config(&apos;app/routes.ini&apos;);
+
+// Define combined variable for scheme, host, and base
+$schemeHost = $f3-&gt;get(&apos;SCHEME&apos;).&apos;://&apos;.$f3-&gt;get(&apos;HOST&apos;).$f3-&gt;get(&apos;BASE&apos;);
+$f3-&gt;set(&apos;schemeHost&apos;,$schemeHost);
+
+// Define error response
+$f3-&gt;set(&apos;ONERROR&apos;,&apos;UtilitiesController-&gt;error&apos;);
+
+$f3-&gt;run();</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p><code>index.php</code> gets an instance of the framework, loads the configuration and route information, sets the <code>schemeHost</code> variable and the function for error handling, and runs the instance of the framework.</p>
+                <ul>
+                    <li><strong>schemeHost</strong> &ndash; I set a variable for the site address as I&rsquo;m running the same code on two systems: a localhost version for development and the demo site, and it&rsquo;s a little easier to call one variable rather than building the site address every time I need it.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="config" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>config.ini</h2>
+                <p><code>config.ini</code> tells Fat-Free where to find the files it needs and defines site variables.</p>
+                <pre><code class="ini hljs">[globals]
+; Where the framework autoloader will look for app files
+AUTOLOAD=app/
+; Change the next line to 3 for development
+DEBUG=0
+; Where the language files are located
+LOCALES=dict/
+; Where errors are logged
+LOGS=tmp/
+; Where the framework will look for templates and HTML-support files
+UI=app/ui/;js/;css/
+; Site owner / company name
+siteOwner=&quot;SBF Consulting&quot;
+; Year site was created (use for copyright text in the footer)
+yearBuilt=&quot;2018&quot;
+; Embed images (versus separate http request)
+imageEmbed=true
+; Embed minimized JavaScript files (versus loading the original file)
+scriptCSSEmbed=true
+----- There is more in the file on GitHub -----
+</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p>Values that apply to multiple pages are defined in <code>config.ini</code>. <em>Values specific to one page are defined in that page&rsquo;s controller or HTML file.</em></p>
+                <p>imageEmbed and scriptCSSEmbed control embedding image/JavaScript/CSS files in the page for faster loading versus separate files for easier troubleshooting:</p>
+                <ul>
+                    <li>embedding Base64 images in the page file eliminates separate http requests for each image so the page loads faster, but it does make the html source code longer, which is more work to scroll through when troubleshooting.</li>
+                    <li>scriptCSSEmbed, for JavaScript files, controls whether minified JavaScript will be embedded in the page or the unminified JavaScript version (which is easier to troubleshoot) will be loaded separately.</li>
+                    <li>scriptCSSEmbed, for CSS files, controls whether a minified CSS file will be embedded in the page or the minified CSS file will be loaded using a link &ndash; using a link enables the Sass source map to work.</li>
+                </ul>
+                <p>To add a new page to the site:</p>
+                <ul>
+                    <li>Add the page slug and title to the DropdownMenu list</li>
+                    <li>Add the page to the routes.ini file</li>
+                    <li>Add the page to the PageController file</li>
+                    <li>Create the page HTML content file</li>
+                    <li><em>Repeat for each language</em></li>
+                </ul>
+                <p>To add an additional language:</p>
+                <ul>
+                    <li>Add the language to the menu list</li>
+                    <li>Define the menus for the new language</li>
+                    <li>Create the routes</li>
+                    <li>Create the controllers</li>
+                    <li>Create the content pages</li>
+                    <li>Create a dict file</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="routes" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>routes.ini</h2>
+                <p>Routes direct a page request to the function that will provide the page based on the address.</p>
+                <pre><code class="ini hljs">[routes]
+;GET name address = class-&gt;function to render the page
+GET /=UtilitiesController-&gt;getLanguage
+GET /sitemap.xml=CommonPageController-&gt;getSitemap
+
+GET @en_home: /en/home=enPageController-&gt;RenderHome
+GET @en_details1: /en/bootstrap=enPageController-&gt;renderDetails1
+GET @en_details2: /en/fatfree=enPageController-&gt;renderDetails2
+GET @en_details3: /en/ffconfig=enPageController-&gt;renderDetails3
+GET @en_details4: /en/templates=enPageController-&gt;renderDetails4
+GET @en_details5: /en/details=enPageController-&gt;renderDetails5
+GET @en_contactx: /en/contact=CommonPageController-&gt;contactNew
+POST @en_contactx: /en/contact=CommonPageController-&gt;contactPost
+GET @en_termsx: /en/terms=CommonPageController-&gt;renderTerms</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p>Each line defines: method (GET or POST), route name (used by the template engine for links to that page from other pages); URL address; and the controller function that will create the page.</p> 
+                <h4>Requests for index files</h4>
+                <p>If a user includes an index file as part of a page address, they&rsquo;ll be rerouted to the root directory, rather than receiving a Page not found error:</p>
+                <pre><code class="ini hljs">GET /en/index.htm=UtilitiesController-&gt;indexOverride
+GET /en/index.html=UtilitiesController-&gt;indexOverride
+GET /en/index.php=UtilitiesController-&gt;indexOverride</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="page-controller" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Controller.php &amp; PageController<wbr>.php</h2>
+                <p><code>Controller.php</code> defines the overall controller class. That class is extended with the PageController classes (e.g. <code>enPageController</code>).</p>
+                <p>In addition to the function called by the route definition, Fat-Free also calls a beforeroute and an afterroute function. The same before and after functions are used for all languages.</p>
+                <h3>beforeroute &ndash; Controller.php</h3>
+                <pre><code class="php hljs">// HTTP route pre-processor
+function beforeroute($f3) {
+    $f3-&gt;set(&apos;googleNoIndex&apos;,false); // Set to true when needed
+    $f3-&gt;set(&apos;isHomePage&apos;,false); // Set to true for home pages
+    $f3-&gt;set(&apos;isDetailPage&apos;,false); // Set to true for detail pages
+    $f3-&gt;set(&apos;pageCSS&apos;,false); // Add file name if needed
+    $f3-&gt;set(&apos;highlighterJavaScript&apos;,false); // Set to true for code sections
+    $f3-&gt;set(&apos;pageJavaScript&apos;,false); // Add file name if needed
+}</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p>Set flags for things that are not required for most pages and change the flag in that page&rsquo;s controller function when needed:</p>
+                <ul>
+                    <li>googleNoIndex: normally false &ndash; the only pages not indexed are the <em>Contact</em> and <em>Terms of Use </em> pages and the error pages (404 and 500).</li>
+                    <li>isHomePage: normally false &ndash; flag for the home page (it has different functionality).</li>
+                    <li>isDetailPage: normally false &ndash; flag for the detail pages (just need for the navigation template).</li>
+                    <li>pageCSS: normally false &ndash; if CSS is required for just one or two pages, the CSS can be loaded by setting the value of pageCSS to the CSS file name. <em>The code only supports one file, so if two CSS files are needed, the files should be combined into one, minified file.</em></li>
+                    <li>highlighterJavaScript: normally false &ndash; flag for loading <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#highlighter">highlight.js</a> to highlight code syntax.</li>
+                    <li>pageJavaScript: normally false &ndash; if a special JavaScript function is required for just one or two pages, the JavaScript can be loaded by setting the value of pageJavaScript to the template file name. <em>The code only supports one file, so if two JavaScript files are needed, the files should be combined into one, minified file.</em></li>
+                </ul>
+                <h3>Route Function &ndash; PageController.php</h3>
+                <pre><code class="php hljs">function loadCommonSettings($f3) {
+    $f3-&gt;set(&apos;LANGUAGE&apos;,&apos;en&apos;);
+    $f3-&gt;set(&apos;langSubdirectory&apos;,&apos;en&apos;);
+}
+                    
+function RenderHome($f3) {
+    $this-&gt;loadCommonSettings($f3);
+    $f3-&gt;set(&apos;pageTitle&apos;,&apos;Learning Frameworks&apos;);
+    $f3-&gt;set(&apos;pageDescription&apos;,&apos;A frontend / backend setup for a simple,
+        multi-language website using Bootstrap with the Fat-Free PHP framework,
+        but no database.&apos;);
+    $f3-&gt;set(&apos;isHomePage&apos;,true);
+    $f3-&gt;set(&apos;loadID&apos;,
+        function($array,$count) {
+            reset($array);
+            for ($x = 0; $x &lt; $count; $x++) {
+                next($array);
+            }
+            return key($array);
+        }
+    );
+    // Set the content source
+    $f3-&gt;set(&apos;pageContent&apos;,$f3-&gt;get(&apos;ALIAS&apos;).&apos;.html&apos;);
+}</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p class="pl-3">Set page specific items in the route function (data that&rsquo;s not contained in the content page):</p>
+                <ul>
+                    <li>loadCommonSettings &ndash; a local function to set values that are common to all pages for that language:<ul>
+                        <li>LANGUAGE &ndash; set the Fat-Free system variable to the language code for the current language. Fat-Free uses this value for selecting the language dictionary.</li>
+                        <li>langSubdirectory &ndash; This is the language subdirectory.</li>
+                    </ul></li>
+                    <li>pageTitle &ndash; for the title tag and for social media</li>
+                    <li>pageDescription &ndash; for the description meta tag and for social media</li>
+                    <li id="afterroute-function">loadID &ndash; A custom function for pulling the slug value from the config.ini menus for the single page menu (only for the home page)<ul>
+                        <li><em>The slug values could have been manually included in the template, but I wanted experience with using a custom function.</em></li>
+                    </ul></li>
+                    <li>pageContent &ndash; set the file for the page content &ndash; the file name is based on the route&rsquo;s alias (which is the same text string as the name of the content file)</li>
+                </ul>
+                <h3>afterroute &ndash; Controller.php</h3>
+                <pre><code class="php hljs">// HTTP route post-processor
+function afterroute($f3) {
+    // Sorted the languages for the language menu
+    $lang_array = $f3-&gt;get(&apos;languages&apos;);
+    uasort($lang_array, function ($a,$b){
+        return ($a[2] &lt; $b[2]) ? -1 : 1;
+    });
+    
+    // If a regular route, use the alias, otherwise
+    // point the language menu to the home page (e.g. for error pages)
+    if ($f3-&gt;exists(&apos;ALIAS&apos;,$alias_base)) {
+        $alias_base = substr($alias_base,2); // the part after the lang prefix
+    } else {
+        $alias_base = &apos;_home&apos;;
+    }
+
+    $language_links_array = [];
+    foreach($lang_array as $key=&gt;$details) {
+        array_push($language_links_array,
+            [$key.$alias_base,$key,$details[0],$details[2]]
+        );
+    }
+    $f3-&gt;set(&apos;languageLinks&apos;,$language_links_array);
+    $pageLanguage = explode(&apos;,&apos;,$f3-&gt;get(&apos;LANGUAGE&apos;));
+    $f3-&gt;set(&apos;langCode&apos;,$pageLanguage[0]); // Use langCode for the html lang tag
+    $lang_prefix = $f3-&gt;get(&apos;langSubdirectory&apos;); // for local use in this function
+    $f3-&gt;set(&apos;mainMenu&apos;, $f3-&gt;get($lang_prefix.&apos;HomeMenu&apos;));
+    $f3-&gt;set(&apos;dropdownMenu&apos;, $f3-&gt;get($lang_prefix.&apos;DropdownMenu&apos;));
+    
+    // Render HTML layout
+    echo \Template::instance()-&gt;render(&apos;layout.html&apos;,&apos;text/html&apos;);</code></pre>
+                <h3>What&rsquo;s happening:</h3>
+                <p class="pl-3">Set page specific items in the after function:</p>
+                <ul>
+                    <li>Setup an array of the corresponding language pages for the preflang links and the language switcher:
+                        <ul>
+                            <li>lang_array &ndash; get the array of languages from config.ini &ndash; the default language is first and then the other languages (the order doesn&rsquo;t matter)</li>
+                            <li>uasort &ndash; PHP sort function &ndash; sort the array in Unicode order based on the language name (uasort preserves the key values)</li>
+                            <li>alias_base &ndash; Get the base portion of the alias (e.g. en_details1 =&gt; _details1) &ndash; combine it with the other language prefixes to generate the route names to the other language versions of the same page</li>
+                            <li>language_links_array &ndash; Create a new array to be passed to the template engine</li>
+                            <li>loop through the lang_array, pushing an array for each language to the language_links_array &ndash; each array contains the route name for the language versions, the language prefix (used for the language flag), and the language name.</li>
+                            <li>languageLinks &ndash; pass the just created array to Fat-Free to be used for the language menu</li>
+                        </ul>
+                    <li>langCode &ndash; set the value for the lang attribute in the html tag.</li>
+                    <li>Set the mainMenu &ndash; combine the langCode with &ldquo;HomeMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
+                    <li>Set the dropdownMenu &ndash; combine the langCode with &ldquo;DropdownMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
+                    <li>Echo the results from the template engine to generate the page content.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="common-controller" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>CommonPage&shy;Controller.php</h2>
+                <p>The PageControllers display the general site content. <code>CommonPageController.php</code> extends <code>Controller.php</code> to display the pages that are common across all languages or that are used for site management:</p>
+                <ul>
+                    <li>Contact</li>
+                    <li>Terms of Use | Privacy Policy</li>
+                    <li>Sitemap</li>
+                    <li>404 Page not found</li>
+                    <li>Other errors (e.g. 401 Unauthorized or 500 Internal server error)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="utility-controller" class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Utilities&shy;Controller<wbr>.php</h2>
+                <p>The <code>UtilitiesController<wbr>.php</code> handles requests that will be redirected:</p>
+                <ul>
+                    <li><a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#preferred-language">getLanguage</a> &ndash; requests for the root directory are redirected to the appropriate language subdirectory.</li>
+                    <li>indexOverride &ndash; requests for index files (e.g. index.html) are redirected to the root directory, and then the user will be redirected again to the appropriate language subdirectory.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

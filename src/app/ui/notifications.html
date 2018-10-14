@@ -1,0 +1,27 @@
+    <!--[if lte IE 8]>
+    <div class="ie-warning">
+        <p><img src="{{ @schemeHost }}/images/IE-Notice-Dialog.png" width="24" height="24" alt="Alert icon">{{ @dictNoticeIE }}</p>
+    </div>
+    <![endif]-->
+
+    <section id="eu-cookie" class="eu-cookie">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <h4>{{ @dictNoticeEUcookie1 }}</h4>
+                    <p>{{ @dictNoticeEUcookie2a }}<a href="{{ @schemeHost }}{{ @langSubdirectory.'_termsx' | alias }}" title="{{ @dictNoticeEUcookie2b }}">{{ @dictNoticeEUcookie2c }}</a>{{ @dictNoticeEUcookie2d }}</p>
+                </div>
+                <div class="col-lg-2">
+                    <p class="text-center">
+                        <button id="btn-cookie" type="button" class="btn btn-primary btn-lg">Okay</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+        <div class="container">
+            <span class="skiplink-text">{{ @dictNoticeSkipLink }}</span>
+        </div>
+    </a>

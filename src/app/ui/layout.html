@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ @langCode }}" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage">
+<include href="head.html" />
+<body{{ @isHomePage ? ' data-spy="scroll" data-target="#mainNav" data-offset="60" id="page-top"' : ''  }}>
+    <div class="offcanvas offcanvas-right">
+<include href="notifications.html" />
+<include href="navigation.html" />
+<include href="{{ @pageContent }}" />
+    </div><!--offcanvas offcanvas-right-->
+    
+<include href="footer.html" />
+<include href="script.html" />
+</body>
+</html>

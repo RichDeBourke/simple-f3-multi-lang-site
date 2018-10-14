@@ -1,0 +1,121 @@
+        <header id="{{ @loadID(@mainMenu,0) }}" class="text-white">
+            <div class="header-fixed-background">
+<include href="image-Hero-Placeholder.html" />
+                <a href="#" class="attribution" title="Image used under a 2.0 Creative Commons license">Image Attribution</a>
+            </div>
+            <div id="content" class="header-text text-center">
+                    <h1>
+                            <span class="header-text-line-1">Constructing a website with</span><br>
+                            <span class="header-text-line-2">Bootstrap and Fat-Free</span>
+                        </h1>
+                <a class="github-link btn btn-outline-dark btn-lg" href="{{ @schemeHost }}/github/index.html" role="button">GitHub의
+                    <br>코드를
+                    <br>참조하십시오
+                </a>
+            </div>
+        </header>
+
+        <section class="bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>번역 참고서 / Translation note</h2>
+                        <p>이 페이지는 한국어 버전을 시연하기 위해 Google 번역을 사용하여 영어 버전에서 번역되었습니다. 번역의 정확성이나 정확성을 검사하지 않았습니다.</p>
+                        <p>This page was translated from the English version using Google Translate to demonstrate a Korean version. The translation has not been checked for accuracy or correctness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light">
+            <div class="container">
+                <div class="card-group">
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-Learn.html" /></true><false>
+                            <img src="../images/FrontPageCard-Learn.png" alt="Learning – computer generated graphic of three textbooks on programming" width="180" height="180"></false>
+</check>
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">배우기</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Bootstrap 4 및 Fat-Free Framework에 대한 경험을 얻기 위해이 사이트를 만들었습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-Bootstrap.html" /></true><false>
+                            <img src="../images/FrontPageCard-Bootstrap.png" alt="Bootstrap – the Bootstrap logo" width="180" height="180"></false>
+</check> 
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Bootstrap 4</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">부트 스트랩은 반응 형 웹 사이트를 구축하기위한 널리 사용되는 프론트 엔드 프레임 워크입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 col-12 col-md-6 col-lg-4">
+                        <div class="text-center card-img-top mt-3">
+<check if="{{ @imageEmbed }}"><true>
+<include href="image-FrontPageCard-FatFree.html" /></true><false>
+                            <img src="../images/FrontPageCard-FatFree.png" alt="Fat-Free – the Fat-Free logo" width="180" height="180"></false>
+</check>
+                        </div>
+                        <div class="card-box">
+                            <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Fat-Free Framework</h3>
+                            <p class="mbr-text mbr-fonts-style display-7">Fat-Free는 상위 10 개 PHP 프레임 워크에서 선정되었습니다.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,1) }}" class="bg-white">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-med-8 col-lg-6">
+                            <h2>개요</h2>
+                            <p>WordPress 또는 기타 CMS (Content Management System)를 사용하여 전문적인 웹 사이트를 쉽게 만들 수 있지만 사이트를 주식 테마와 조금 다르게 보이게하려면 디자인을 사용자 정의해야합니다. 그것은 복잡해질 수 있습니다. (<em>WordPress 테마를 수정하는 것보다 직선 HTML 코드를 수정하는 것이 더 쉽습니다.</em>)</p>
+                            <p>전자 상거래 사이트를 만들거나 사용자가 로그인해야하는 경우 원하는 보안 기능이 포함되어있어 WordPress를 사용하는 것이 좋습니다.</p>
+                            <p>그러나 사용자와 가장 복잡한 상호 작용이 필요한 연락처 양식이고 공유 템플릿, 깨끗한 URL, 자동 언어 선택 및 사이트 디자인의 융통성으로 구성된 페이지를 원한다면 여기에 설명 된 설정이 좋은 해결책이 될 수 있습니다.</p>
+                            <p>세부 섹션에 사이트를 설정하는 방법에 대한 설명을 제공했으며 모든 파일은 <a href="{{ @schemeHost }}/github/index.html">GitHub</a>에 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,2) }}" class="bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Bootstrap</h2>
+                        <p><a href="https://getbootstrap.com/" title="Visit the Bootstrap website for more information">Bootstrap</a> 은 다양한 디스플레이 크기로 조정되는 반응 형 그리드를 제공하며, 인기가 <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" title="Bootstrap's documentation">Bootstrap</a> 및 <a href="https://github.com/search?q=%22bootstrap+4%22" title="GitHub repositories for Bootstrap 4">GitHub</a>에서 많은 수의 코드 스 니펫을 사용할 수 있습니다. 또한 Google을 통해 사용할 수있는 부트 스트랩 사용에 대한 많은 정보가 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="{{ @loadID(@mainMenu,3) }}" class="bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-med-8 col-lg-6">
+                        <h2>Fat-Free</h2>
+                        <p><a href="https://fatfreeframework.com/" title="Visit Fat-Free&rsquo;s website for more information">Fat-Free</a> 가 가장 <a href="http://www.ifourtechnolab.com/blog/top-10-free-php-frameworks-of-2018-for-web-development" title="Article on the top 10 free PHP frameworks of 2018 for web development">인기있는 PHP 프레임 워크</a> (<a href="https://laravel.com/" title="Visit Laravel&rsquo;s website for more information">Laravel 는 아니지만</a>), 공유 호스팅 계획 (Laravel <a href="https://coderseye.com/best-php-frameworks-for-web-developers/#What_are_the_Top_Rated_PHP_Frameworks_of_2018" title="Review of PHP frameworks">doesn&rsquo;t</a> 은 쉽지 않음 ) 에서 작동 하며 Fat-Free는 빠른 학습 곡선으로 간주됩니다.</p>
+                        <p>내가 사용하고있는 주요 Fat-Free 구성 요소는 다음과 같습니다.</p>
+                        <ul>
+                            <li class="mb-3"><strong>라우팅 엔진</strong> &ndash; 사용자의 요청을 적절한 제어 기능으로 라우팅 합니다.</li>
+                            <li class="mb-3"><strong>템플릿 엔진</strong> &ndash; HTML 템플릿을 Fat-Free의 "hive"에 저장된 데이터와 결합합니다. 변수는 키 / 값 쌍 형태의 변수를 메모리에 저장하여 웹 페이지를 구성합니다.</li>
+                            <li class="mb-3"><strong>다국어 지원</strong> &ndash; Fat-Free는 키 / 값 쌍을 사용하여 사전 조회 기능을 통해 여러 언어를 지원합니다. 각 언어의 사전 파일은 dict 디렉토리에 있으며 Fat-Free는 템플릿의 토큰 및 LANGUAGE 설정에 따라 사전 파일에서 원하는 언어 문자열을 선택합니다.<ul>
+                                    <li>모든 페이지에서 동일한 내용 (예 : Scroll-to-top 버튼) 또는 모든 언어에서 공통적이고 제한된 텍스트 (예 : 연락처 페이지)가있는 페이지에 대해서는 무 지방 언어 지원을 사용합니다.</li>
+                                </ul></li>
+                            <li class="mb-3"><strong>Language detection</strong> &ndash; Fat-Free는 사용자의 <code>GET</code> 요청에서 <code>Accept-Language</code> 문자열을 캡처합니다.이 문자열은 사용자가 루트 디렉토리를 요청할 때 적절한 언어 하위 디렉토리 를 선택하는 데 사용됩니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    

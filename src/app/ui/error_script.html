@@ -1,0 +1,56 @@
+    <script>
+        var textBlock = document.getElementById("code-text"),
+            codePoint = 0,
+            codeLength = 0,
+            newCharacter = '',
+            nextCharacter = '',
+            spanString = '',
+            inTag = false,
+            codeContent = '<span class="hljs-title">class</span> CommonPageController<br>  <span class="hljs-title">extends</span> Controller {<br><br><span class="hljs-title">function</span> <span class="hljs-keyword">setLanguage</span>($f3) {<br>  $lang_arr = $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'languages\'</span>);<br>  <span class="hljs-title">if</span> (<span class="hljs-keyword">preg_match</span>(<span class="hljs-string">\'/^\/[A-Za-z]{2}\//\'</span>,<br>    $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'PATH\'</span>),$lang)) {<br>    $langString = <span class="hljs-keyword">trim</span>($lang[0],<span class="hljs-string">\'/\'</span>);<br>    $valid = <span class="hljs-attr">false</span>;<br>    <span class="hljs-title">foreach</span> ($lang_arr as $key => $val){<br>      <span class="hljs-title">if</span> ($key === $langString) {<br>        $valid = <span class="hljs-attr">true</span>;<br>        <span class="hljs-title">break</span>;<br>      }<br>    }<br>    <span class="hljs-title">if</span> (!$valid) {<br>      <span class="hljs-keyword">reset</span>($lang_arr);<br>      $langString = <span class="hljs-keyword">key</span>($lang_arr);<br>    }<br>  } <span class="hljs-title">else</span> {<br>    $langString =<br>    \\Preflang::instance()-><span class="hljs-keyword">code</span>($f3);<br>  }<br>  $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'LANGUAGE\'</span>,$langString);<br>  $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'fonts\'</span>,$langString);<br>  $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'scrollTitle\'</span>,<br>    $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'dictScrollTitleValue\'</span>));<br>}<br><br><span class="hljs-title">function</span> error($f3) {<br>  $this-><span class="hljs-keyword">setLanguage</span>($f3);<br>  $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'googleNoIndex\'</span>,<span class="hljs-attr">true</span>);<br><br>  <span class="hljs-title">if</span> ($f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'ERROR.code\'</span>) === 404) {<br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageCSS\'</span>,<span class="hljs-string">\'eyes.css\'</span>);<br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageTitle\'</span>,<br>      $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'dict404PageTitle\'</span>));<br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageDescript\'</span>,<br>      $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'dict404PageDescript\'</span>));<br>    <span class="hljs-comment">\/\/ Set the content source</span> <br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageContent\'</span>,\'404.html\');<br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageJavaScript\'</span>,<br>      <span class="hljs-string">\'eyes.html\'</span>);<br>  } <span class="hljs-title">else</span> { <span class="hljs-comment">// 5XX error</span> <br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageTitle\'</span>,<br>      $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'dict500PageTitle\'</span>));<br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageDescript\'</span>,<br>      $f3-><span class="hljs-keyword">get</span>(<span class="hljs-string">\'dict500PageDescript\'</span>));<br>    <span class="hljs-comment">// Set the content source</span> <br>    $f3-><span class="hljs-keyword">set</span>(<span class="hljs-string">\'pageContent\'</span>,<span class="hljs-string">\'500.html\'</span>);<br>  }<br>}<br>';
+
+        function type_text() {
+            newCharacter = codeContent.charAt(codePoint);
+
+            if (newCharacter === "<") {
+                console.log("<");
+                nextCharacter = codeContent.charAt(codePoint + 1);
+                if (nextCharacter === "s") { // span tag
+                    spanString = "";
+                    while (codeContent.charAt(codePoint) !== ">") {
+                        spanString = spanString + codeContent.charAt(codePoint);
+                        codePoint = codePoint + 1;
+                    }
+                    spanString = spanString + ">" + codeContent.charAt(codePoint + 1) + "</span>_";
+                    textBlock.innerHTML = textBlock.innerHTML.slice(0, textBlock.innerHTML.length - 1) + spanString;
+                    codePoint = codePoint + 2;
+                    inTag = true;
+                } else if (nextCharacter === "/") { // span closing tag
+                    codePoint = codePoint + 7;
+                    textBlock.innerHTML = textBlock.innerHTML.slice(0, textBlock.innerHTML.length - 1) + codeContent.charAt(codePoint) +"_";
+                    codePoint = codePoint + 1;
+                    inTag = false
+                } else { // line break tag
+                    textBlock.innerHTML = textBlock.innerHTML.slice(0, textBlock.innerHTML.length - 1) + "<br>_";
+                codePoint = codePoint + 4;
+                }
+                
+            } else if (inTag) {
+                console.log("tag");
+                textBlock.innerHTML = textBlock.innerHTML.slice(0, textBlock.innerHTML.length - 8) + newCharacter + "</span>_";
+                codePoint = codePoint + 1;
+            } else {
+                console.log("normal");
+                textBlock.innerHTML = textBlock.innerHTML.slice(0, textBlock.innerHTML.length - 1) + newCharacter + "_";
+                codePoint = codePoint + 1;
+            }
+
+            if (codePoint >= codeContent.length) {
+                codePoint = 0;
+            }
+            
+            setTimeout("type_text()",30);
+        }
+
+        codeLength = codeContent.length;
+        type_text();
+    </script>

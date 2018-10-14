@@ -1,0 +1,85 @@
+    <section id="content" class="detail-first-section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 mx-auto">
+                    <h1>Terms of Use / Privacy Policy</h1>
+                    <h2>Terms of Use</h2>
+                    <p>
+                        This website is operated by SBF Consulting. This website, including all information, tools, and services is offered to you, the user, based on the terms stated herein.
+                    </p>
+                    <h3>Accuracy, Completeness, and Timeliness of Information</h3>
+                    <p>
+                        All material contained on this website is provided without any warranty of any kind. You use the content at your own discretion.
+                    </p>
+                    <h3>Disclaimers and Limitation of Liability</h3>
+                    <p>
+                        This website is provided on an AS IS and AS AVAILABLE basis without warranty of any kind, including, but not limited to, implied warranties of satisfactory quality, fitness for a particular purpose, non-infringement, compatibility, security, and accuracy.
+                    </p>
+                    <p>
+                        SBF Consulting makes no warranty that the functionality of this website will be uninterrupted, continuous, or error free, that defects will be corrected, or that the website or the server that makes it available are free of viruses or anything else that may be harmful or destructive.
+                    </p>
+                    <h3>Copyright</h3>
+                    <p>
+                        The content of this site is the copyrighted property of SBF Consulting. The code used to generate this site as well as all of the code content described in the site pages is available for use under an MIT license, with the exception of the code for Fat-Free, which is available under a GPL license.
+                    </p>
+                    <h3>Changes to this website</h3>
+                    <p>
+                        SBF Consulting reserves the right to change or remove (temporarily or permanently) this website or any part of it without notice and will not be liable for any such change.
+                    </p>
+                    <h3>Severance</h3>
+                    <p>
+                        If any of these Terms of Use should be determined to be invalid for any reason by any court of competent jurisdiction then such Term of Use will be severed and the remaining Terms of Use will survive and remain in full force and effect and continue to be binding and enforceable.
+                    </p>
+                    <h3>Governing Law</h3>
+                    <p>
+                        These Terms of Use will be governed by and construed in accordance with the laws of Republic of Korea.
+                    </p>
+                    <h3>Governing Language</h3>
+                    <p class="mb-5">
+                        The English language version of these Terms are controlling in all respects, notwithstanding any translation of these Terms.
+                    </p>
+                    <h2>Privacy</h2>
+                    <p>
+                        SBF Consulting does not directly collect nor save user information. 
+                    </p>
+                    <p>
+                        If you contact us via email or a contact page, we will retain your name and email address, but we will never provide your information to any third-parties without your express permission.
+                    </p>
+                    <p>
+                        The site is hosted for free by Byet Internet Services, an <a href="https://ifastnet.com/privacy.php" title="iFastNet Privacy Policy">iFastNet.com</a> company, and they may collect and save user information.
+                    </p>
+                    <h3>Analytics</h3>
+                    <p>
+                        This website uses Google Analytics, a web analytics service provided by Google, Inc. Google Analytics uses cookies to identify user sessions and to gather statistics on website use, which is reported to SBF Consulting without identifying individual users. Your IP address is <a href="https://support.google.com/analytics/answer/2763052" title="We request Google to anonymize your information">anonymized</a> (part of your IP address is set to zeros) by Google before your information is saved. The cookie data is only use for statistical analysis related to your browsing behavior on this website.
+                    </p>
+                    <p>
+                        To opt-out from being tracked by Google Analytics when you visit this website, click the button below to install a special cookie in your browser. Then, when you visit any page from this website, Google will read the cookie and not process your tracking information. Cookies must be enabled on your system for this to work.
+                    </p>
+                    <p class="text-center my-5">
+                        <button type="button" class="btn btn-primary btn-lg center opt-out" onclick="gaOptOut()">Opt-out</button>
+                    </p>
+                    <h2>Changes to these Policies</h2>
+                    <p class="mb-5">
+                        We reserve the right, at our discretion, to change, modify, add, or remove portions from this policy at any time. Your continued use of this website following the posting of any changes to this policy means you accept such changes.
+                    </p>
+                    <h2>How to Contact Us</h2>
+                    <p>
+                        If you have any questions or concerns about these Terms of Use or Privacy Policy, you may contact us by email at: <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#98;&#102;&#46;&#99;&#111;&#110;&#115;&#117;&#108;&#116;&#105;&#110;&#103;&#46;&#107;&#111;&#114;&#101;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'>&#115;&#98;&#102;&#46;&#99;&#111;&#110;&#115;&#117;&#108;&#116;&#105;&#110;&#103;&shy;&#46;&#107;&#111;&#114;&#101;&#97;&shy;&#64;&#103;&#109;&#97;&#105;&#108;&shy;&#46;&#99;&#111;&#109;</a>.
+                    </p>
+                    
+                    <h5>Updated January 1, 2018</h5>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function gaOptOut() {
+            if (window.confirm("{{ @dictTermsOptOutQuestion}}")) {
+                document.cookie = "ga-disable-{{ @googleAnalyticsID }}=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
+                window["ga-disable-{{ @googleAnalyticsID }}"] = true;
+            }
+        }
+    </script>
+

@@ -1,0 +1,118 @@
+        <section id="content" class="detail-first-section bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1>Bootstrap</h1>
+                        <h2><em>Note: This site is currently under construction &ndash; Text is finished</em></h2>
+                        <p>This site uses the general Bootstrap layout (i.e. navbar at the top).</p>
+                        <p>The site specific appearance is generated through Sass:</p>
+                        <ul>
+                            <li><a href="#sass" class="same-page-link">Sass organization</a></li>
+                            <li><a href="#sass-development" class="same-page-link">Development setup</a></li>
+                        </ul>
+                        <p>I did modify a couple of the Bootstrap code snippets:</p>
+                        <ul>
+                            <li><a href="#off-canvas" class="same-page-link">Off-canvas navigation</a></li>
+                            <li><a href="#mobile-menu" class="same-page-link">Mobile menu toggler</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sass" class="bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Sass organization</h2>
+                        <p>Using Sass, I generate four CSS files, one each for English, Simple Chinese, Traditional Chinese<sup>*</sup>, and Korean, with the only difference being the <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#fonts">language family settings</a>. Only one CSS file is loaded based on the page language requirements.</p>
+                        <p>I also use Sass to generate the CSS file for the <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#structure" title="My overlay image slider that I use for the site structure section">overlay slider</a>.</p>
+<include href="image-SassArchitecture.html" />
+                        <p class="small"><sup>*</sup>Note: I include Traditional Chinese in the CSS and the Google Fonts selection to have it available if needed, but I&rsquo;m currently not using it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sass-development" class="bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Development setup</h2>
+                        <p>For development, I&rsquo;m running:</p>
+                        <p><a href="https://www.microsoft.com/en-us/windows/features" title="Microsoft Windows 10 features">Windows PC</a>  &ndash; with a PC, I can test pages on Chrome, Firefox, Edge, Internet Explorer, and Opera using my own machine. I borrow a Mac, iPhone, and iPad to test with Safari.</p>
+                        <p class="ml-5">For testing with older versions of Internet Explorer (IE8 through IE10), I have IE11 installed on my machine, which will run IE7, 8, 9, and 10 in emulation mode, and I run <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/" title="Microsoft free virtual machines">IE8, 9, and 10 with Windows 7</a> on a virtual machine running on <a href="https://www.virtualbox.org/wiki/Downloads" title="Oracle VirtualBox is a general-purpose virtualizer for x86 hardware">Oracle VM VirtualBox</a>.</p>
+                        <p><a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_A5_(2015)" title="Wikipedia page on the 2015 Samsung Galaxy A5">Samsung Galaxy A5</a> &ndash; smart&shy;phone for testing mobile browsers.</p>
+                        <p class="ml-5">To see what&rsquo;s happening on the phone, I have Android&rsquo;s <a href="https://developer.android.com/studio/releases/platform-tools" title="Platform-Tools download site">SDK Platform-Tools</a> installed on my PC. Platform-Tools includes the Android Debug Bridge (adb), which connects Chrome on my PC to Chrome on my phone for <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3" title="Chrome developer tools site">Remote Debugging</a>.</p>
+                        <p class="ml-5"><em>Note: The Android debug bridge needs to be started first by opening a command window, going to the platform-tools directory, and running</em> <code>adb devices</code><em>.</em></p>
+                        <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t using the database) &ndash; Apache is needed for Fat-Free.</p>
+                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing Bootstrap source files.</p>
+                        <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> code editor</p>
+                        <p><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> &amp; <a href="http://koala-app.com/" title="A GUI application for Sass">Koala</a> Sass compilers &ndash; I initially tried <a href="https://gulpjs.com/" title="Gulp toolkit for automating development tasks">gulp</a> and <a href="https://sass-lang.com/" title="Sass website">Sass</a>, and then Live Sass Compiler, an extension to VS Code, by itself, but I settled on Live Sass Compiler with Koala.</p>
+                        <p><em>I use Live Sass Compiler for development and then Koala to generate the CSS and source map files for the website as I was getting errors with line number and source file references in the maps from Sass and Live Sass Compiler.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="off-canvas" class="bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Off-canvas navigation</h2>
+                        <p>Bootstrap&rsquo;s standard is to have the hamburger icon on the right (which I like) and to have the menu drop down from the top with the menu items listed on the left, which puts the menu items on the other side of the screen from the hamburger icon (which I don&rsquo;t like, especially for tablets).</p>
+                        <p>I&rsquo;m using an updated version of Pascal Müller&rsquo;s <a href="https://github.com/trockendock/bootstrap4-offcanvas-nav" >Off-canvas Nav</a> (Pascal&rsquo;s version was for Bootstrap 4 - Alpha 6 &ndash; I updated it to work with Bootstrap 4.1.2).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mobile-menu" class="bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Mobile menu toggler</h2>
+                        <img class="mb-3 mw-100 h-auto" src="{{ @schemeHost }}/images/toggler.gif" alt="Bootstrap standard hamburger style toggler compared to a hamburger with more color contrast and with an animated toggler" width="196" height="60">
+                        <p>Bootstrap&rsquo;s menu toggler for mobile devices (shown on the left in the image above) has low color contrast and there&rsquo;s no animation.</p>
+                        <p>I changed the color for <a href="http://www.sbwfc.co.kr/ColorChecker/" title="Online color contrast tool">more contrast</a> (shown in the middle in the image above) and animated the hamburger (shown on the right in the image above) to make it clearer to users that they need to tap the toggler again to close the menu (tapping a link will also close the menu).</p>
+                        <h3>Toggler HTML code</h3>
+                        <pre><code class="html nljs">&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;offcanvas&quot;
+    data-target=&quot;#navbarResponsive&quot; aria-controls=&quot;navbarResponsive&quot;
+    aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;(&#123;&#123; @dictMenuToggle &#125;&#125;)&lt;/span&gt;
+    &lt;span class=&quot;navbar-toggle-icon&quot;&gt;
+        &lt;span class=&quot;icon-bar top-bar&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;icon-bar middle-bar&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;icon-bar bottom-bar&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;			
+&lt;/button&gt;</code></pre>
+                        <p><em>The sr-only span tag is just for screen readers</em>.</p>
+                        <h3>Toggler CSS code (for the hamburger)</h3>
+    <pre><code class="css hljs">.top-bar {
+    transform: rotate(0);
+}
+.middle-bar {
+    margin-top: 0.375rem;
+    opacity: 1;
+}
+.bottom-bar {
+    margin-top: 0.375rem;
+    transform: rotate(0);
+}
+
+.off-canvas-active .top-bar {
+    transform: translate(0.25rem) rotate(45deg);
+    transform-origin: 1.5% 1.5%;
+}
+.off-canvas-active .middle-bar {
+    opacity: 0;
+}
+.off-canvas-active .bottom-bar {
+    transform: translate(0.25rem) rotate(-45deg);
+    transform-origin: 1.5% 98.5%;
+}</code></pre>
+                        <p>The toggler adds and removes an off-canvas-active class to the overall containing division to show the menu when the toggle button is clicked or tapped. I use the addition/removal of that class to animate the hamburger (the center bar drops out and the top and bottom bars pivot to form the X).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
