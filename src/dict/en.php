@@ -13,7 +13,7 @@ return array(
     'dictNoticeEUcookie3'=>'Okay',
     'dictNoticeSkipLink'=>'Skip to main content',
     'dictFooterHeading1'=>'About this site',
-    'dictFooterContent1'=>'This site is an experiment in creating a dynamic website. The files are available on <a href="../github/index.html" title="GitHub repository with the Fat-Free Framework and Bootstrap files">GitHub</a> and most of the logic for the site is documented within.',
+    'dictFooterContent1'=>'This site is an experiment in creating a dynamic website. The files are available on <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="GitHub repository with the Fat-Free Framework and Bootstrap files">GitHub</a> and most of the logic for the site is documented within.',
     'dictFooterHeading2'=>'About me',
     'dictFooterContent2'=>'I help Korean businesses with their English com&shy;mu&shy;ni&shy;cation (presen&shy;tations, web content, and emails) and web design.',
     'dictFooterHeading3'=>'Contact',

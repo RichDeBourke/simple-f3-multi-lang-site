@@ -12,7 +12,7 @@ return array(
     'dictNoticeEUcookie3'=>'Okay',
     'dictNoticeSkipLink'=>'주요 내용으로 건너 뛰기',
     'dictFooterHeading1'=>'이 사이트 정보',
-    'dictFooterContent1'=>'이 사이트는 동적 웹 사이트를 만드는 실험입니다. 이 파일은 <a href="../github/index.html" title="Fat-Free 프레임 워크 및 부트 스트랩 파일이있는 GitHub 저장소">GitHub</a>에서 사용할 수 있으며 사이트의 대부분의 로직은 문서화되어 있습니다.',
+    'dictFooterContent1'=>'이 사이트는 동적 웹 사이트를 만드는 실험입니다. 이 파일은 <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="Fat-Free 프레임 워크 및 부트 스트랩 파일이있는 GitHub 저장소">GitHub</a>에서 사용할 수 있으며 사이트의 대부분의 로직은 문서화되어 있습니다.',
     'dictFooterHeading2'=>'나에 대해서',
     'dictFooterContent2'=>'한국 기업의 영어 커뮤니케이션 (프리젠 테이션, 웹 컨텐츠 및 전자 메일) 및 웹 디자인을 돕습니다.',
     'dictFooterHeading3'=>'접촉',

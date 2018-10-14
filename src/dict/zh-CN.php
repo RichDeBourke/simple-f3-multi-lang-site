@@ -12,7 +12,7 @@ return array(
     'dictNoticeEUcookie3'=>'Okay',
     'dictNoticeSkipLink'=>'跳到主要内容',
     'dictFooterHeading1'=>'关于本网站',
-    'dictFooterContent1'=>'该网站是创建动态网站的实验。 这些文件在<a href="../github/index.html" title="带有Fat-Free Framework和Bootstrap文件的GitHub存储库">GitHub</a>上可用，并且该站点的大部分逻辑都记录在其中。',
+    'dictFooterContent1'=>'该网站是创建动态网站的实验。 这些文件在<a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="带有Fat-Free Framework和Bootstrap文件的GitHub存储库">GitHub</a>上可用，并且该站点的大部分逻辑都记录在其中。',
     'dictFooterHeading2'=>'关于我',
     'dictFooterContent2'=>'我帮助韩国企业进行英语交流（演示文稿，网站内容和电子邮件）和网页设计.',
     'dictFooterHeading3'=>'联系',
