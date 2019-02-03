@@ -100,3 +100,7 @@ FontFaceObserver is provided under a [BSD-3-Clause license](https://github.com/b
 
 OffCanvas Navigation is provided under an [MIT license](https://github.com/RichDeBourke/bootstrap4-offcanvas-nav/blob/master/LICENSE)
 
+
+## Updates
+
+**2019/01/02** – Validated the site does work with Fat-Free 3.6.5 and updated some of the page content for better search engine results.

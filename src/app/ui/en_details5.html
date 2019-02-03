@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Sitemap</h2>
-                    <p>The sitemap is generated dynamically by Fat-Free and includes xhtml:links for alternate language information.</p>
+                    <p>The sitemap is generated dynamically by Fat-Free Framework and includes xhtml:links for alternate language information.</p>
                     <p>Including the xhtml:link in the sitemap causes some browsers to think the page is <em>not</em> an <a href="https://productforums.google.com/forum/#!topic/webmasters/SHgWtOpH-Ow" title="Google forum discussion on xhtml links">xml document</a>. That results in displaying the sitemap as html, similar to:</p>
                     <p class="mx-4 px-1" style="font-family: serif; background-color: #ffffff; border:1px solid #888888;">http://sbf-testing.byethost7.com/en/ 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>bootstrap 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>fatfree 2018-06-15</p>
                     <p>While the sitemap does validate (on Google), to make the information more useful, I added an XSL stylesheet based on one from <a href="https://github.com/pedroborges/xml-sitemap-stylesheet" title="XML sitemap stylesheet by Pedro Borges">GitHub</a>.</p>
@@ -372,7 +372,7 @@ doc.documentElement.focus();</code></pre>
                 <div class="col-lg-8 mx-auto">
                     <h2>Overlay image slider</h2>
                     <p>I wanted an image slider that could show information laid over a graphic of the site&rsquo;s structure.</p>
-                    <p>I tried Bootstrap&rsquo;s carousel component, but I wanted the carousel to pause when the mouse was over the carousel and to resume moving once the mouse moves out (no significant delay). I looked at a number of jQuery plugins and image sliders on GitHub, but a plugin seemed like overkill and none of the sliders on GitHub had all of the features I wanted. So, I made my <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#structure" title="Overlay image slider in use for the site structure section">own slider</a> that:</p>
+                    <p>I tried Bootstrap 4&rsquo;s carousel component, but I wanted the carousel to pause when the mouse was over the carousel and to resume moving once the mouse moves out (no significant delay). I looked at a number of jQuery plugins and image sliders on GitHub, but a plugin seemed like overkill and none of the sliders on GitHub had all of the features I wanted. So, I made my <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#structure" title="Overlay image slider in use for the site structure section">own slider</a> that:</p>
                     <ul>
                         <li>Uses img tags for the overlay images rather than styling the overlay images as background images</li>
                         <li>Supports text with each image</li>
@@ -473,7 +473,7 @@ if (document.cookie.indexOf("eu-cookie-notice-accepted=true") > -1) {
                         <p>The second component is in the js-function file and handles the cookie notice:</p>
                         <pre><code class="php hljs">$(document).ready(function () {
     // Show the EU cookie notice (if first time to the site)
-    if (document.cookie.indexOf("eu-cookie-notice-accepted=true") < 0) {
+    if (document.cookie.indexOf("eu-cookie-notice-accepted=true") &lt; 0) {
         //Cookie not found, so show
         $("#eu-cookie").slideDown();
         $(".detail-first-section").addClass("cookie-notice-margin");

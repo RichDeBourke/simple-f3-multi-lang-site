@@ -2,14 +2,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h1>Bootstrap</h1>
-                        <p>This site uses the general Bootstrap layout (i.e. navbar at the top).</p>
+                        <h1>Bootstrap 4</h1>
+                        <p>This site uses the general Bootstrap 4 layout (i.e. navbar at the top).</p>
                         <p>The site specific appearance is generated through Sass:</p>
                         <ul>
                             <li><a href="#sass" class="same-page-link">Sass organization</a></li>
                             <li><a href="#sass-development" class="same-page-link">Development setup</a></li>
                         </ul>
-                        <p>I did modify a couple of the Bootstrap code snippets:</p>
+                        <p>I did modify a couple of the Bootstrap 4 code snippets:</p>
                         <ul>
                             <li><a href="#off-canvas" class="same-page-link">Off-canvas navigation</a></li>
                             <li><a href="#mobile-menu" class="same-page-link">Mobile menu toggler</a></li>
@@ -45,7 +45,7 @@
                         <p class="ml-5">To see what&rsquo;s happening on the phone, I have Android&rsquo;s <a href="https://developer.android.com/studio/releases/platform-tools" title="Platform-Tools download site">SDK Platform-Tools</a> installed on my PC. Platform-Tools includes the Android Debug Bridge (adb), which connects Chrome on my PC to Chrome on my phone for <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3" title="Chrome developer tools site">Remote Debugging</a>.</p>
                         <p class="ml-5"><em>Note: The Android debug bridge needs to be started first by opening a command window, going to the platform-tools directory, and running</em> <code>adb devices</code><em>.</em></p>
                         <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t using the database) &ndash; Apache is needed for Fat-Free.</p>
-                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing Bootstrap source files.</p>
+                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing Bootstrap 4 source files.</p>
                         <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> code editor</p>
                         <p><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> &amp; <a href="http://koala-app.com/" title="A GUI application for Sass">Koala</a> Sass compilers &ndash; I initially tried <a href="https://gulpjs.com/" title="Gulp toolkit for automating development tasks">gulp</a> and <a href="https://sass-lang.com/" title="Sass website">Sass</a>, and then Live Sass Compiler, an extension to VS Code, by itself, but I settled on Live Sass Compiler with Koala.</p>
                         <p><em>I use Live Sass Compiler for development and then Koala to generate the CSS and source map files for the website as I was getting errors with line number and source file references in the maps from Sass and Live Sass Compiler.</em></p>
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Off-canvas navigation</h2>
-                        <p>Bootstrap&rsquo;s standard is to have the hamburger icon on the right (which I like) and to have the menu drop down from the top with the menu items listed on the left, which puts the menu items on the other side of the screen from the hamburger icon (which I don&rsquo;t like, especially for tablets).</p>
+                        <p>Bootstrap 4&rsquo;s standard is to have the hamburger icon on the right (which I like) and to have the menu drop down from the top with the menu items listed on the left, which puts the menu items on the other side of the screen from the hamburger icon (which I don&rsquo;t like, especially for tablets).</p>
                         <p>I&rsquo;m using an updated version of Pascal Müller&rsquo;s <a href="https://github.com/trockendock/bootstrap4-offcanvas-nav" >Off-canvas Nav</a> (Pascal&rsquo;s version was for Bootstrap 4 - Alpha 6 &ndash; I updated it to work with Bootstrap 4.1.2).</p>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Mobile menu toggler</h2>
-                        <img class="mb-3 mw-100 h-auto" src="{{ @schemeHost }}/images/toggler.gif" alt="Bootstrap standard hamburger style toggler compared to a hamburger with more color contrast and with an animated toggler" width="196" height="60">
-                        <p>Bootstrap&rsquo;s menu toggler for mobile devices (shown on the left in the image above) has low color contrast and there&rsquo;s no animation.</p>
+                        <img class="mb-3 mw-100 h-auto" src="{{ @schemeHost }}/images/toggler.gif" alt="Bootstrap 4 standard hamburger style toggler compared to a hamburger with more color contrast and with an animated toggler" width="196" height="60">
+                        <p>Bootstrap 4&rsquo;s menu toggler for mobile devices (shown on the left in the image above) has low color contrast and there&rsquo;s no animation.</p>
                         <p>I changed the color for <a href="http://www.sbwfc.co.kr/ColorChecker/" title="Online color contrast tool">more contrast</a> (shown in the middle in the image above) and animated the hamburger (shown on the right in the image above) to make it clearer to users that they need to tap the toggler again to close the menu (tapping a link will also close the menu).</p>
                         <h3>Toggler HTML code</h3>
                         <pre><code class="html nljs">&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;offcanvas&quot;

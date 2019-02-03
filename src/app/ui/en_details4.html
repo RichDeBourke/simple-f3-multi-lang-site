@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h1>Putting the pages together</h1>
-                        <p>Fat-Free pulls together template files to create the pages:</p>
+                        <p>The Fat-Free Framework pulls together template files to create the pages:</p>
                         <ul>
                             <li><a href="#layout" class="same-page-link">layout.html</a> &ndash; primary template that pulls in the other templates:<ul>
                                 <li><a href="#head" class="same-page-link">head.html</a> &ndash; the HTML head section &ndash; same template for all pages</li>
@@ -43,7 +43,7 @@
 &lt;include href=&quot;script.html&quot; /&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                        <p>Layout handles the body tag differently for the home page by including the setup for Bootstrap&rsquo;s Scrollspy.</p>
+                        <p>Layout handles the body tag differently for the home page by including the setup for Bootstrap 4&rsquo;s Scrollspy.</p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                             <li>IE 8 or lower: Notice that the site does not support older versions of Internet Explorer is displayed.<ul>
                                 <li>0.2% of the visitors to my business site use IE8 or older versions of Internet Explorer.</li>
                                 <li>I block the normal CSS and JavaScript files using IE conditionals, and instead supply those older browsers with Alexander Farkas&rsquo; <a href="https://github.com/aFarkas/html5shiv" title="Enable HTML5 sectioning elements in legacy Internet Explorer browsers">HTML5 Shiv</a> and a special CSS file as a way to enable all users to at least see the site content (although it&rsquo;s not pretty).</li>
-                                <li>IE 9 support: Bootstrap supports IE10 or greater, but not IE9. For IE9, I add Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-ie8" title="CSS and JavaScript file to polyfill HTML5 element support">CSS</a> for IE9. The file is served from a CDN, so I just include a link in the head templates using an IE conditional. (<em>Note: Christian&rsquo;s package includes a polyfill for element.classList, which IE9 lacks. Since I was already loading, if needed, Eli Grey&rsquo;s <a href="https://github.com/eligrey/classList.js" title="A cross-browser JavaScript shim that fully implements element.classList">classList polyfill</a> at the start of the page for the font loader, I don&rsquo;t use Christian&rsquo;s polyfill.</em>) Currently, 12% of the visitors to my business site are using Internet Explorer (6.5%, 0.8%, and 4.8% of are using IE 9, 10, and 11, respectively), so supporting Internet Explorer is important.</li>
+                                <li>IE 9 support: Bootstrap 4 supports IE10 or greater, but not IE9. For IE9, I add Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-ie8" title="CSS and JavaScript file to polyfill HTML5 element support">CSS</a> for IE9. The file is served from a CDN, so I just include a link in the head templates using an IE conditional. (<em>Note: Christian&rsquo;s package includes a polyfill for element.classList, which IE9 lacks. Since I was already loading, if needed, Eli Grey&rsquo;s <a href="https://github.com/eligrey/classList.js" title="A cross-browser JavaScript shim that fully implements element.classList">classList polyfill</a> at the start of the page for the font loader, I don&rsquo;t use Christian&rsquo;s polyfill.</em>) Currently, 12% of the visitors to my business site are using Internet Explorer (6.5%, 0.8%, and 4.8% of are using IE 9, 10, and 11, respectively), so supporting Internet Explorer is important.</li>
                             </ul></li>
                             <li>EU cookie/privacy: Notice to comply with the European requirement to let users know that the site uses cookies. The notice includes a link to the Terms of Use/Privacy page and that page includes a way to opt-out of Google Analytics.</li>
                             <li>Skip-link: A link for users that are navigating with the tab key to skip over the navigation links and go directly to the content (for accessibility).</li>
@@ -104,7 +104,7 @@
                             <li>Error pages: 404 and 5XX pages &ndash; the directory will vary</li>
                         </ul>
                         <p>All addresses (href and src) use absolute links as it avoids any problem with being in the wrong directory for a relative link to work (e.g. the 404 response page).</p>
-                        <p>One complication – when on the home page, the home page links need to be in the form href=&quot;#overview&quot; (just the page links). They can&rsquo;t be href=&quot;../en/home#overview&quot; or href=&quot;https://www.mysite.com/en/home#overview&quot; as Bootstrap&rsquo;s <a href="https://getbootstrap.com/docs/4.1/components/scrollspy/" title="Bootstrap Scrollspy component">Scrollspy</a> seems to have a problem with anything other than just the page link. When on any other page, the home page links should be absolute links in the form href=&quot;https://www.mysite.com/en/home#overview&quot;.</p>
+                        <p>One complication – when on the home page, the home page links need to be in the form href=&quot;#overview&quot; (just the page links). They can&rsquo;t be href=&quot;../en/home#overview&quot; or href=&quot;https://www.mysite.com/en/home#overview&quot; as Bootstrap 4&rsquo;s <a href="https://getbootstrap.com/docs/4.1/components/scrollspy/" title="Bootstrap 4 Scrollspy component">Scrollspy</a> seems to have a problem with anything other than just the page link. When on any other page, the home page links should be absolute links in the form href=&quot;https://www.mysite.com/en/home#overview&quot;.</p>
                         <p>My solution is to set in index.php a hive variable, schemeHost, for the scheme and the host together (e.g. http:// <em>and</em> www.mysite.com) that I use for links to things like CSS files and images, and I assemble that value with the langSubdirectory variable (set in the language controllers) to form a base address for the language pages. When assembling addresses for the home pages, I use the isHomePage flag to control how the addresses are handled.</p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>script template</h2>
-                        <p>The script template loads jQuery and Bootstrap&rsquo;s JavaScript files (from the <a href="https://cdnjs.com/" title="A free and open source Public Web CDN">cdnjs.com</a> content delivery network, with fallback to local copies) and calls any special JavaScript templates that are needed.</p>
+                        <p>The script template loads jQuery and Bootstrap 4&rsquo;s JavaScript files (from the <a href="https://cdnjs.com/" title="A free and open source Public Web CDN">cdnjs.com</a> content delivery network, with fallback to local copies) and calls any special JavaScript templates that are needed.</p>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                         <p>Calling the function from the sitemap template:</p>
 <pre><code class="php hljs">&lt;lastmod&gt;&#123;&#123; @fdate(@route_name) &#125;&#125;&lt;/lastmod&gt;</code></pre>
                         <p>For each route, the template loops through the array of languages from config.ini and generates a list of all of the alternate languages for that route (including the route itself per <a href="https://support.google.com/webmasters/answer/189077?visit_id=0-636678457351003097-4051720032&rd=1" title="Google info from Webmaster forum">Google&rsquo;s information on sitemaps</a>).</p>
-                        <p>The sitemap control function is in the UtilitiesController rather than the CommonPageController as the sitemap function calls its own instance for the Fat-Free render function.</p>
+                        <p>The sitemap control function is in the UtilitiesController rather than the CommonPageController as the sitemap function calls its own instance for the Fat-Free Framework render function.</p>
                         <p><em>Note: Google (and other search engines) will be able to locate the pages I&rsquo;m leaving off of the sitemap as there will be links to those pages in the navigation menu and the footer, but as those pages all have the tag</em> <code>&lt;meta name="robots" content="noindex,nofollow"&gt;</code><em>, Google will not index those pages. (Google is polite about complying with the robots meta tag, but not all search engines may be as nice.)</em></p>
                     </div>
                 </div>

@@ -27,6 +27,7 @@
         }
     </script>
 
+<check if="{{ @BASE }} !== '/f3'">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ @googleAnalyticsID }}"></script>
     <script>
@@ -44,6 +45,7 @@
             gtag('config', '{{ @googleAnalyticsID }}', { 'anonymize_ip': true });
         }
     </script>
+</check>
 
 <check if="{{ !@googleNoIndex }}">
     <link rel="canonical" href="{{ @schemeHost }}{{ urldecode(@PATH) }}">

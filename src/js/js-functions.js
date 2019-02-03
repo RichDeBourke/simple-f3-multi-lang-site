@@ -125,7 +125,7 @@
         return false;
     });
 
-    $(".dropdown-item").on("click", function () {
+    $(".offcanvas-menu-item").on("click", function () {
         // collapse the menu
         $(".navbar-toggler").click();
     });
