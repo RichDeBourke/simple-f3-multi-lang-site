@@ -103,4 +103,6 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 
 ## Updates
 
-**2019/01/02** – Validated the site does work with Fat-Free 3.6.5 and updated some of the page content for better search engine results.
+**2019/01/02** – Validated the site works with Fat-Free 3.6.5 and updated some of the page content for better search engine results.
+
+**2019/05/10** – Validated the site works with jQuery 3.4.1 and Bootstrap 4.3.1.

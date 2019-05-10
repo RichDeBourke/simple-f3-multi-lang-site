@@ -176,13 +176,13 @@
     </script>
     
 <check if="{{ @langSubdirectory === 'ko' }}">
-    <link href="{{ @schemeHost }}/css/style-kr.min.css" rel="stylesheet">
+    <link href="{{ @schemeHost }}/css/style-kr.min.css?v=20190510" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-    <link href="{{ @schemeHost }}/css/style-sc.min.css" rel="stylesheet">
+    <link href="{{ @schemeHost }}/css/style-sc.min.css?v=20190510" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'tw' }}">
-    <link href="{{ @schemeHost }}/css/style-tc.min.css" rel="stylesheet">
+    <link href="{{ @schemeHost }}/css/style-tc.min.css?v=20190510" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-    <link href="{{ @schemeHost }}/css/style-en.min.css" rel="stylesheet">
+    <link href="{{ @schemeHost }}/css/style-en.min.css?v=20190510" rel="stylesheet">
 </check>
 <check if="{{ @pageCSS }}">
 <include href="{{ @pageCSS }}" />
