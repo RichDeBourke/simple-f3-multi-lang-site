@@ -106,3 +106,5 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2019/01/02** – Validated the site works with Fat-Free 3.6.5 and updated some of the page content for better search engine results.
 
 **2019/05/10** – Validated the site works with jQuery 3.4.1 and Bootstrap 4.3.1.
+
+**2019/05/27** – Moved the section for the EU cookie notice to the bottom of the page as Google was sometimes including the notice text in the snippet on some search engine results pages.

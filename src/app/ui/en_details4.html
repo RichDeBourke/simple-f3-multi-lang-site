@@ -7,10 +7,11 @@
                         <ul>
                             <li><a href="#layout" class="same-page-link">layout.html</a> &ndash; primary template that pulls in the other templates:<ul>
                                 <li><a href="#head" class="same-page-link">head.html</a> &ndash; the HTML head section &ndash; same template for all pages</li>
-                                <li><a href="#notifications" class="same-page-link">notifications.html</a> &ndash; conditional text for EU cookie and unsupported Internet Explorer notifications &ndash; same template for all pages</li>
+                                <li><a href="#notifications-top" class="same-page-link">notifications-top.html</a> &ndash; conditional text for unsupported Internet Explorer notifications &ndash; same template for all pages</li>
                                 <li><a href="#navigation" class="same-page-link">navigation.html</a> &ndash; logo and navbar &ndash; same template for all pages</li>
-                                <li><a href="#page-content" class="same-page-link"><em>content</em>.html</a> &ndash; page content and layout is supplied in these files (each page has a unique content file)</li>
+                                <li><a href="#page-content" class="same-page-link"><em></em>content</em>.html</a> &ndash; page content and layout is supplied in these files (each page has a unique content file with a <em>unique file name</em>)</li>
                                 <li><a href="#footer" class="same-page-link">footer.html</a> &ndash; same template for all pages</li>
+                                <li><a href="#notifications-bottom" class="same-page-link">notifications-bottom.html</a> &ndash; conditional text for EU cookie notifications &ndash; same template for all pages</li>
                                 <li><a href="#script" class="same-page-link">scripts.html</a> &ndash; same template for all pages</li>
                             </ul></li>
                             <li><a href="#sitemap" class="same-page-link">sitemap.xml</a></li>
@@ -27,19 +28,20 @@
                     <div class="col-lg-8 mx-auto">
                         <h2>layout template</h2>
                         <p>The layout template sets up the html page and calls the other templates:</p>
-<pre><code class="php hljs">&lt;!DOCTYPE html&gt;
+<pre><code class="html hljs">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;&#123;&#123; @langCode &#125;&#125;&quot; prefix=&quot;og: http://ogp.me/ns#&quot;&gt;
 &lt;include href=&quot;head.html&quot; /&gt;
 &lt;body&#123;&#123; @isHomePage ?
     &apos; data-spy=&quot;scroll&quot; data-target=&quot;#mainNav&quot; data-offset=&quot;60&quot; id=&quot;page-top&quot;&apos;
     : &apos;&apos;  &#125;&#125;&gt;
     &lt;div class=&quot;offcanvas-right&quot;&gt;
-&lt;include href=&quot;notifications.html&quot; /&gt;
+&lt;include href=&quot;notifications-top.html&quot; /&gt;
 &lt;include href=&quot;navigation.html&quot; /&gt;
-&lt;include href=&quot;&#123;&#123; @pageContent &#125;&#125;&quot; /&gt;
+&lt;include href=&quot;&#123;&#123; &commat;pageContent &#125;&#125;&quot; /&gt;
     &lt;/div&gt;&lt;!--offcanvas offcanvas-right--&gt;
     
 &lt;include href=&quot;footer.html&quot; /&gt;
+&lt;include href=&quot;notifications-bottom.html&quot; /&gt;
 &lt;include href=&quot;script.html&quot; /&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -70,26 +72,24 @@
             </div>
         </section>
 
-        <section id="notifications" class="bg-white">
+        <section id="notifications-top" class="bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h2>notifications template</h2>
-                        <p>The notifications template has the notice for older version of Internet Explorer, the EU cookie/privacy notice, and the skip-link:</p>
+                        <h2>top notifications template</h2>
+                        <p>The top notifications template has the notice for older version of Internet Explorer and the skip-link:</p>
                         <ul>
                             <li>IE 8 or lower: Notice that the site does not support older versions of Internet Explorer is displayed.<ul>
                                 <li>0.2% of the visitors to my business site use IE8 or older versions of Internet Explorer.</li>
                                 <li>I block the normal CSS and JavaScript files using IE conditionals, and instead supply those older browsers with Alexander Farkas&rsquo; <a href="https://github.com/aFarkas/html5shiv" title="Enable HTML5 sectioning elements in legacy Internet Explorer browsers">HTML5 Shiv</a> and a special CSS file as a way to enable all users to at least see the site content (although it&rsquo;s not pretty).</li>
                                 <li>IE 9 support: Bootstrap 4 supports IE10 or greater, but not IE9. For IE9, I add Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-ie8" title="CSS and JavaScript file to polyfill HTML5 element support">CSS</a> for IE9. The file is served from a CDN, so I just include a link in the head templates using an IE conditional. (<em>Note: Christian&rsquo;s package includes a polyfill for element.classList, which IE9 lacks. Since I was already loading, if needed, Eli Grey&rsquo;s <a href="https://github.com/eligrey/classList.js" title="A cross-browser JavaScript shim that fully implements element.classList">classList polyfill</a> at the start of the page for the font loader, I don&rsquo;t use Christian&rsquo;s polyfill.</em>) Currently, 12% of the visitors to my business site are using Internet Explorer (6.5%, 0.8%, and 4.8% of are using IE 9, 10, and 11, respectively), so supporting Internet Explorer is important.</li>
                             </ul></li>
-                            <li>EU cookie/privacy: Notice to comply with the European requirement to let users know that the site uses cookies. The notice includes a link to the Terms of Use/Privacy page and that page includes a way to opt-out of Google Analytics.</li>
                             <li>Skip-link: A link for users that are navigating with the tab key to skip over the navigation links and go directly to the content (for accessibility).</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-    
            
         <section id="navigation" class="bg-white">
             <div class="container">
@@ -136,6 +136,20 @@
                             </ul></li>
                             <li>Link to the Terms of Use &ndash; the address for the related language terms page is assembled in the footer template.</li>
                             <li>Copyright notice &ndash; the notice uses a PHP function to compare the current year to the yearBuilt value in config.ini for echoing the copyright string (using a function eliminates the need to update the copyright string each New Year&rsquo;s Eve).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notifications-bottom" class="bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>bottom notifications template</h2>
+                        <p>The bottom notifications template has the notice for the EU cookie/privacy notice:</p>
+                        <ul>
+                            <li>EU cookie/privacy: Notice to comply with the European requirement to let users know that the site uses cookies. The notice includes a link to the Terms of Use/Privacy page and that page includes a way to opt-out of Google Analytics.</li>
                         </ul>
                     </div>
                 </div>
