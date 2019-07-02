@@ -1,0 +1,11 @@
+// the font families are based on:
+//      language specific Google Web fonts
+//      common fall-back fonts that should work on most devices
+//      language specific fall-back fonts
+//      ending with san-serif (which all browsers should support)
+
+$font-family-sans-serif:       "Noto Sans", "Noto Sans TC", Roboto, "Helvetica Neue", Arial, "PingFang TC", "微軟雅黑", "Microsoft YaHei", sans-serif;
+
+$font-family-monospace:       "Source Code Pro", monospace;
+
+@import "style";

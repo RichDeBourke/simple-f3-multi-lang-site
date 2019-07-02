@@ -62,11 +62,10 @@
                             <li>site meta data</li>
                             <li>Google analytics</li>
                             <li>Load Google webfonts</li>
-                            <li>Load and run <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#font-management">Font Face Observer</a></li>
                             <li>Load the CSS files</li>
                             <li>Load the icons</li>
                         </ul>
-                        <p>The head template loads and manages the required fonts based on the language being used. The logic is repeated three times, the first for the @import portion, the second to setup the variables for Font Face Observer, and the third for the Promise function. The logic is a series of separate <code>if</code> statements, which are easier to change than a series of nested if/true/false statements, but there is no default setting.</p>
+                        <p>The head template loads the required CSS file and fonts based on the language being used. The logic for selecting which CSS file and fonts to load is a series of separate <code>if</code> statements, which are easier to change than a series of nested if/true/false statements, but there is no default setting.</p>
                     </div>
                 </div>
             </div>

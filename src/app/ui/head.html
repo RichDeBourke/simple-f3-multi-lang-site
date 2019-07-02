@@ -13,12 +13,6 @@
 </check>
 
     <script>
-        if (!("classList" in document.documentElement)) {
-            document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
-        }
-        if (!("Promise" in window && "all" in window.Promise)) {
-            document.write('<script src="{{ @schemeHost }}/js/fontfacepolyfill.min.js"><\/script>');
-        }
         // Polyfill for old Internet Explorers
         if (!String.prototype.trim) {
             String.prototype.trim = function () {
@@ -81,108 +75,23 @@
     <!-- Load Google webfonts -->
     <!--[if gte IE 9]><!-->
 <check if="{{ @langSubdirectory === 'ko' }}">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro|Noto+Sans+KR');
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+KR&display=swap" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
-        @import url('https://fonts.googleapis.com/earlyaccess/notosanssc.css');
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+SC&display=swap" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'tw' }}">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
-        @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+TC&display=swap" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Source+Code+Pro');
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro&display=swap" rel="stylesheet">
 </check>
 
-<include href="fontFaceObserver_script.html" />
-    <script>
-        (function (d, w) {
-            "use strict";
-
-            if (w.sessionStorage.fonts) {
-                d.documentElement.className += " wf-active";
-            } else {
-                var timeout = 6000;
 <check if="{{ @langSubdirectory === 'ko' }}">
-                var notoSans = new FontFaceObserver("Noto Sans", {
-                    weight: 400
-                });
-                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
-                    weight: 400
-                });
-                var notoSansKR = new FontFaceObserver("Noto Sans KR", {
-                    weight: 400
-                });
+    <link href="{{ @schemeHost }}/css/style-kr.min.css?v=20190630" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-                var notoSans = new FontFaceObserver("Noto Sans", {
-                    weight: 400
-                });
-                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
-                    weight: 400
-                });
-                var notoSansSC = new FontFaceObserver("Noto Sans SC", {
-                    weight: 400
-                });
+    <link href="{{ @schemeHost }}/css/style-sc.min.css?v=20190630" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'tw' }}">
-                var notoSans = new FontFaceObserver("Noto Sans", {
-                    weight: 400
-                });
-                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
-                    weight: 400
-                });
-                var notoSansTC = new FontFaceObserver("Noto Sans TC", {
-                    weight: 400
-                });
+    <link href="{{ @schemeHost }}/css/style-tc.min.css?v=20190630" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-                var notoSans = new FontFaceObserver("Noto Sans", {
-                    weight: 400
-                });
-                var sourceCodePro = new FontFaceObserver("Source Code Pro", {
-                    weight: 400
-                });
-</check>
-                
-                Promise.all([
-<check if="{{ @langSubdirectory === 'ko' }}">
-                    notoSans.load(null, timeout),
-                    sourceCodePro.load(null, timeout),
-                    notoSansKR.load("서울", timeout)
-</check><check if="{{ @langSubdirectory === 'zh' }}">
-                    notoSans.load(null, timeout),
-                    sourceCodePro.load(null, timeout),
-                    notoSansSC.load("简单的中文", timeout)
-</check><check if="{{ @langSubdirectory === 'tw' }}">
-                    notoSans.load(null, timeout),
-                    sourceCodePro.load(null, timeout),
-                    notoSansTC.load("繁体中文", timeout)
-</check><check if="{{ @langSubdirectory === 'en' }}">
-                    notoSans.load(null, timeout),
-                    sourceCodePro.load(null, timeout)
-</check>
-                ]).then(function () {
-                    d.documentElement.className += " wf-active";
-                    w.sessionStorage.fonts = true;
-                }, function () {
-                    w.console.log("There was a problem loading the fonts");
-                });
-            }
-        }(document, window));
-    </script>
-    
-<check if="{{ @langSubdirectory === 'ko' }}">
-    <link href="{{ @schemeHost }}/css/style-kr.min.css?v=20190510" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'zh' }}">
-    <link href="{{ @schemeHost }}/css/style-sc.min.css?v=20190510" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'tw' }}">
-    <link href="{{ @schemeHost }}/css/style-tc.min.css?v=20190510" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'en' }}">
-    <link href="{{ @schemeHost }}/css/style-en.min.css?v=20190510" rel="stylesheet">
+    <link href="{{ @schemeHost }}/css/style-en.min.css?v=20190630" rel="stylesheet">
 </check>
 <check if="{{ @pageCSS }}">
 <include href="{{ @pageCSS }}" />

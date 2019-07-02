@@ -64,7 +64,7 @@ Bootstrap is easy to structure with the available classes and using Sass. There 
 #### General website stuff
 
 * Dynamic sitemap generation with xhtml:links for alternate languages
-* [Font Face Observer](https://fontfaceobserver.com/) for font management (the site uses Google Noto Fonts)
+* The site uses Google Noto Fonts with the [`display=swap`](https://www.zachleat.com/web/google-fonts-display/) option
 * Scroll-to-top button that stops above the footer
 * Overlay image slider – simple, jQuery based overlay slider
     * There are separate Scss and JavaScript files for the slider in the sass and js directories 
@@ -96,8 +96,6 @@ Fat-Free is provided under a [GNU Public License (GPL v3)](https://www.gnu.org/l
 
 Bootstrap is provided under an [MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
-FontFaceObserver is provided under a [BSD-3-Clause license](https://github.com/bramstein/fontfaceobserver/blob/master/LICENSE)
-
 OffCanvas Navigation is provided under an [MIT license](https://github.com/RichDeBourke/bootstrap4-offcanvas-nav/blob/master/LICENSE)
 
 
@@ -108,3 +106,4 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2019/05/10** – Validated the site works with jQuery 3.4.1 and Bootstrap 4.3.1.
 
 **2019/05/27** – Moved the section for the EU cookie notice to the bottom of the page as Google was sometimes including the notice text in the snippet on some search engine results pages.
+**2019/07/02** – Implemented `display=swap` on the Google Fonts, which eliminates the need for a font manager, at least for Google Fonts (I was using [Font Face Observer](https://fontfaceobserver.com/)).

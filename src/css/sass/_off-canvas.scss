@@ -1,0 +1,63 @@
+/*
+* Off Canvas
+* --------------------------------------------------
+*/
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
+	overflow-x: hidden;
+}
+body {
+	overflow-x: hidden;
+}
+.footer {
+	-webkit-transition: all .25s ease-out;
+	-o-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+}
+
+@media screen and (max-width: 767px) {
+	.offcanvas {
+		position: relative;
+		min-height: 100%;
+		-webkit-transition: all .25s ease-out;
+		-o-transition: all .25s ease-out;
+		transition: all .25s ease-out;
+	}
+	.offcanvas-right {
+		right: 0;
+		.sidebar-offcanvas {
+			right: -100%;
+			-webkit-transition: all .25s ease-out;
+			-o-transition: all .25s ease-out;
+			transition: all .25s ease-out;
+			border-left-color: $gray-200;
+		}
+	}
+	.offcanvas-right.off-canvas-active {
+		right: 300px;
+		.sidebar-offcanvas {
+			right: 0;
+			border-left: 1px solid #1135b8;
+		}
+	}
+	.sidebar-offcanvas {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		width: 300px;
+		padding: 60px 15px 15px;
+		background-color: $theme-dark-blue;
+		border-radius: 0;
+		overflow-y: auto;
+		z-index: 1050;
+    }
+    .footer.offcanvas-right.off-canvas-active {
+        right: 300px;
+    }
+	.navbar-toggler {
+		z-index: 1060;
+	}
+}
