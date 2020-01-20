@@ -48,10 +48,11 @@
                 </ul>
             </div><!--.sidebar-offcanvas -->
             <div class="dropdown lang-dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdownLanguageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdownLanguageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="{{ @dictNavLanguage }}">
                     <span class="flag-icon flag-icon-lg flag-icon-{{ @langSubdirectory }}"></span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right-md ie-lang-menu" aria-labelledby="navbarDropdownLanguageMenu">
+                <div class="dropdown-menu dropdown-menu-right-md ie-lang-menu">
+
 <repeat group="@languageLinks" value="@link">
                     <a class="dropdown-item lang-selector-{{ @link[1] }}{{ @link[1]===@langSubdirectory ? ' current-language' : '' }}" href="{{ @schemeHost }}{{ @link[0] | alias }}">
                         <span class="flag-icon flag-icon-{{ @link[1] }}"></span>{{ @link[3] }}</a>

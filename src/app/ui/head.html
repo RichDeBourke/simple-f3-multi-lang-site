@@ -13,7 +13,11 @@
 </check>
 
     <script>
-        // Polyfill for old Internet Explorers
+        // Polyfill for IE9 and older browsers
+        if (!("classList" in document.documentElement)) {
+            document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
+        }
+        // Polyfill for IE8 and older browsers
         if (!String.prototype.trim) {
             String.prototype.trim = function () {
                 return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
@@ -47,13 +51,22 @@
     <meta itemprop="url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}" />
     <meta itemprop="name" content="{{ @siteOwner }}">
     <meta itemprop="description" content="{{ @pageDescription }}">
-    <meta itemprop="primaryImageOfPage" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage }}">
+    <meta itemprop="image primaryImageOfPage" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
     <meta property="og:description" content="{{ @pageDescription }}">
     <meta property="og:url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
     <meta property="og:site_name" content="{{ @siteOwner }}">
-    <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage }}">
+    <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ @socialMedia.ogImage1alt }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage2 }}">
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="{{ @socialMedia.ogImage2alt }}" />
+    <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary">
 <check if="{{ @socialMedia.twitterID != 'none' }}">    <meta name="twitter:site" content="@{{ @socialMedia.twitterID }}">
 </check>

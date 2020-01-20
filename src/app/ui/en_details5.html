@@ -277,7 +277,7 @@
                         <li>twitter:image &ndash; Twitter includes a 144x144 image when displaying a tweet that references the page</li>
                         <li>twitter:site &ndash; Twitter address for the company (@twittername) &ndash; this is optional</li>
                     </ul>
-                    <p>Note: I&rsquo;m using the page title and description for the social network / twitter title and description. If a different title and/or description is desired, it would be easy to add separate variables to the page controller.</p>
+                    <p>Note: I&rsquo;m using the page title and description variables (&#123;&#123; &#64;siteOwner &#125;&#125; – &#123;&#123; &#64;pageTitle &#125;&#125; &amp; &#123;&#123; &#64;pageDescription &#125;&#125;) for the social network / twitter title and description. If a different title and/or description is desired, it would be easy to add separate variables to the page controller.</p>
                 </div>
             </div>
         </div>
@@ -381,7 +381,7 @@ doc.documentElement.focus();</code></pre>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Image management</h2>
-                    <p>To improve page loading times, all images are compressed using an online compression application (<a href="https://compresspng.com/" title="Online PNG compression application">compresspng.com</a> for PNG files and <a href="https://compressjpeg.com/" title="Online JPEG compression application">compressjpg.com</a> for JPEG files). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the image files do need to be compressed for use on a website.</em></p>
+                    <p>To improve page loading times, all images are compressed using an online compression application (<a href="https://compresspng.com/" title="Online PNG compression application">compresspng.com</a> for PNG files, <a href="https://compressjpeg.com/" title="Online JPEG compression application">compressjpg.com</a> for JPEG files, and <a href="https://www.ps2pdf.com/compress-webp" title="Online WEBP compression application">www.ps2pdf.com/compress-webp</a> for WEBP files). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the image files do need to be compressed for use on a website.</em></p>
                     <p>Larger images that are used on multiple pages (e.g. the logo) are loaded as separate images. Smaller images that are used on multiple pages (e.g. the language flags) are embedded in the CSS file as Base64 background images.</p>
                     <p>For images that are only used on one page, if there&rsquo;s just a few on the page, the images are embedded in the page as <a href="http://freeonlinetools24.com/base64-image" title="Online image-to-base64 converter">Base64</a> images.</p>
                     <p>Embedding the image reduces the number of HTTP requests to the server, but it also makes the html page longer, which is more work to scroll through when troubleshooting. That&rsquo;s why I have a variable in the config.ini file, <code>imageEmbed</code>, that selects between a template file with the image Base64 code and a normal img tag with a source value.</p>
@@ -397,6 +397,11 @@ doc.documentElement.focus();</code></pre>
     alt="Table that shows the naming relationship between the configuration and
     route data" width="730" height="361"&gt;</code></pre>
     <p>For images that are in the page flow, I initially load a white image that&rsquo;s the correct size (Firefox, when linking to an anchor in the page, appears to not calculate the page size before positioning the page. Loading the images causes the page to jump.) For images that are not in the page flow, I initially embed a 1px image as the HTML validator wants a src value.</p>
+            <pre><code class="php hljs">&lt;img class="lazy-load"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///
+    wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+    data-src="../images/NamingFlowTable-ctr-conn.png"
+    alt="Controller naming relationships" width="730" height="361"&gt;</code></pre>
                 </div>
             </div>
         </div>

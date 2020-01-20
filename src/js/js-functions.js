@@ -18,8 +18,8 @@
             }
         });
 
-        window.addEventListener("test", options, options);
-        window.removeEventListener("test", options, options);
+        win.addEventListener("test", options, options);
+        win.removeEventListener("test", options, options);
     } catch(err) {
         passiveSupported = false;
     }
@@ -190,5 +190,5 @@ $(document).ready(function () {
 
     // Initiate footer setting
     adjustStickyFooter();
-    window.scroll();
+    //window.scroll();
 });

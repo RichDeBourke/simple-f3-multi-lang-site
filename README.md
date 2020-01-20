@@ -24,11 +24,9 @@ To be sure that I could actually build a site, I built [one](http://sbf-testing.
 
 ## Demo
 
-All of the code from this repository is in operation at [http://sbf-testing.byethost7.com](http://sbf-testing.byethost7.com).<sup>1</sup> The intent is for the code to be an as-complete-as-possible package, rather than just a bare-bones starting point for building a site. The demo is running on a [free hosting service](https://byet.host/free-hosting) that provides PHP and Apache, but no email and most bots are blocked, so no contact form and no SSL<sup>2</sup> (that's why I say "an almost complete" site), but those should be easy enough to implement on a production host.
+All of the code from this repository is in operation at [http://sbf-testing.byethost7.com](http://sbf-testing.byethost7.com). The intent is for the code to be an as-complete-as-possible package, rather than just a bare-bones starting point for building a site. The demo is running on a [free hosting service](https://byet.host/free-hosting) that provides PHP and Apache, but no email and most bots are blocked, so no contact form and no SSL<sup>1</sup> (that's why I say "an almost complete" site), but those should be easy enough to implement on a production host.
 
-Note<sup>1</sup>: *The demo site, when visited with some older mobile phones, will sometimes redirect to a [Google page](https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DAndroid&hl=en) about cookies — I'm not sure why, but it's related to the free hosting service I'm using for the demo site. Reentering the URL should bring up the site.*
-
-Note<sup>2</sup>: *The hosting service offers self-signed certificates, but I'm not sure Google accepts those for search ranking. Since the hosting service blocks most bots, it's difficult to get my ownership validated, so I'm running the site without SSL.*
+Note<sup>1</sup>: *The hosting service offers self-signed certificates, but I'm not sure Google accepts those for search ranking. Since the hosting service blocks most bots, it's difficult to get my ownership validated, so I'm running the site without SSL.*
 
 
 ## Applying the setup
@@ -87,7 +85,7 @@ The demo site works with the latest versions of:
 
 And with:
 * IE 9, 10, & 11
-    * *The site doesn't work with older versions of Internet Explorer, but a visitor will still be able to see the content as I serve a special CSS file and block the JavaScript files for IE8 and older.* 
+    * *The site doesn't work with older versions of Internet Explorer (IE8 or older), but a visitor will still be able to see the content as I serve a special CSS file and block the JavaScript files for IE8 and older.* 
 
 ## Licensing
 This code is provided under an [MIT license](http://opensource.org/licenses/mit-license.php). See the [LICENSE](https://github.com/RichDeBourke/simple-f3-multi-lang-site/blob/master/LICENSE) file for details.
@@ -106,4 +104,7 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2019/05/10** – Validated the site works with jQuery 3.4.1 and Bootstrap 4.3.1.
 
 **2019/05/27** – Moved the section for the EU cookie notice to the bottom of the page as Google was sometimes including the notice text in the snippet on some search engine results pages.
+
 **2019/07/02** – Implemented `display=swap` on the Google Fonts, which eliminates the need for a font manager, at least for Google Fonts (I was using [Font Face Observer](https://fontfaceobserver.com/)).
+
+**2020/01/20** – Validated the site works with Fat-Free 3.7.1 and Bootstrap 4.4.1, and made some minor edits to the content.

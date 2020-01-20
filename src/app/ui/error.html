@@ -1,16 +1,16 @@
     <section id="content" class="detail-first-section bg-white">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-4">
+            <div class="row justify-content-center">
+                <div class="d-none d-lg-block col-lg-4">
                     <div class="server-error">
-                        <pre id="code-text">&lt;?php<br>
+                        <pre id="code-text">
 </pre>
                     </div>
                 </div>
                 <div class="col-lg-7 offset-lg-1">
                     <h1>{{ @dict500ServerErrorHeader, @ERROR.code | format, raw }}</h1>
                     <p>{{ @dict500Notice1 | raw }}</p>
-                    <p>{{ @dict500Notice2 | raw }}</p>
+                    <p class="d-none d-lg-block">{{ @dict500Notice2 | raw }}</p>
                     <p>{{ @dict500Notice3 | raw }}</p>
                     <ul>
                         <li>{{ @dict500Notice4 | raw }}</li>
