@@ -38,17 +38,96 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Development setup</h2>
-                        <p>For development, I&rsquo;m running:</p>
+                        <p>For building Bootstrap/Fat-Free based websites, I&rsquo;m using:</p>
                         <p><a href="https://www.microsoft.com/en-us/windows/features" title="Microsoft Windows 10 features">Windows PC</a>  &ndash; with a PC, I can test pages on Chrome, Firefox, Edge, Internet Explorer, and Opera using my own machine. I borrow a Mac, iPhone, and iPad to test with Safari.</p>
-                        <p class="ml-5">For testing with older versions of Internet Explorer (IE8 through IE10), I have IE11 installed on my machine, which will run IE7, 8, 9, and 10 in emulation mode, and I run <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/" title="Microsoft free virtual machines">IE8, 9, and 10 with Windows 7</a> on a virtual machine running on <a href="https://www.virtualbox.org/wiki/Downloads" title="Oracle VirtualBox is a general-purpose virtualizer for x86 hardware">Oracle VM VirtualBox</a>.</p>
+                        <p class="ml-5">For testing with older versions of Internet Explorer (IE9 and IE10), I have IE11 installed on my machine, which will run IE9 and 10 in emulation mode, and I run <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/" title="Microsoft free virtual machines">IE9 and 10 with Windows 7</a> on a virtual machine running on <a href="https://www.virtualbox.org/wiki/Downloads" title="Oracle VirtualBox is a general-purpose virtualizer for x86 hardware">Oracle VM VirtualBox</a>.</p>
+                        <p class="ml-5"><em>I&rsquo;m still seeing visitors to my sites using IE9 &amp; IE11, which means I won&rsquo;t switch to Bootstrap 5 for a while, as the next version of Bootstrap does not support Internet Explorer. Visitors using IE8 or older receive a warning message.</em></p>
                         <p><a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_A5_(2015)" title="Wikipedia page on the 2015 Samsung Galaxy A5">Samsung Galaxy A5</a> &ndash; smart&shy;phone for testing mobile browsers.</p>
                         <p class="ml-5">To see what&rsquo;s happening on the phone, I have Android&rsquo;s <a href="https://developer.android.com/studio/releases/platform-tools" title="Platform-Tools download site">SDK Platform-Tools</a> installed on my PC. Platform-Tools includes the Android Debug Bridge (adb), which connects Chrome on my PC to Chrome on my phone for <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3" title="Chrome developer tools site">Remote Debugging</a>.</p>
                         <p class="ml-5"><em>Note: The Android debug bridge needs to be started first by opening a command window, going to the platform-tools directory, and running</em> <code>adb devices</code><em>.</em></p>
-                        <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t using the database) &ndash; Apache is needed for Fat-Free.</p>
-                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing Bootstrap 4 source files.</p>
-                        <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> code editor</p>
-                        <p><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> &amp; <a href="http://koala-app.com/" title="A GUI application for Sass">Koala</a> Sass compilers &ndash; I initially tried <a href="https://gulpjs.com/" title="Gulp toolkit for automating development tasks">gulp</a> and <a href="https://sass-lang.com/" title="Sass website">Sass</a>, and then Live Sass Compiler, an extension to VS Code, by itself, but I settled on Live Sass Compiler with Koala.</p>
-                        <p><em>I use Live Sass Compiler for development and then Koala to generate the CSS and source map files for the website as I was getting errors with line number and source file references in the maps from Sass and Live Sass Compiler.</em></p>
+                        <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t using the database) &ndash; Apache &amp; PHP are needed for Fat-Free.</p>
+                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing files.</p>
+                        <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> (A.K.A. VS Code) for writing the code.</p>
+
+                        <p><a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> &ndash; for compiling Sass code into CSS. I originally used the <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> extension for VS Code while developing my Scss code, and then used the <a href="http://koala-app.com/" title="A GUI application for Sass">Koala</a> Sass compiler to generate the production code as I was getting errors with line number and source file references in the sourcemaps from Live Sass Compiler (Koala&rsquo;s sourcemaps were correct). I&rsquo;ve switched to using <a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> as it generates correct sourcemaps and the performance between Live Sass Compiler, <a href="https://www.npmjs.com/package/node-sass" title="A C++ Sass CSS compiler">node-sass</a>, and gulp-sass are about the same. </p>
+                        <p>The first time starting a new site using VS Code, I installed the following:</p>
+                        <ul>
+                            <li><a href="https://gulpjs.com/" title="An open-source JavaScript toolkit">gulp</a> task runner using the installation process that can be found at the <a href="https://gulpjs.com/docs/en/getting-started/quick-start" title="Gulp Quick Start">Gulp Quick Start</a> page.</li>
+                            <li>gulp plugins:
+                                <ul>
+                                    <li><a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> using <code>npm install --save-dev gulp-sass</code></li>
+                                    <li><a href="https://www.npmjs.com/package/gulp-sourcemaps">gulp-sourcemaps</a> using <code>npm install --save-dev gulp-sourcemaps</code></li>
+                                    <li><a href="https://www.npmjs.com/package/gulp-postcss" title="plugin to pipe CSS through several plugins, but parse CSS only once">gulp-postcss</a> using <code>npm install --save-dev gulp-postcss</code></li>
+                                    <li><a href="https://www.npmjs.com/package/autoprefixer" title="plugin to parse CSS and add vendor prefixes to CSS rules">autoprefixer</a> using <code>npm install --save-dev autoprefixer</code></li>
+                                    <li><a href="https://www.npmjs.com/package/gulp-clean-css" title="Library for minifying CSS files.">gulp-clean-css</a> using <code>npm install --save-dev gulp-clean-css</code></li>
+                                </ul>
+                            </li>
+                            <li>Bootstrap using <code>npm install --save-dev bootstrap</code></li>
+                            <li>jQuery (to support Bootstrap) using <code>npm install --save-dev jquery</code></li>
+                            <li>Popper.js (to support Bootstrap) using <code>npm install --save-dev popper.js</code> (Popper.js has a V2 version, but Bootstrap wants the older version).</li>
+                        </ul>
+                        <p>And created a gulpfile.js that I put in the project&rsquo;s root directory.</p>
+                        <h3>gulpfile.js</h3>
+                        <pre><code class="html nljs">function defaultTask(cb) {
+    // place code for your default task here
+    cb();
+}
+
+exports.default = defaultTask
+// Sass configuration
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
+var cleanCSS = require('gulp-clean-css');
+
+var sassinput = 'css/sass/**/*.scss';
+var output = 'css/';
+
+var sassOptions = {
+    outputStyle: 'expanded'
+};
+
+gulp.task('sass', function () {
+    return gulp
+        .src(sassinput)
+        .pipe(sourcemaps.init())
+        .pipe(sass(sassOptions).on('error', sass.logError))
+        .pipe(postcss([ autoprefixer() ]))
+        .pipe(cleanCSS({ compatibility: 'ie9' }))
+        .pipe(sourcemaps.write('../css'))
+        .pipe(gulp.dest(output));
+});
+
+gulp.task('watchsass', function() {
+    return gulp
+        .watch(sassinput, gulp.series('sass'));
+});</code></pre>
+                        <p>To use gulp-sass, I start the watcher task whenever I&rsquo;m working on styles.</p>
+                        <p>When starting a new project, after doing the <code>npm init</code> step, I copy the devDependencies section of a previous site&rsquo;s package.json file into the new project's file and run <code>npm i</code>, which installs all of the development dependencies.</p>
+
+                        <h3>node-sass</h3>
+                        <p>I tried node-sass first (<code>npm install node-sass</code> with a task in the task.json file to run the Sass compiler). In researching how to have node-sass called whenever I saved a scss file, I found information on gulp-sass and switched to Gulp.</p>
+                        <h3>task.json</h3>
+                        <pre><code class="html nljs">{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Sass Compile",
+            "type": "shell",
+            "command": "node-sass
+                --output-style compressed
+                --source-map true
+                ./css/sass/style.scss
+                ./css/style.css",
+            "group": "build"
+        }
+    ]
+}</code></pre>
+                        
                     </div>
                 </div>
             </div>

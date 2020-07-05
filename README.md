@@ -108,3 +108,5 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2019/07/02** – Implemented `display=swap` on the Google Fonts, which eliminates the need for a font manager, at least for Google Fonts (I was using [Font Face Observer](https://fontfaceobserver.com/)).
 
 **2020/01/20** – Validated the site works with Fat-Free 3.7.1 and Bootstrap 4.4.1, and made some minor edits to the content.
+
+**2020/07/05** – Validated the site works with Fat-Free 3.7.2, Bootstrap 4.5.0, and jQery 3.5.1, eliminated the non-minified CSS files (just supplying minified CSS files on the website),and made some minor edits to the content (including an explanation about how I'm doing Sass in VS Code).

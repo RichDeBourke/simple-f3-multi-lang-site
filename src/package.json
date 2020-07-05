@@ -1,0 +1,22 @@
+{
+  "name": "f3-multi-lang-site",
+  "version": "1.0.0",
+  "description": "A simple, multi-language site using Bootstrap & F3",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rich DeBourke",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.8.4",
+    "bootstrap": "^4.5.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
