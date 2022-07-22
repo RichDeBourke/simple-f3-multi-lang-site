@@ -3,7 +3,7 @@
 <include href="image-Hero.html" />
                 <a href="https://www.flickr.com/photos/timobeamo/9029364224/in/album-72157634089791347/" class="attribution" title="Image used under a 2.0 Creative Commons license">Image: Timo Goodrich, Flickr</a>
             </div>
-            <div id="content" class="header-text text-center">
+            <div id="content" role="main" class="header-text text-center">
                 <h1>
                     <span class="header-text-line-1">Constructing a website with</span><br>
                     <span class="header-text-line-2">Bootstrap and Fat-Free</span>
@@ -34,10 +34,7 @@
 
                     <div class="card p-3 col-12 col-md-6 col-lg-4">
                         <div class="text-center card-img-top mt-3">
-<check if="{{ @imageEmbed }}"><true>
-<include href="image-FrontPageCard-Learn.html" /></true><false>
-                            <img src="../images/FrontPageCard-Learn.png" alt="Learning – computer generated graphic of three textbooks on programming" width="180" height="180"></false>
-</check>
+                            <img src="../images/FrontPageCard-Learn.png" alt="Learning – computer generated graphic of three textbooks on programming" width="180" height="180" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">学习</h3>
@@ -47,10 +44,7 @@
 
                     <div class="card p-3 col-12 col-md-6 col-lg-4">
                         <div class="text-center card-img-top mt-3">
-<check if="{{ @imageEmbed }}"><true>
-<include href="image-FrontPageCard-Bootstrap.html" /></true><false>
-                            <img src="../images/FrontPageCard-Bootstrap.png" alt="Bootstrap – the Bootstrap logo" width="180" height="180"></false>
-</check> 
+                            <img src="../images/FrontPageCard-Bootstrap.png" alt="Bootstrap – the Bootstrap logo" width="180" height="180" loading="lazy"> 
                         </div>
                         <div class="card-body">
                             <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Bootstrap 4</h3>
@@ -60,10 +54,10 @@
 
                     <div class="card p-3 col-12 col-md-6 col-lg-4">
                         <div class="text-center card-img-top mt-3">
-<check if="{{ @imageEmbed }}"><true>
-<include href="image-FrontPageCard-FatFree.html" /></true><false>
-                            <img src="../images/FrontPageCard-FatFree.png" alt="Fat-Free – the Fat-Free logo" width="180" height="180"></false>
-</check>
+                            <picture>
+                                <source srcset="../images/FrontPageCard-FatFree-Dark.png" media="(prefers-color-scheme: dark)" />
+                                <img src="../images/FrontPageCard-FatFree.png" alt="Fat-Free – the Fat-Free logo" width="180" height="180" loading="lazy">
+                            </picture>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title py-3 mbr-fonts-style display-5 text-center">Fat-Free Framework</h3>

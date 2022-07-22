@@ -48,3 +48,11 @@ li.overlay, .carousel-item {
 .alert-success {
     display: none;
 }
+
+#scroll-to-top {
+    display: none;
+}
+
+#navbarDropdownDetailsMenu, #navbarDropdownLanguageMenu {
+    display: none;
+}

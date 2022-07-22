@@ -1,32 +1,25 @@
-
     <!--[if gte IE 9]><!-->
-    <!-- jQuery and Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    
-    <script>window.jQuery || document.write('<script src="{{ @schemeHost }}/js/jquery.min.js"><\/script>');</script>
+<check if="{{ @scriptCSSEmbed }}"><true>
+        <script src="{{ @schemeHost }}/js/bundle.js?v=20220722a"></script>
+    </true><false>
+        <script src="{{ @schemeHost }}/js/jquery.min.js"></script>
+        <script src="{{ @schemeHost }}/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ @schemeHost }}/js/jquery.easing.min.js"></script>
+        <script src="{{ @schemeHost }}/js/js-functions.js"></script>
+    </false></check><!--<![endif]-->
+    <!--[if IE 9]>
+        <script src="{{ @schemeHost }}/js/bootstrap-ie9.js"></script>
+    <![endif]-->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha512-Oy5BruJdE3gP9+LMJ11kC5nErkh3p4Y0GawT1Jrcez4RTDxODf3M/KP3pEsgeOYxWejqy2SPnj+QMpgtvhDciQ==" crossorigin="anonymous"></script>
-
-    <script>window.jQuery.fn.tooltip || document.write('<script src="{{ @schemeHost }}/js/bootstrap.bundle.min.js"><\/script>')</script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous"></script>
-
-    <script>window.jQuery.easing.easeInOutQuad || document.write('<script src="{{ @schemeHost }}/js/jquery.easing.min.js"><\/script>')</script>
-    <!--<![endif]-->
-
-    <!--[if gte IE 9]><!-->
-    <!-- Custom JavaScript for this site -->
-<include href="js-functions_script.html" />
 <check if="{{ @highlighterJavaScript }}">
     <!-- Code highlighter -->
-    <script src="{{ @schemeHost }}/js/highlight.pack.js"></script>
+    <!--[if gte IE 9]><!-->
+    <script src="{{ @schemeHost }}/js/highlight.pack-v9.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
+    <!--<![endif]-->
 </check>
 <check if="{{ @pageJavaScript }}">
 <include href="{{ @pageJavaScript }}" />
 </check>
-
-    <!--<![endif]-->

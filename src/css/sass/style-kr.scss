@@ -1,11 +1,18 @@
-// the font families are based on:
-//      language specific Google Web fonts
-//      common fall-back fonts that should work on most devices
-//      language specific fall-back fonts
-//      ending with san-serif (which all browsers should support)
+/*!
+ * Korean style main file
+ * Uses the same fonts as the style-common.scss file.
+ * Includes a special word-break: keep-all setting.
+ * Browsers will break Chinese, Japanese, and Korean text to the next line anywhere in the sentence.
+ * That's okay for Chinese and Japanese, but Korean text, especially aligned left should break at
+ * a space. The keep-all setting does that.
+ */
 
-$font-family-sans-serif:       "Noto Sans", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, Batang, sans-serif;
+$font-family-sans-serif:      system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 
-$font-family-monospace:       "Source Code Pro", monospace;
+$font-family-monospace:       ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Courier New", monospace;
+
+body {
+    word-break: keep-all;
+}
 
 @import "style";

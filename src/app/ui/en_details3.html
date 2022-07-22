@@ -1,4 +1,4 @@
-<section id="content" class="detail-first-section bg-white">
+<section id="content" role="main" class="detail-first-section bg-white">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -130,11 +130,11 @@ scriptCSSEmbed=true
 </code></pre>
                 <h3>What&rsquo;s happening:</h3>
                 <p>Values that apply to multiple pages are defined in <code>config.ini</code>. <em>Values specific to one page are defined in that page&rsquo;s controller or HTML file.</em></p>
-                <p>imageEmbed and scriptCSSEmbed control embedding image/JavaScript/CSS files in the page for faster loading versus separate files for easier troubleshooting:</p>
+                <p><code>imageEmbed</code> is used to embed images that are visible when the page loads, such as the hero image on the first page (which is the only image to which currently this applies), as a Base64 image to speed up page loading (eliminates a separate http requests for the image). Embedding the image does make the html code longer, which is more work to scroll through when troubleshooting, which is why I don&rsquo;t embed the image while developing the site.</p>
+                <p><code>scriptCSSEmbed</code> controls embedding JavaScript and CSS files in the page for faster loading versus separate files for easier troubleshooting:</p>
                 <ul>
-                    <li>embedding Base64 images in the page file eliminates separate http requests for each image so the page loads faster, but it does make the html source code longer, which is more work to scroll through when troubleshooting.</li>
-                    <li>scriptCSSEmbed, for JavaScript files, controls whether minified JavaScript will be embedded in the page or the unminified JavaScript version (which is easier to troubleshoot) will be loaded separately.</li>
-                    <li>scriptCSSEmbed, for CSS files, controls whether a minified CSS file will be embedded in the page or the minified CSS file will be loaded using a link &ndash; using a link enables the Sass source map to work.</li>
+                    <li><code>scriptCSSEmbed</code> controls whether a minified JavaScript will be embedded in the page or the unminified JavaScript version (which is easier to troubleshoot) will be loaded separately.</li>
+                    <li><code>scriptCSSEmbed</code> controls whether a minified CSS file will be embedded in the page or the minified CSS file will be loaded using a link &ndash; using a link enables the Sass source map to work.</li>
                 </ul>
                 <p>To add a new page to the site:</p>
                 <ul>
@@ -196,7 +196,7 @@ GET /en/index.php=UtilitiesController-&gt;indexOverride</code></pre>
             <div class="col-lg-8 mx-auto">
                 <h2>Controller.php &amp; PageController<wbr>.php</h2>
                 <p><code>Controller.php</code> defines the overall controller class. That class is extended with the PageController classes (e.g. <code>enPageController</code>).</p>
-                <p>In addition to the function called by the route definition, Fat-Free also calls a beforeroute and an afterroute function. The same before and after functions are used for all languages.</p>
+                <p>In addition to the function called by the route definition, Fat-Free also calls a <code>beforeroute</code> and an <code>afterroute</code> function. The same before and after functions are used for all languages.</p>
                 <h3>beforeroute &ndash; Controller.php</h3>
                 <pre><code class="php hljs">// HTTP route pre-processor
 function beforeroute($f3) {
@@ -210,12 +210,12 @@ function beforeroute($f3) {
                 <h3>What&rsquo;s happening:</h3>
                 <p>Set flags for things that are not required for most pages and change the flag in that page&rsquo;s controller function when needed:</p>
                 <ul>
-                    <li>googleNoIndex: normally false &ndash; the only pages not indexed are the <em>Contact</em> and <em>Terms of Use </em> pages and the error pages (404 and 500).</li>
-                    <li>isHomePage: normally false &ndash; flag for the home page (it has different functionality).</li>
-                    <li>isDetailPage: normally false &ndash; flag for the detail pages (just need for the navigation template).</li>
-                    <li>pageCSS: normally false &ndash; if CSS is required for just one or two pages, the CSS can be loaded by setting the value of pageCSS to the CSS file name. <em>The code only supports one file, so if two CSS files are needed, the files should be combined into one, minified file.</em></li>
-                    <li>highlighterJavaScript: normally false &ndash; flag for loading <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#highlighter">highlight.js</a> to highlight code syntax.</li>
-                    <li>pageJavaScript: normally false &ndash; if a special JavaScript function is required for just one or two pages, the JavaScript can be loaded by setting the value of pageJavaScript to the template file name. <em>The code only supports one file, so if two JavaScript files are needed, the files should be combined into one, minified file.</em></li>
+                    <li><code>googleNoIndex</code>: normally false &ndash; the only pages not indexed are the <em>Contact</em> and <em>Terms of Use</em> pages and the error pages (404 and 500).</li>
+                    <li><code>isHomePage</code>: normally false &ndash; flag for the home page (it has different functionality).</li>
+                    <li><code>isDetailPage</code>: normally false &ndash; flag for the detail pages (just need for the navigation template).</li>
+                    <li><code>pageCSS</code>: normally false &ndash; if CSS is required for just one or two pages, the CSS can be loaded by setting the value of pageCSS to the CSS file name. <em>The code only supports one file, so if two CSS files are needed, the files should be combined into one file.</em></li>
+                    <li><code>highlighterJavaScript</code>: normally false &ndash; flag for loading <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#highlighter">highlight.js</a> to highlight code syntax.</li>
+                    <li><code>pageJavaScript</code>: normally false &ndash; if a special JavaScript function is required for just one pages, the JavaScript can be loaded by setting the value of pageJavaScript to the template file name. I use this for loading the JavaScript for an image slider and for the special effects on the <code>404 page not found</code> page and the <code>500 server error</code> page. <em>The code only supports one file, so if two JavaScript files are needed, the files should be combined into one file.</em></li>
                 </ul>
                 <h3>Route Function &ndash; PageController.php</h3>
                 <pre><code class="php hljs">function loadCommonSettings($f3) {
@@ -227,8 +227,8 @@ function RenderHome($f3) {
     $this-&gt;loadCommonSettings($f3);
     $f3-&gt;set(&apos;pageTitle&apos;,&apos;Learning Frameworks&apos;);
     $f3-&gt;set(&apos;pageDescription&apos;,&apos;A frontend / backend setup for a simple,
-        multi-language website using Bootstrap 4 with the Fat-Free PHP framework,
-        but no database.&apos;);
+        multi-language website using Bootstrap 4 with the Fat-Free PHP
+        framework, but no database.&apos;);
     $f3-&gt;set(&apos;isHomePage&apos;,true);
     $f3-&gt;set(&apos;loadID&apos;,
         function($array,$count) {
@@ -245,16 +245,16 @@ function RenderHome($f3) {
                 <h3>What&rsquo;s happening:</h3>
                 <p class="pl-3">Set page specific items in the route function (data that&rsquo;s not contained in the content page):</p>
                 <ul>
-                    <li>loadCommonSettings &ndash; a local function to set values that are common to all pages for that language:<ul>
-                        <li>LANGUAGE &ndash; set the Fat-Free system variable to the language code for the current language. Fat-Free uses this value for selecting the language dictionary.</li>
+                    <li><code>loadCommonSettings</code> &ndash; a local function to set values that are common to all pages for that language:<ul>
+                        <li><code>LANGUAGE</code> &ndash; set the Fat-Free system variable to the language code for the current language. Fat-Free uses this value for selecting the language dictionary.</li>
                         <li>langSubdirectory &ndash; This is the language subdirectory.</li>
                     </ul></li>
-                    <li>pageTitle &ndash; for the title tag and for social media</li>
-                    <li>pageDescription &ndash; for the description meta tag and for social media</li>
-                    <li id="afterroute-function">loadID &ndash; A custom function for pulling the slug value from the config.ini menus for the single page menu (only for the home page)<ul>
+                    <li><code>pageTitle</code> &ndash; for the title tag and for social media</li>
+                    <li><code>pageDescription</code> &ndash; for the description meta tag and for social media</li>
+                    <li id="afterroute-function"><code>loadID</code> &ndash; A custom function for pulling the slug value from the config.ini menus for the single page menu (only for the home page)<ul>
                         <li><em>The slug values could have been manually included in the template, but I wanted experience with using a custom function.</em></li>
                     </ul></li>
-                    <li>pageContent &ndash; set the file for the page content &ndash; the file name is based on the route&rsquo;s alias (which is the same text string as the name of the content file)</li>
+                    <li><code>pageContent</code> &ndash; set the file for the page content &ndash; the file name is based on the route&rsquo;s alias (which is the same text string as the name of the content file)</li>
                 </ul>
                 <h3>afterroute &ndash; Controller.php</h3>
                 <pre><code class="php hljs">// HTTP route post-processor
@@ -293,16 +293,16 @@ function afterroute($f3) {
                 <ul>
                     <li>Setup an array of the corresponding language pages for the preflang links and the language switcher:
                         <ul>
-                            <li>lang_array &ndash; get the array of languages from config.ini &ndash; the default language is first and then the other languages (the order doesn&rsquo;t matter)</li>
-                            <li>uasort &ndash; PHP sort function &ndash; sort the array in Unicode order based on the language name (uasort preserves the key values)</li>
-                            <li>alias_base &ndash; Get the base portion of the alias (e.g. en_details1 =&gt; _details1) &ndash; combine it with the other language prefixes to generate the route names to the other language versions of the same page</li>
-                            <li>language_links_array &ndash; Create a new array to be passed to the template engine</li>
+                            <li><code>lang_array</code> &ndash; get the array of languages from config.ini &ndash; the default language is first and then the other languages (the order doesn&rsquo;t matter)</li>
+                            <li><code>uasort</code> &ndash; PHP sort function &ndash; sort the array in Unicode order based on the language name (uasort preserves the key values)</li>
+                            <li><code>alias_base</code> &ndash; Get the base portion of the alias (e.g. en_details1 =&gt; _details1) &ndash; combine it with the other language prefixes to generate the route names to the other language versions of the same page</li>
+                            <li><code>language_links_array</code> &ndash; Create a new array to be passed to the template engine</li>
                             <li>loop through the lang_array, pushing an array for each language to the language_links_array &ndash; each array contains the route name for the language versions, the language prefix (used for the language flag), and the language name.</li>
-                            <li>languageLinks &ndash; pass the just created array to Fat-Free to be used for the language menu</li>
+                            <li><code>languageLinks</code> &ndash; pass the just created array to Fat-Free to be used for the language menu</li>
                         </ul>
-                    <li>langCode &ndash; set the value for the lang attribute in the html tag.</li>
-                    <li>Set the mainMenu &ndash; combine the langCode with &ldquo;HomeMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
-                    <li>Set the dropdownMenu &ndash; combine the langCode with &ldquo;DropdownMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
+                    <li><code>langCode</code> &ndash; set the value for the lang attribute in the html tag.</li>
+                    <li>Set the <code>mainMenu</code> &ndash; combine the langCode with &ldquo;HomeMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
+                    <li>Set the <code>dropdownMenu</code> &ndash; combine the langCode with &ldquo;DropdownMenu&rdquo; to generate the language specific menu (this does require that each menu have the same naming structure).</li>
                     <li>Echo the results from the template engine to generate the page content.</li>
                 </ul>
             </div>
@@ -321,7 +321,7 @@ function afterroute($f3) {
                     <li>Terms of Use | Privacy Policy</li>
                     <li>Sitemap</li>
                     <li>404 Page not found</li>
-                    <li>Other errors (e.g. 401 Unauthorized or 500 Internal server error)</li>
+                    <li>Other errors (e.g. 500 Internal server error)</li>
                 </ul>
             </div>
         </div>

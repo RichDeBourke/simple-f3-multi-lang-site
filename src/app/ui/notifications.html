@@ -1,0 +1,31 @@
+        <!--[if lte IE 8]>
+        <div class="ie-warning">
+            <p><img src="{{ @schemeHost }}/images/IE-Notice-Dialog.png" width="24" height="24" alt="Alert icon">{{ @dictNoticeIE }}</p>
+        </div>
+        <![endif]-->
+
+        <section id="eu-cookie" class="eu-cookie pb-1">
+            <div class="container" role="dialog" aria-modal="false" aria-labelledby="eu-cookie-heading" aria-describedby="eu-cookie-message">
+                <div class="row justify-content-center align-items-center mb-3">
+                    <div class="col-lg-6">
+                        <h2 id="eu-cookie-heading" tabindex="0">{{ @dictNoticeEUcookie1 }}</h2>
+                        <p id="eu-cookie-message">{{ @dictNoticeEUcookie2 }}</p>
+                        <p>{{ @dictNoticeEUcookie3 }}</p>
+                        <p>{{ @dictNoticeEUcookie4a }}<a href="{{ @schemeHost }}{{ @langSubdirectory.'_termsx' | alias }}" title="{{ @dictNoticeEUcookie4b }}">{{ @dictNoticeEUcookie4c }}</a>{{ @dictNoticeEUcookie4d }}</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p class="text-center">
+                            <button id="btn-cookie-accept" type="button" class="btn btn-primary btn-lg mr-3 mr-lg-0 mb-lg-3" title="{{ @dictNoticeEUcookie5a }}">{{ @dictNoticeEUcookie5b }}</button>
+                            <button id="btn-cookie-opt-out" type="button" class="btn btn-primary btn-lg ml-3 ml-lg-0" title="{{ @dictNoticeEUcookie6a }}">{{ @dictNoticeEUcookie6b }}</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+            <div class="container">
+                <span class="skiplink-text">{{ @dictNoticeSkipLink }}</span>
+            </div>
+        </a>
+

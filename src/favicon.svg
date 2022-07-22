@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<!-- For creating the favicon.ico file, use #888 for the stroke color -->
+    <style>
+        #helmet {
+            stroke: #000;
+            fill: #000;
+        }
+
+        #head {
+            stroke: #000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #helmet {
+                stroke: #fff;
+                fill: #000;
+            }
+
+            #head {
+                stroke: #f7d417;
+            }
+        }
+    </style>
+    <path id="head" fill="#f7d417" stroke-width="1"
+        d="M 4.5 10.5 L 4.5 16 C 4.5 18 6.5 22.5 6.5 24 L 6.5 31.5 L 19.5 31.5 L 19.5 28 C 19.5 28 20 27 20.5 27 L 22 27 C 23 27 23.25 25.5 23.5 25 L 23.5 21.5 L 25 21.5 C 25.5 21.25 26.5 20.5 26.5 20 C 26.5 19.5 26 18.5 26 18 L 25 10.5 L 4.5 10.5 Z" />
+    <path id="helmet" stroke-width="1"
+        d="M 2.5 10.5 L 2.5 10 A 10 10 90 0 1 11.999 0.579 L 17 0.5 C 22 0.5 25.25 5 26.25 8.5 C 26.25 8.5 26.5 10 27.5 10 L 29.5 10 L 29.5 10.5 L 2.5 10.5 Z" />
+    <circle cx="21" cy="15" r="2" />
+</svg>

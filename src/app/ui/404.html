@@ -1,9 +1,9 @@
-    <section id="content" class="detail-first-section bg-white">
+    <section id="content" role="main" class="detail-first-section bg-white">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-4">
-                    <div class="page-not-found-warning">
-                        <img class="warning-triangle" src="{{ @schemeHost }}/images/404-Triangle.png" alt="Warning symbol" width="417" height="372">
+                    <div class="page-not-found-warning position-relative mx-auto" style="width: 290px">
+                        <img class="warning-triangle" src="{{ @schemeHost }}/images/404-Triangle.png" alt="Warning symbol" width="290" height="258">
                         <div id="eyes">
                             <div class="eye left">
                                 <div class="iris"></div>
@@ -14,7 +14,7 @@
                         </div>
                         <div class="mouth"></div>
                         <div class="oops">
-                            <h3>{{ @dict404Looked | raw }}</h3>
+                            <h3 class="mt-0">{{ @dict404Looked | raw }}</h3>
                         </div>
                     </div>
                 </div>

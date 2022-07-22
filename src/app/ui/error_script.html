@@ -1,14 +1,15 @@
     <script>
         var textBlock = document.getElementById("code-text"),
             codePoint = 0,
-            codeLength = 0,
             newCharacter = '',
             nextCharacter = '',
             spanString = '',
             inTag = false,
+            motionReduce,
             codeContent = '<span class="hljs-comment">F425:</span>  18       <span class="hljs-string">ADD     </span> CLC           CLEAR CARRY<br><span class="hljs-comment">F426:</span>  A2 02             LDX  #$2      INDEX FOR 3-BYTE<br><span class="hljs-comment">F428:</span>  B5 F9    <span class="hljs-string">ADD1    </span> LDA  M1,X<br><span class="hljs-comment">F42A:</span>  75 F5             ADC  M2,X     ADD A BYTE TO MANT1<br><span class="hljs-comment">F42C:</span>  95 F9             STA  M1,X<br><span class="hljs-comment">F42E:</span>  CA                DEX           INDEX TO NEXT BYTE<br><span class="hljs-comment">F42F:</span>  10 F7             BPL  ADD1     LOOP UNTIL DONE<br><span class="hljs-comment">F431:</span>  60                RTS           RETURN<br><span class="hljs-comment">F432:</span>  06 F3    <span class="hljs-number">MD1     </span> ASL  SIGN     CLEAR LSB OF SIGN<br><span class="hljs-comment">F434:</span>  20 37 F4          JSR  ABSWAP   ABS VAL OF M1<br><span class="hljs-comment">F437:</span>  24 F9    <span class="hljs-builtin-name">ABSWAP  </span> BIT  M1       MANT1 NEGATIVE?<br><span class="hljs-comment">F439:</span>  10 05             BPL  ABSWAP1  NO, SWAP WITH MANT2<br><span class="hljs-comment">F43B:</span>  20 A4 F4          JSR  FCOMPL   YES, COMPLEMENT IT<br><span class="hljs-comment">F43E:</span>  E6 F3             INC  SIGN     INCR SIGN, COMP LSB<br><span class="hljs-comment">F440:</span>  38       <span class="hljs-builtin-name">ABSWAP1 </span> SEC           SET CARRY TO MUL/DIV<br><span class="hljs-comment">F441:</span>  A2 04    <span class="hljs-symbol">SWAP    </span> LDX  #$4      INDEX FOR 4 SWAP<br><span class="hljs-comment">F443:</span>  94 FB    <span class="hljs-symbol">SWAP1   </span> STY  E-1,X<br><span class="hljs-comment">F445:</span>  B5 F7             LDA  X1-1,X   SWAP A BYTE OF EXP<br><span class="hljs-comment">F447:</span>  B4 F3             LDY  X2-1,X   EXP/MANT2 AND COPY<br><span class="hljs-comment">F449:</span>  94 F7             STY  X1-1,X   MANT1 IN E (3 BYTES)<br><span class="hljs-comment">F44B:</span>  95 F3             STA  X2-1,X<br><span class="hljs-comment">F44D:</span>  CA                DEX           ADV INDEX TO NEXT<br><span class="hljs-comment">F44E:</span>  D0 F3             BNE  SWAP1    LOOP UNTIL DONE<br><span class="hljs-comment">F450:</span>  60                RTS           RETURN<br><span class="hljs-comment">F451:</span>  A9 8E    <span class="hljs-number">FLOAT   </span> LDA  #$8E     INIT EXP1 TO 14,<br><span class="hljs-comment">F453:</span>  85 F8             STA  X1       NORMALIZE TO FLOAT<br><span class="hljs-comment">F455:</span>  A5 F9    <span class="hljs-number">NORM1   </span> LDA  M1       HIGH-ORDER MANT BYTE<br><span class="hljs-comment">F457:</span>  C9 C0             CMP  #$C0     UPPER TWO BITS EQUAL<br><span class="hljs-comment">F459:</span>  30 0C             BMI  RTS1     YES, RETURN W/ MANT<br><span class="hljs-comment">F45B:</span>  C6 F8             DEC  X1       DECREMENT EXP1<br><span class="hljs-comment">F45D:</span>  06 FB             ASL  M1+2<br><span class="hljs-comment">F45F:</span>  26 FA             ROL  M1+1     SHIFT MANT1 LEFT<br><span class="hljs-comment">F461:</span>  26 F9             ROL  M1<br><span class="hljs-comment">F463:</span>  A5 F8    <span class="hljs-symbol">NORM    </span> LDA  X1       EXP1 ZERO?<br><span class="hljs-comment">F465:</span>  D0 EE             BNE  NORM1    NO, CONTINUE NORM<br><span class="hljs-comment">F467:</span>  60       <span class="hljs-number">RTS1    </span> RTS           RETURN<br><span class="hljs-comment">F468:</span>  20 A4 F4 <span class="hljs-built_in">FSUB    </span> JSR  FCOMPL   CMPL MANT1, CLEAR<br><span class="hljs-comment">F46B:</span>  20 7B F4 <span class="hljs-symbol">SWPALGN </span> JSR  ALGNSWP  RIGHT SHIFT MANT<br><span class="hljs-comment">F46E:</span>  A5 F4    <span class="hljs-string">FADD    </span> LDA  X2<br><span class="hljs-comment">F470:</span>  C5 F8             CMP  X1       COMPARE EXP1 / EXP2<br><span class="hljs-comment">F472:</span>  D0 F7             BNE  SWPALGN  IF #, SWAP ADDENDS<br><span class="hljs-comment">F474:</span>  20 25 F4          JSR  ADD      ADD ALIGNED MANT<br><span class="hljs-comment">F477:</span>  50 EA    <span class="hljs-string">ADDEND  </span> BVC  NORM     NO OVERFLOW, NORMAL<br><span class="hljs-comment">F479:</span>  70 05             BVS  RTLOG    OV: SHIFT M1 RIGHT<br><span class="hljs-comment">F47B:</span>  90 C4    <span class="hljs-built_in">ALGNSWP </span> BCC  SWAP     SWAP IF CARRY CLEAR<br><span class="hljs-comment">F47D:</span>  A5 F9    <span class="hljs-number">RTAR    </span> LDA  M1       SIGN OF MANT1<br><span class="hljs-comment">F47F:</span>  0A                ASL           RIGHT ARITH SHIFT<br>';
 
         function type_text() {
+
             newCharacter = codeContent.charAt(codePoint);
 
             if (newCharacter === "<") {
@@ -53,10 +54,22 @@
                 }
                 codePoint = 0;
             }
-            setTimeout("type_text()",15);
+            // if (codePoint < 400) {  // use this for troubleshooting
+            //     setTimeout("type_text()",15);
+            // }
             
+            setTimeout("type_text()",15);
         }
 
-        codeLength = codeContent.length;
-        type_text();
+        if (typeof window.matchMedia === 'function') {
+            motionReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    
+            if (motionReduce.matches === false) {
+                type_text();
+            } else {
+                // Hide animation content
+                $("html").addClass("no-animation");
+            }
+        }
+        
     </script>

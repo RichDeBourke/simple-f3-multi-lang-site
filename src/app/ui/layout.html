@@ -3,13 +3,12 @@
 <include href="head.html" />
 <body{{ @isHomePage ? ' data-spy="scroll" data-target="#mainNav" data-offset="60" id="page-top"' : ''  }}>
     <div class="offcanvas offcanvas-right">
-<include href="notifications-top.html" />
+<include href="notifications.html" />
 <include href="navigation.html" />
 <include href="{{ @pageContent }}" />
     </div><!--offcanvas offcanvas-right-->
     
 <include href="footer.html" />
-<include href="notifications-bottom.html" />
 <include href="script.html" />
 </body>
 </html>

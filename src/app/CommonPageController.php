@@ -76,10 +76,20 @@ class CommonPageController extends Controller {
             // if your server does, change the no_mail function to mail
             return true;
         }
-        
+
         // define variables and set to empty values
         $contactNameError = $contactEmailError = $contactSubjectError = "";
         $name = $email = $message = $success = "";
+
+        // define variables and set to empty
+        $f3->set('contactName','');
+        $f3->set('contactEmail','');
+        $f3->set('contactSubject','');
+        $f3->set('contactMessage','');
+        $f3->set('contactNameError','');
+        $f3->set('contactEmailError','');
+        $f3->set('contactSubjectError','');
+        $f3->set('contactSuccess',false);
 
         $this->setLanguage($f3);
 

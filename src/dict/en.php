@@ -6,19 +6,32 @@ return array(
     'dictNavDetails'=>'Details',
     'dictNavLanguage'=>'Language',
     'dictNoticeIE'=>'Our site does not support versions of Internet Explorer older than IE9. We apologize for the inconvenience.',
-    'dictNoticeEUcookie1'=>'EU Cookie Notice',
-    'dictNoticeEUcookie2a'=>'We uses cookies to understand how people find and use our site. For more information, please review our ',
-    'dictNoticeEUcookie2b'=>'Learn about what cookies we use and how to control them',
-    'dictNoticeEUcookie2c'=>'privacy policy',
-    'dictNoticeEUcookie2d'=>', which provides an option to opt out of analytics tracking.',
-    'dictNoticeEUcookie3'=>'Okay',
+    'dictNoticeEUcookie1'=>'Cookie Notice (for EU compliance)',
+    'dictNoticeEUcookie2'=>'We use Google analytics to understand how people find and use our site. To enable us to anonymously collect information on how our site is being used, please click or press the Accept button. That authorizes us to: place a cookie on your device to remember your choice; to instruct your browser to send information (including your IP address) to Google; and for Google to place cookies related to our site on your browser.',
+    'dictNoticeEUcookie3'=>'To decline the use of cookies and Google services, click or press the Opt-out button.',
+    'dictNoticeEUcookie4a'=>'For more information on our use of cookies, please review our ',
+    'dictNoticeEUcookie4b'=>'Site Terms of Use / Privacy Policy',
+    'dictNoticeEUcookie4c'=>'Privacy policy',
+    'dictNoticeEUcookie4d'=>'.',
+    'dictNoticeEUcookie5a'=>'Accept tracking cookies',
+    'dictNoticeEUcookie5b'=>'Accept',
+    'dictNoticeEUcookie6a'=>'Reject tracking cookies',
+    'dictNoticeEUcookie6b'=>'Opt-out',
     'dictNoticeSkipLink'=>'Skip to main content',
     'dictFooterHeading1'=>'About this site',
     'dictFooterContent1'=>'This site is an experiment in creating a dynamic website. The files are available on <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="GitHub repository with the Fat-Free Framework and Bootstrap files">GitHub</a> and most of the logic for the site is documented within.',
     'dictFooterHeading2'=>'About me',
     'dictFooterContent2'=>'I help Korean businesses with their English com&shy;mu&shy;ni&shy;cation (presen&shy;tations, web content, and emails) and web design.',
     'dictFooterHeading3'=>'Contact',
-    'dictFooterContent3'=>'If you have questions about this site or if you need help with business in Korea, you can contact me at: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#98;&#102;&#46;&#99;&#111;&#110;&#115;&#117;&#108;&#116;&#105;&#110;&#103;&#46;&#107;&#111;&#114;&#101;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#115;&#98;&#102;&#46;&#99;&#111;&#110;&#115;&#117;&#108;&#116;&#105;&#110;&#103;&shy;&#46;&#107;&#111;&#114;&#101;&#97;&shy;&#64;&#103;&#109;&#97;&#105;&#108;&shy;&#46;&#99;&#111;&#109;</a>.',
+    'dictFooterContent3'=>'If you have questions about this site or if you need help with business in Korea, you can contact me at:
+                        <script>
+                            var name = "&#115;&#98;&#102;&#46;&#99;&#111;&#110;&#115;&#117;&#108;&#116;&#105;&#110;&#103;&#46;&#107;&#111;&#114;&#101;&#97;",
+                                host = "&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;",
+                                linktext,
+                                subject = "?subject=Inquiry%20via%20Website";
+                            linktext = name + "&#64;" + host + subject;
+                            document.write(\'<a class="email" title="Email SBF Consulting" href="\' + \'mai\' + \'lto:\' + linktext + \'">\' + name + "&#64;" + host + \'</a>\');
+                        </script>.',
     'dictFooterTerms'=>'Terms of Use | Privacy Policy',
     'dictFooterTermsTitle'=>'Terms of Use for this site including privacy',
     'dictFooterCopyrightTitle'=>'The website for my consulting business in Korea',
@@ -62,7 +75,8 @@ return array(
     'dictContact16'=>'Required',
     'dictContact17'=>'Only letters and white space allowed',
     'dictContact18'=>'Submit',
+    'dictContact19'=>'Contact information',
     'dictTermsPageTitle'=>'Terms of Use | Privacy Policy',
     'dictTermsPageDescription'=>'Conditions for using this site and information about collecting personal information',
-    'dictTermsOptOutQuestion'=>'Do you really want to not have Google track you?'
+    'dictTermsOptOutQuestion'=>'Please confirm you do not want to use Google services.'
 );

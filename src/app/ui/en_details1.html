@@ -1,4 +1,4 @@
-        <section id="content" class="detail-first-section bg-white">
+        <section id="content" role="main" class="detail-first-section bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
@@ -24,10 +24,13 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Sass organization</h2>
-                        <p>Using Sass, I generate four CSS files, one each for English, Simple Chinese, Traditional Chinese<sup>*</sup>, and Korean, with the only difference being the <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#fonts">language family settings</a>. Only one CSS file is loaded based on the page language requirements.</p>
+                        <p>Most languages can be displayed using one of the standard <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#fonts">font-families</a> available on most systems, so I create a common CSS file for use with most languages. I create a special CSS file for Korean that includes a word-break: keep-all; setting. If an additional font family is needed, such as Meiryo and Osaka for Japanese, it would be easy enough to create an additional CSS file.</p>
                         <p>I also use Sass to generate the CSS file for the <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#structure" title="My overlay image slider that I use for the site structure section">overlay slider</a>.</p>
-<include href="image-SassArchitecture.html" />
-                        <p class="small"><sup>*</sup>Note: I include Traditional Chinese in the CSS and the Google Fonts selection to have it available if needed, but I&rsquo;m currently not using it.</p>
+                        <picture>
+                            <source srcset="../images/SassArchitecture-dark.png, ../images/SassArchitecture-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
+                            <source srcset="../images/SassArchitecture.png, ../images/SassArchitecture-LG.png 1.5x"  />
+                            <img class="scss-diagram mb-3" src="../images/SassArchitecture.png" alt="Diagram of the Sass files used to construct the site CSS" width="540" height="374" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -41,93 +44,22 @@
                         <p>For building Bootstrap/Fat-Free based websites, I&rsquo;m using:</p>
                         <p><a href="https://www.microsoft.com/en-us/windows/features" title="Microsoft Windows 10 features">Windows PC</a>  &ndash; with a PC, I can test pages on Chrome, Firefox, Edge, Internet Explorer, and Opera using my own machine. I borrow a Mac, iPhone, and iPad to test with Safari.</p>
                         <p class="ml-5">For testing with older versions of Internet Explorer (IE9 and IE10), I have IE11 installed on my machine, which will run IE9 and 10 in emulation mode, and I run <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/" title="Microsoft free virtual machines">IE9 and 10 with Windows 7</a> on a virtual machine running on <a href="https://www.virtualbox.org/wiki/Downloads" title="Oracle VirtualBox is a general-purpose virtualizer for x86 hardware">Oracle VM VirtualBox</a>.</p>
-                        <p class="ml-5"><em>I&rsquo;m still seeing visitors to my sites using IE9 &amp; IE11, which means I won&rsquo;t switch to Bootstrap 5 for a while, as the next version of Bootstrap does not support Internet Explorer. Visitors using IE8 or older receive a warning message.</em></p>
-                        <p><a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_A5_(2015)" title="Wikipedia page on the 2015 Samsung Galaxy A5">Samsung Galaxy A5</a> &ndash; smart&shy;phone for testing mobile browsers.</p>
+                        <p class="ml-5"><em>I&rsquo;m still seeing visitors to my sites using IE 9 &amp; IE 11, which means I won&rsquo;t switch to Bootstrap 5 for a while, as the next version of Bootstrap does not support Internet Explorer. Visitors using IE 8 or older receive a message letting them know the site does not support older browsers.</em></p>
+                        <p>Samsung Galaxy &ndash; smart&shy;phone for testing mobile browsers.</p>
                         <p class="ml-5">To see what&rsquo;s happening on the phone, I have Android&rsquo;s <a href="https://developer.android.com/studio/releases/platform-tools" title="Platform-Tools download site">SDK Platform-Tools</a> installed on my PC. Platform-Tools includes the Android Debug Bridge (adb), which connects Chrome on my PC to Chrome on my phone for <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3" title="Chrome developer tools site">Remote Debugging</a>.</p>
                         <p class="ml-5"><em>Note: The Android debug bridge needs to be started first by opening a command window, going to the platform-tools directory, and running</em> <code>adb devices</code><em>.</em></p>
-                        <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t using the database) &ndash; Apache &amp; PHP are needed for Fat-Free.</p>
-                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing files.</p>
+                        <p><a href="http://www.wampserver.com/en/" title="WampServer website">WAMP</a> software stack &ndash; localhost using Apache, MySQL, and PHP (I don&rsquo;t use the database) &ndash; Apache &amp; PHP are needed for Fat-Free.</p>
+                        <p><a href="https://www.npmjs.com/" title="JavaScript Package Manager">npm</a> package manager &ndash; for installing packages:</p>
+                        <ol>
+                            <li>Bootstrap using <code>npm i --save-dev bootstrap</code></li>
+                            <li>jQuery (to support Bootstrap) using <code>npm i --save-dev jquery</code></li>
+                            <li>Popper.js (to support Bootstrap) using <code>npm i --save-dev popper.js</code> (Popper.js has a V2 version, but Bootstrap 4 wants the older V1 version).</li>
+                            <li>Webpack for bundling JavaScript using <code>npm i webpack webpack-cli --save-dev</code></li>
+                        </ol>
                         <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> (A.K.A. VS Code) for writing the code.</p>
 
-                        <p><a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> &ndash; for compiling Sass code into CSS. I originally used the <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> extension for VS Code while developing my Scss code, and then used the <a href="http://koala-app.com/" title="A GUI application for Sass">Koala</a> Sass compiler to generate the production code as I was getting errors with line number and source file references in the sourcemaps from Live Sass Compiler (Koala&rsquo;s sourcemaps were correct). I&rsquo;ve switched to using <a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> as it generates correct sourcemaps and the performance between Live Sass Compiler, <a href="https://www.npmjs.com/package/node-sass" title="A C++ Sass CSS compiler">node-sass</a>, and gulp-sass are about the same. </p>
-                        <p>The first time starting a new site using VS Code, I installed the following:</p>
-                        <ul>
-                            <li><a href="https://gulpjs.com/" title="An open-source JavaScript toolkit">gulp</a> task runner using the installation process that can be found at the <a href="https://gulpjs.com/docs/en/getting-started/quick-start" title="Gulp Quick Start">Gulp Quick Start</a> page.</li>
-                            <li>gulp plugins:
-                                <ul>
-                                    <li><a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> using <code>npm install --save-dev gulp-sass</code></li>
-                                    <li><a href="https://www.npmjs.com/package/gulp-sourcemaps">gulp-sourcemaps</a> using <code>npm install --save-dev gulp-sourcemaps</code></li>
-                                    <li><a href="https://www.npmjs.com/package/gulp-postcss" title="plugin to pipe CSS through several plugins, but parse CSS only once">gulp-postcss</a> using <code>npm install --save-dev gulp-postcss</code></li>
-                                    <li><a href="https://www.npmjs.com/package/autoprefixer" title="plugin to parse CSS and add vendor prefixes to CSS rules">autoprefixer</a> using <code>npm install --save-dev autoprefixer</code></li>
-                                    <li><a href="https://www.npmjs.com/package/gulp-clean-css" title="Library for minifying CSS files.">gulp-clean-css</a> using <code>npm install --save-dev gulp-clean-css</code></li>
-                                </ul>
-                            </li>
-                            <li>Bootstrap using <code>npm install --save-dev bootstrap</code></li>
-                            <li>jQuery (to support Bootstrap) using <code>npm install --save-dev jquery</code></li>
-                            <li>Popper.js (to support Bootstrap) using <code>npm install --save-dev popper.js</code> (Popper.js has a V2 version, but Bootstrap wants the older version).</li>
-                        </ul>
-                        <p>And created a gulpfile.js that I put in the project&rsquo;s root directory.</p>
-                        <h3>gulpfile.js</h3>
-                        <pre><code class="html nljs">function defaultTask(cb) {
-    // place code for your default task here
-    cb();
-}
-
-exports.default = defaultTask
-// Sass configuration
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('autoprefixer');
-var postcss = require('gulp-postcss');
-var cleanCSS = require('gulp-clean-css');
-
-var sassinput = 'css/sass/**/*.scss';
-var output = 'css/';
-
-var sassOptions = {
-    outputStyle: 'expanded'
-};
-
-gulp.task('sass', function () {
-    return gulp
-        .src(sassinput)
-        .pipe(sourcemaps.init())
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(postcss([ autoprefixer() ]))
-        .pipe(cleanCSS({ compatibility: 'ie9' }))
-        .pipe(sourcemaps.write('../css'))
-        .pipe(gulp.dest(output));
-});
-
-gulp.task('watchsass', function() {
-    return gulp
-        .watch(sassinput, gulp.series('sass'));
-});</code></pre>
-                        <p>To use gulp-sass, I start the watcher task whenever I&rsquo;m working on styles.</p>
-                        <p>When starting a new project, after doing the <code>npm init</code> step, I copy the devDependencies section of a previous site&rsquo;s package.json file into the new project's file and run <code>npm i</code>, which installs all of the development dependencies.</p>
-
-                        <h3>node-sass</h3>
-                        <p>I tried node-sass first (<code>npm install node-sass</code> with a task in the task.json file to run the Sass compiler). In researching how to have node-sass called whenever I saved a scss file, I found information on gulp-sass and switched to Gulp.</p>
-                        <h3>task.json</h3>
-                        <pre><code class="html nljs">{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Sass Compile",
-            "type": "shell",
-            "command": "node-sass
-                --output-style compressed
-                --source-map true
-                ./css/sass/style.scss
-                ./css/style.css",
-            "group": "build"
-        }
-    ]
-}</code></pre>
-                        
+                        <p>Glenn Marks&rsquo; <a href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass" title="Sass compiler for VS Code.">Live Sass Compiler</a> &ndash; for compiling Sass code into CSS. I originally used Ritwick Dey&rsquo;s <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> extension for VS Code but I was getting errors with line numbers and source file references in the sourcemaps, so I switched to using <a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> as it generated correct sourcemaps. When doing an update recently, I found <a href="https://www.npmjs.com/package/node-sass" title="A C++ Sass CSS compiler">node-sass</a> has been depreciated, so I switched to Glenn Marks&rsquo; extension for VS Code.</p>
+                        <p><a href="https://webpack.js.org/" title="Module bundler">Webpack 5</a> for bundling multiple JavaScript files into a single file. As using CDNs for providing JavaScript files (e.g. jQuery) are out due to privacy concerns, I am now combining jQuery, Bootstrap, the jQuery easing plugin, and the site-specific common JavaScript into one file. Webpack could also combine the Sass files, but the Live Sass Compiler does what I need. <em>To build the bundled file, I run a build script in the package.json file using <code>npm run build</code>.</em></p>
                     </div>
                 </div>
             </div>
@@ -139,7 +71,7 @@ gulp.task('watchsass', function() {
                     <div class="col-lg-8 mx-auto">
                         <h2>Off-canvas navigation</h2>
                         <p>Bootstrap 4&rsquo;s standard is to have the hamburger icon on the right (which I like) and to have the menu drop down from the top with the menu items listed on the left, which puts the menu items on the other side of the screen from the hamburger icon (which I don&rsquo;t like, especially for tablets).</p>
-                        <p>I&rsquo;m using an updated version of Pascal Müller&rsquo;s <a href="https://github.com/trockendock/bootstrap4-offcanvas-nav" >Off-canvas Nav</a> (Pascal&rsquo;s version was for Bootstrap 4 - Alpha 6 &ndash; I updated it to work with Bootstrap 4.1.2).</p>
+                        <p>I&rsquo;m using a version of Pascal Müller&rsquo;s <a href="https://github.com/trockendock/bootstrap4-offcanvas-nav" >Off-canvas Nav</a> (Pascal&rsquo;s version was for Bootstrap 4 - Alpha 6 &ndash; I updated it to work with Bootstrap 4.0 to 4.6).</p>
                     </div>
                 </div>
             </div>
@@ -150,9 +82,15 @@ gulp.task('watchsass', function() {
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Mobile menu toggler</h2>
-                        <img class="mb-3 mw-100 h-auto" src="{{ @schemeHost }}/images/toggler.gif" alt="Bootstrap 4 standard hamburger style toggler compared to a hamburger with more color contrast and with an animated toggler" width="196" height="60">
+                        <picture>
+                            <source srcset="../images/toggler-dark.png" media="(prefers-color-scheme: dark) and (prefers-reduced-motion: reduce)" />
+                            <source srcset="../images/toggler-dark.gif" media="(prefers-color-scheme: dark)" />
+                            <source srcset="../images/toggler.png" media="(prefers-reduced-motion: reduce)" />
+                            <source srcset="../images/toggler.gif" />
+                            <img class="mb-3 mw-100 h-auto" src="../images/toggler.gif" alt="Comparison of Bootstrap standard toggler vs more contrast vs animated togger." width="196" height="60" loading="lazy">
+                        </picture>
                         <p>Bootstrap 4&rsquo;s menu toggler for mobile devices (shown on the left in the image above) has low color contrast and there&rsquo;s no animation.</p>
-                        <p>I changed the color for <a href="http://www.sbwfc.co.kr/ColorChecker/" title="Online color contrast tool">more contrast</a> (shown in the middle in the image above) and animated the hamburger (shown on the right in the image above) to make it clearer to users that they need to tap the toggler again to close the menu (tapping a link will also close the menu).</p>
+                        <p>I changed the color for <a href="http://www.sbwfc.co.kr/ColorChecker/" title="Online color contrast tool">more contrast</a> (shown in the middle in the image above) and animated the hamburger (shown on the right in the image above) to make it clearer to users that they need to tap the toggler again to close the menu (tapping a link or tapping anywhere on the page will also close the menu).</p>
                         <h3>Toggler HTML code</h3>
                         <pre><code class="html nljs">&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;offcanvas&quot;
     data-target=&quot;#navbarResponsive&quot; aria-controls=&quot;navbarResponsive&quot;
@@ -166,7 +104,7 @@ gulp.task('watchsass', function() {
 &lt;/button&gt;</code></pre>
                         <p><em>The sr-only span tag is just for screen readers</em>.</p>
                         <h3>Toggler CSS code (for the hamburger)</h3>
-    <pre><code class="css hljs">.top-bar {
+    <pre><code class="css nljs">.top-bar {
     transform: rotate(0);
 }
 .middle-bar {
@@ -189,7 +127,7 @@ gulp.task('watchsass', function() {
     transform: translate(0.25rem) rotate(-45deg);
     transform-origin: 1.5% 98.5%;
 }</code></pre>
-                        <p>The toggler adds and removes an off-canvas-active class to the overall containing division to show the menu when the toggle button is clicked or tapped. I use the addition/removal of that class to animate the hamburger (the center bar drops out and the top and bottom bars pivot to form the X).</p>
+                        <p>The toggler adds and removes an off-canvas-active class to the overall containing division to show the menu when the toggle button is clicked or tapped. I use the addition/removal of that class to animate the hamburger (the center bar drops out and the top and bottom bars pivot to form the &#10005;).</p>
                     </div>
                 </div>
             </div>

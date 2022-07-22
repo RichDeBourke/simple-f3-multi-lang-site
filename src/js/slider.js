@@ -42,7 +42,6 @@
     }
 
     function select() {
-        "use strict";
         imgIndex = $(this).index() + 1;
         updateFront();
         updateIndicator();
@@ -54,7 +53,7 @@
         intervalID = win.setInterval(next, delayTime);
     }
 
-    $(doc).ready(function () {
+    $(function () {
         "use strict";
         $overlay = $(".overlay");
         $overlayCurrent = $(".overlay-current");
@@ -79,4 +78,4 @@
         });
         intervalID = win.setInterval(next, delayTime);
     });
-}(jQuery, window, document));
+}($, window, document));

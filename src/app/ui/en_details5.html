@@ -1,4 +1,4 @@
-    <section id="content" class="detail-first-section bg-white">
+    <section id="content" role="main" class="detail-first-section bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -7,14 +7,15 @@
                     <ul>
                         <li><a class="same-page-link" href="#sitemap">Sitemap generation</a></li>
                         <li><a class="same-page-link" href="#fonts">Fonts</a></li>
-                        <li><a class="same-page-link" href="#font-management">Font management</a></li>
                         <li><a class="same-page-link" href="#social">Social networking support</a></li>
                         <li><a class="same-page-link" href="#scroll-anchor">Scroll to anchor</a></li>
                         <li><a class="same-page-link" href="#scroll-button">Scroll-to-top button</a></li>
+                        <li><a class="same-page-link" href="#reduced-motion">Prefers reduced motion</a></li>
+                        <li><a class="same-page-link" href="#dark-mode">Dark mode</a></li>
                         <li><a class="same-page-link" href="#overlay-image-slider">Overlay image slider</a></li>
                         <li><a class="same-page-link" href="#image-management">Image management</a></li>
                         <li><a class="same-page-link" href="#fixed-hero">Fixed hero image</a></li>
-                        <li><a class="same-page-link" href="#user-tracking">Privacy and tracking users</a></li>
+                        <li><a class="same-page-link" href="#user-tracking">Privacy, IP addresses, and Google analytics</a></li>
                         <li><a class="same-page-link" href="#error-pages">Error response pages</a></li>
                         <li><a class="same-page-link" href="#highlighter">Syntax highlighter</a></li>
                         <li><a class="same-page-link" href="#language-flags">Language flags</a></li>
@@ -31,11 +32,10 @@
                     <h2>Sitemap</h2>
                     <p>The sitemap is generated dynamically by Fat-Free Framework and includes xhtml:links for alternate language information.</p>
                     <p>Including the xhtml:link in the sitemap causes some browsers to think the page is <em>not</em> an <a href="https://productforums.google.com/forum/#!topic/webmasters/SHgWtOpH-Ow" title="Google forum discussion on xhtml links">xml document</a>. That results in displaying the sitemap as html, similar to:</p>
-                    <p class="mx-4 px-1" style="font-family: serif; background-color: #ffffff; border:1px solid #888888;">http://sbf-testing.byethost7.com/en/ 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>bootstrap 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>fatfree 2018-06-15</p>
-                    <p>While the sitemap does validate (on Google), to make the information more useful, I added an XSL stylesheet based on one from <a href="https://github.com/pedroborges/xml-sitemap-stylesheet" title="XML sitemap stylesheet by Pedro Borges">GitHub</a>.</p>
+                    <p class="mx-4 px-1" style="font-family: serif; border:1px solid #888888;">http://sbf-testing.byethost7.com/en/ 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>bootstrap 2018-06-15 http://sbf-testing.byethost7.com/en/<wbr>fatfree 2018-06-15</p>
+                    <p>While the sitemap does validate (on Google), to make the information more readable, I added an XSL stylesheet based on one from <a href="https://github.com/pedroborges/xml-sitemap-stylesheet" title="XML sitemap stylesheet by Pedro Borges">GitHub</a>.</p>
                     <!-- The stylesheet is provided under an MIT license - the license is referenced in the style sheet -->
-                    <hr>
-                    <p>I include the alternate language information in the sitemap as <a href="https://support.google.com/webmasters/answer/2620865" title="Google international sitemap help">Google says I can</a>. <a href="https://webmaster.yandex.ru/blog/15326" title="Yendex post about hreflang">Yendex</a>, the Russian search engine, also supports alternate languages in the sitemap. <a href="https://webmasters.stackexchange.com/questions/82100/xhtml-alternate-hreflang-will-it-ruin-my-sitemap-for-bing-yahoo-and-other-ses" title="Bing wants alt-language info on the page">Bing</a> only supports alternate language information via links in the page headers so I include the alternate language information in the head section as well as the sitemap. <a href="https://martinkura.com/baidu-international-websites-hreflang-geographic-target-meta-language-tag/" title="Baidu only focuses on Mandarin Chinese websites">Baidu</a>, the Chinese search engine, focuses on Chinese websites, so they&rsquo;re not a concern so long as there is a Chinese site available (i.e. there are pages with the lang attribute on the html tag set to zh-CN).</p>
+                    <p>I include alternate language (hreflang) information in the sitemap as well as in the page head section. The major search engines, such as <a href="https://support.google.com/webmasters/answer/2620865" title="Google international sitemap help">Google</a>, <a href="https://webmaster.yandex.ru/blog/15326" title="Yendex support for multilingual sites">Yendex</a>, and <a href="https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a" title="Bing Webmaster Guidelines">Bing</a> support both methods. <a href="https://martinkura.com/baidu-international-websites-hreflang-geographic-target-meta-language-tag/" title="Baidu only focuses on Mandarin Chinese websites">Baidu</a>, the Chinese search engine, focuses on Chinese websites, so they&rsquo;re not a concern so long as there is a Chinese site available (i.e. there are pages with the lang attribute on the html tag set to zh-CN).</p>
                     <p>x-default &ndash; I haven&rsquo;t designated one page as the x-default version as x-default appears <a href="https://moz.com/learn/seo/hreflang-tag" title="General Targeting with x-default">to be used</a> to designate a page with multiple languages or a <a href="https://productforums.google.com/forum/#!topic/webmasters/L0g73tLsHvA" title="Correct usage of hreflang=x-default">language selection page</a>.</p>
                 </div>
             </div>
@@ -47,11 +47,10 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Fonts</h2>
-                    <p>I use Google Noto web fonts as they&rsquo;re free, they cover all the character sets I need, and they work <a href="https://chineseseoshifu.com/blog/google-fonts-instable-in-china.html" title="An independent blog posting from September 2016 about Google now hosting fonts from Beijing">globally</a>.</p>
-                    <p>As a fallback, if the Google fonts don&rsquo;t load, I include a list of alternate fonts that are specific to the page language.</p>
-                    <h4>English</h4>
+                    <p>I use system fonts for displaying most of the text (I use a monospaced font for code samples). System fonts are the fonts the operating system uses for displaying text, so they work well with the device and users are generally comfortable with the font. System fonts are specified by using the <a href="https://caniuse.com/font-family-system-ui" title="system-ui value for font-family is supported by most modern browsers (not IE)">system-ui</a> font-family value. There is an additional advantage in that the fonts are already present on the device, so there is no waiting for an external font to download.</p>
+                    <h3>San Serif font</h3>
                     <pre><code class="css hljs">body {
-    font-family: "Noto Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }</code></pre>
                     <table class="table table-sm table-bordered ml-5 font-table">
                         <tr>
@@ -59,26 +58,35 @@
                             <th>System</th>
                         </tr>
                         <tr>
+                            <td>system-ui</td>
+                            <td>Default system font</td>
+                        </tr>
+                        <tr>
+                            <td>Segoe UI</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
                             <td>Roboto</td>
                             <td>Android</td>
                         </tr>
                         <tr>
-                            <td>Helvetica Neue</td>
-                            <td>Apple OS X / iOS</td>
+                            <td>Helvetica</td>
+                            <td>Older Apple versions</td>
                         </tr>
                         <tr>
                             <td>Arial</td>
-                            <td>Windows</td>
+                            <td>Older Windows</td>
                         </tr>
                         <tr>
                             <td>sans-serif</td>
-                            <td>generic</td>
+                            <td>generic fallback</td>
                         </tr>
                     </table>
-                    <h4>Simple Chinese</h4>
-<pre><code class="css hljs">body {
-    font-family: "Noto Sans", "Noto Sans SC", Roboto, "Helvetica Neue", Arial,
-        "PingFang SC", "宋体", SimSun, sans-serif;
+                    <p></p>
+                    <h3>Monospaced font</h3>
+                    <pre><code class="css hljs">body {
+    font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+        "Roboto Mono", "Courier New", monospace;
 }</code></pre>
                     <table class="table table-sm table-bordered ml-5 font-table">
                         <tr>
@@ -86,167 +94,42 @@
                             <th>System</th>
                         </tr>
                         <tr>
-                            <td>Roboto</td>
+                            <td>ui-monospace</td>
+                            <td>Default system font (Apple only)</td>
+                        </tr>
+                        <tr>
+                            <td>Menlo</td>
+                            <td>Older Apple devices</td>
+                        </tr>
+                        <tr>
+                            <td>Monaco</td>
+                            <td>Older Apple devices</td>
+                        </tr>
+                        <tr>
+                            <td>"Cascadia Mono"</td>
+                            <td>Newer Windows</td>
+                        </tr>
+                        <tr>
+                            <td>"Segoe UI Mono"</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
+                            <td>"Roboto Mono"</td>
                             <td>Android</td>
                         </tr>
                         <tr>
-                            <td>Helvetica Neue</td>
-                            <td>Apple OS X / iOS</td>
+                            <td>"Courier New"</td>
+                            <td>Older Windows</td>
                         </tr>
                         <tr>
-                            <td>Arial</td>
-                            <td>Windows</td>
-                        </tr>
-                        <tr>
-                            <td>PingFang SC</td>
-                            <td>Apple OS X / iOS</td>
-                        </tr>
-                        <tr>
-                            <td>SimSun</td>
-                            <td>Windows</td>
-                        </tr>
-                        <tr>
-                            <td>sans-serif</td>
-                            <td>generic</td>
+                            <td>monospace</td>
+                            <td>generic fallback</td>
                         </tr>
                     </table>
-                    <h4>Traditional Chinese<sup>*</sup></h4>
-    <pre><code class="css hljs">body {
-    font-family: "Noto Sans", "Noto Sans SC", Roboto, "Helvetica Neue", Arial,
-        "PingFang TC", "微軟雅黑", "Microsoft YaHei", sans-serif;
-}</code></pre>
-                    <table class="table table-sm table-bordered ml-5 font-table">
-                        <tr>
-                            <th>Font</th>
-                            <th>System</th>
-                        </tr>
-                        <tr>
-                            <td>Roboto</td>
-                            <td>Android</td>
-                        </tr>
-                        <tr>
-                            <td>Helvetica Neue</td>
-                            <td>Apple OS X / iOS</td>
-                        </tr>
-                        <tr>
-                            <td>Arial</td>
-                            <td>Windows</td>
-                        </tr>
-                        <tr>
-                            <td>PingFang TC</td>
-                            <td>Apple OS X / iOS</td>
-                        </tr>
-                        <tr>
-                            <td>Microsoft YaHei</td>
-                            <td>Windows</td>
-                        </tr>
-                        <tr>
-                            <td>sans-serif</td>
-                            <td>generic</td>
-                        </tr>
-                    </table>
-                    <p class="small"><sup>*</sup>Note: I include Traditional Chinese in the CSS and the Google Fonts selection to have it available if needed, but I&rsquo;m currently not using it.</p>
-                    <h4>Korean</h4>
-<pre><code class="css hljs">body {
-    font-family: "Noto Sans", "Noto Sans KR", Roboto, "Helvetica Neue",
-        Arial, Batang, sans-serif;
-}</code></pre>
-                    <table class="table table-sm table-bordered ml-5 font-table">
-                        <tr>
-                            <th>Font</th>
-                            <th>System</th>
-                        </tr>
-                        <tr>
-                            <td>Roboto</td>
-                            <td>Android</td>
-                        </tr>
-                        <tr>
-                            <td>Helvetica Neue</td>
-                            <td>Apple OS X / iOS</td>
-                        </tr>
-                        <tr>
-                            <td>Arial</td>
-                            <td>Windows</td>
-                        </tr>
-                        <tr>
-                            <td>sans-serif</td>
-                            <td>generic</td>
-                        </tr>
-                    </table>
-                    <p>I list the font for Latin characters first, followed by the font for the non-Latin character set, and include the generic san-serif family at the end.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="font-management" class="bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Font Management</h2>
-                    <p>Fonts are loaded from Google.</p>
-                    <pre><code class="css hljs">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Noto+Sans%7C
-    Source+Code+Pro%7CNoto+Sans+SC&display=swap&quot; rel=&quot;stylesheet&quot;/&gt;</code></pre>
-                    <p><em>Google uses a vertical bar </em>|<em> between requests in the string they provide for loading the fonts. As the <a href="https://validator.w3.org/nu/" title="W3 Nu Html Checker">W3 HTML validator tool</a> considers a vertical bar an illegal character, I replace the vertical bars in the text string with its hex equivalent, %7C.</em></p>
-                    <h3>font-display</h3>
-                    <p>Google Fonts now supports <code>font-display</code> (they announced the change at Google I/O 2019). By adding the <code>display=swap</code> to the font request, Google will add <code>font-display: swap</code> to the stylesheet it returns.</p>
-                    <p>Using <code>font-display: swap</code> in the stylesheet lets the browser handle switching from whatever font is specified in CSS and is available in the browser (i.e. the fallback font) to the Google Web Font once the font is loaded. This eliminates the need for a separate program to monitor when the fonts are loaded and then add a class to the page.</p>
-                    <p>Not all browsers support <code>font-display</code>. According to <a href="https://caniuse.com/#feat=css-font-rendering-controls" title="Can I Use data for font-display">Can I use</a>, Firefox, Chrome, Safari, Opera, iOS Safari, Chrome for Android, and Samsung Internet support <code>font-display</code>, but Internet Explorer, Edge, Opera Mini, and Android Bowser do not.</p>
-                    <p>IE and Edge default to showing the fallback font (Fout), which is fine for me as I prefer to show some text rather than having a flash of invisible text (Foit)</p>
-                    <h3>Font Face Observer</h3>
-                    <p>Prior to Google&rsquo;s change to supporting <code>font-display</code>, I used Bram Stein&rsquo;s <a href="https://fontfaceobserver.com/" title="">Font Face Observer</a> as it works with Google&rsquo;s Early Access font.</p>
-                    <p>I had tried Typekit&rsquo;s <a href="https://github.com/typekit/webfontloader" title="">Web Font Loader</a> (which Google recommends), but it doesn&rsquo;t work with <a href="https://groups.google.com/forum/#!topic/early-access-fonts/QXizP5xSgg4" title="Forum posting on using the Web Font Loader with early access fonts">Google&rsquo;s Early Access Fonts</a>, and I was using Early Access Fonts for Simple and Traditional Chinese text.</p>
-                    <p>Font Face Observer monitors the font loading. When (and if) all of the fonts successfully load, Font Face Observer adds the .wf-active class to the html tag, indicating the fonts have been loaded. Before the fonts are loaded, text is styled with a fallback font, so there will be a flash of unstyled text (Fout), but there is no flash of invisible text (Foit), which is what happens on some browsers, such as Safari.</p>
-                    <pre><code class="javascript hljs">(function (d, w) {
-    &quot;use strict&quot;;
-
-    if (w.sessionStorage.fonts) {
-        d.documentElement.className += &quot; wf-active&quot;;
-    } else {
-        var timeout = 6000;
-        var notoSans = new FontFaceObserver(&quot;Noto Sans&quot;, {
-            weight: 400
-        });
-        var sourceCodePro = new FontFaceObserver(&quot;Source Code Pro&quot;, {
-            weight: 400
-        });
-        var notoSansSC = new FontFaceObserver(&quot;Noto Sans SC&quot;, {
-            weight: 400
-        });
-
-        Promise.all([
-            notoSans.load(null, timeout),
-            sourceCodePro.load(null, timeout),
-            notoSansSC.load(&quot;简单的中文&quot;, timeout)
-        ]).then(function () {
-            d.documentElement.className += &quot; wf-active&quot;;
-            w.sessionStorage.fonts = true;
-            }, function () {
-                w.console.log(&quot;There was a problem loading the fonts&quot;
-            );
-        });
-    }
-}(document, window));</code></pre>
-                    <p>The wf-active class enables the use of the Web Fonts. <em>The fonts for Simple Chinese are shown below:</em></p>
-<pre><code class="css hljs">body {
-    font-family: 'Roboto, "Helvetica Neue", Arial, PingFang SC,宋体,SimSun,
-        sans-serif';
-}
-
-.wf-active body {
-    font-family: "Noto Sans","Noto Sans SC",'Roboto, "Helvetica Neue", Arial,
-        PingFang SC,宋体,SimSun, sans-serif';
-}</code></pre>
-                    <h3>Using Google Released and Early Access fonts</h3>
-                    <p>When I created this site in the fall of 2018, only the Google Korean Noto web fonts were available as released fonts. Google Simple and Traditional Chinese Noto web fonts were available only through the <a href="https://fonts.google.com/earlyaccess" title="GFirefox, Chrome, Safari, oogle Early Access fonts">Early Access</a> program.</p>
-                    <p>Google graduated the <a href="https://design.google/news/google-fonts-launches-chinese-support/" title="Google Fonts launches Simplified and Traditional Chinese support - 02/05/2019">Chinese</a> fonts to released status this past February. <em>For reference, <a href="https://developers.googleblog.com/2018/09/google-fonts-launches-japanese-support.html" title="Google Fonts launches Japanese support - 09/28/2018">Japanese</a> fonts were graduated to release status in September of 2018.</em></p>
-                    <p>While released fonts can be combined into one request, Early Access fonts require a separate request and they don&rsquo;t support <code>display=swap</code>.</p>
-                    <pre><code class="css hljs">&lt;style&gt;
-    @import url(&apos;https://fonts.googleapis.com/css?family=Noto+Sans|
-        Source+Code+Pro&apos;);
-    @import url(&apos;https://fonts.googleapis.com/earlyaccess/notosanssc.css&apos;);
-&lt;/style&gt;</code></pre>
+                    <h3>Google Noto fonts</h3>
+                    <p>I previously used Google fonts, but as an <a class="same-page-link" href="#user-tracking" title="See the section on IP address privacy for information on the EU decision">EU court</a> has ruled against sharing users&rsquo; IP addresses with third-parties (such as Google fonts), I stopped.</p>
+                    <p>It is possible to self-host fonts from Google. Fonts, such as the Noto family of fonts, which includes fonts for Chinese, Japanese, and Korean (CJK) characters, are available under a <a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL" title="SIL license page">SIL International Open Font License</a>. The problem is the stylesheets. Many of the fonts have been subsetted (broken into a number of files, referenced by character Unicode values). The separate font files and the stylesheets with the unicode-range make it possible for a browser to download just the font files needed for a webpage. Those font files and stylesheets are only available from Google&rsquo;s font API (they are not included under the Open Font License).</p>
+                    
                 </div>
             </div>
         </div>
@@ -290,7 +173,7 @@
                         <h2>Scroll to anchors</h2>
                         <p>For page anchors:</p>
                         <ul>
-                            <li>Clicking a link for a same-page anchor triggers a 1-second scroll to the new position (rather than the page jumping to the new position).</li>
+                            <li>Clicking a link for a same-page anchor triggers a 1-second scroll to the new position, rather than the page jumping to the new position (unless the user has set <code>prefers-reduced-motion</code> to <code>reduce</code>, in which case, the page will jump to the new position).</li>
                             <li>Anchors are generally assigned to sections (there&rsquo;s only one case that isn&rsquo;t). Sections are styled with 4rem padding on the top and bottom (the padding is the same so that the section content is centered vertically, which is important if the section has a background color, as is done on the home page).</li>
                             <li>The 4rem padding at the top is to clear the fixed navbar at the top of the page. When the page is first loaded, the navbar is 74px high (4.625rem). After the page has been scrolled more than 100px, a class, .small-logo is added to the navbar that reduces the size of the logo, reducing the height of the navbar to 58px (3.625rem). Reducing the size of the navbar allows the anchor text to be seen without excessively increasing the spacing between sections.<ul>
                                 <li>The top sections in the detail pages have a 6rem (for mobile screens) or 7rem padding at the top to clear the full-height navbar.</li>
@@ -301,7 +184,7 @@
                                 <li>It is possible to push the current address hash onto the browser&rsquo;s history, but having that capability seems to make it more confusing to navigate the site.</li>
                             </ul></li>
                             <li>After scrolling to a position on the same page, focus is set on the destination element to support <a href="https://css-tricks.com/smooth-scrolling-accessibility/" title="CSS-Tricks article on Smooth Scrolling and Accessibility">keyboard users</a>.<ul>
-                                <li><em>I style the section:focus outline-color to transparent so section won&rsquo;t have a line around it on Chrome browsers.</em></li>
+                                <li><em>I style the section:focus outline-color to transparent so the section won&rsquo;t have a line around it on Chrome browsers.</em></li>
                             </ul></li>
                         </ul>
                         <p><em>More information is available in the <a href="{{ @schemeHost }}/js/js-functions.js" target="_blank" title="JavaScript file - link opens in a new tab">js-functions</a> JavaScript file.</em></p>
@@ -320,10 +203,14 @@
                     <p>My solution is to monitor the distance from the top of the page (B) plus the height of the window (C) compared to the total height of the page (A) minus the height of the footer (D).</p>
                     <div class="row mb-4">
                         <div class="col-12 col-md-6 mb-4">
-<include href="image-ScrollCalculation.html" />
+                            <picture>
+                                <source srcset="../images/ScrollCalculation-dark.png, ../images/ScrollCalculation-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
+                                <source srcset="../images/ScrollCalculation.png, ../images/ScrollCalculation-LG.png 1.5x"  />
+                                <img class="float-left mw-100 h-auto" src="../images/ScrollCalculation.png" alt="Graphic showing the calculation for when to adjust the position of the scroll-to-top button" width="365" height="425" loading="lazy">
+                            </picture>
                         </div>
                         <div class="col-12 col-md-6">
-                            <h4>Button position calculation</h4>
+                            <h3>Button position calculation</h3>
                             The button position is based on:
                             <ul>
                                 <li><strong>A</strong> &ndash; Total height<ul>
@@ -346,10 +233,76 @@
                     <p>I monitor the distance by listening for scroll events. Scroll events are routed through a throttler function that calls the scroll handler function. The throttler function is also called by a resize event listener to adjust the button position if there&rsquo;s a change in the window height, which happens on mobile displays when the URL bar is hidden.</p>
                     <p><em>More information is available in the <a href="{{ @schemeHost }}/js/js-functions.js" target="_blank" title="JavaScript file - link opens in a new tab">js-functions</a> JavaScript file.</em></p>
                     <p>After the page is scrolled back to the top, focus is applied to the page, which enables a keyboard user to navigate the page from the beginning.</p>
-                    <pre><code class="hljs javascript">doc.documentElement.tabIndex = 0;
+                    <pre><code class="javascript hljs">doc.documentElement.tabIndex = 0;
 doc.documentElement.focus();</code></pre>
                     <p>I include the tabIndex line for the documentElement as it&rsquo;s needed for <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=467043" title="Chrome bug report on applying focus to the html element">Chrome</a>. Firefox and Internet Explorer don&rsquo;t require the extra step, but it doesn&rsquo;t hurt.</p>
                     <p>I use a sticky footer setup with a large bottom margin on the body that matches the height of the footer (the body margin-bottom is set using JavaScript, and is updated every time the browser is resized).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reduced-motion" class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Prefers reduced motion</h2>
+                    <p>Prefers reduced motion is a system setting (for Windows, it is the <em>Show animations in Windows</em> setting and for Mac, it is the <em>Reduce Motion</em> setting) to aid people who are afflicted with vestibular disorders and could experience problems with animated content. When reduced motion is enabled, most <a href="https://getbootstrap.com/docs/4.6/getting-started/accessibility/#reduced-motion" title="Bootstrap accessibility features">Bootstrap</a> CSS transition effects are disabled.</p>
+                    <p>For the animations controlled by jQuery functions, I set $.fx.off to true, which causes all animations to happen immediately.</p>
+                    <pre><code class="javascript hljs">if (typeof window.matchMedia === 'function') {
+    var motionReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (motionReduce.matches === true) {
+        $.fx.off = true;
+    }
+}</code></pre>
+                    <p><em>Note: Internet Explorer does not support reduced-motion.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dark-mode" class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Dark mode</h2>
+                    <p>More than 80% of smartphone users, according to <a href="https://earthweb.com/how-many-people-use-dark-mode/" title="How Many People Use Dark Mode in 2022?,">one website</a>,  use dark mode, and many of those people expect websites to have a dark theme. While the percentage seems high, it is clear that sites need to consider having two modes, light and dark.</p>
+                    <p>The easiest way to implement dark mode would be to use CSS custom properties (variables) on the root, but as Internet Explorer does not support CSS custom properties, I used <code>@media</code> queries in the CSS file to override the default light colors.</p>
+                    <pre><code class="css hljs">body {
+    color: $body-color;
+    background-color: $body-bg;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: rgba(256,256,256,0.7);
+        background-color: #121212;
+    }
+}</code></pre>
+                    <p><strong>Bootstrap dark mode </strong> &mdash; The beta1 version of Bootstrap 5.2.0, which was released in May of 2022, supports <a href="https://deploy-preview-35857--twbs-bootstrap.netlify.app/" title="Bootstrap dark mode demo page">dark mode</a>. As version 5 does not support Internet Explorer, making the switch will depend on how many people continue to use Internet Explorer.</p>
+                    <h3>Dark mode design</h3>
+                    <p>I've based my dark mode design on Google&rsquo;s Material Design concept &mdash; start from a dark gray background (#121212) and use increasingly lighter shades of gray for secondary <em>surfaces</em> (e.g. dropdown menus). While Material Design suggests pure grays, I&rsquo;ve gone with a more steel-blue color (#12161a).</p>
+                    <h3>Dark mode switch</h3>
+                    <p>A number of websites provide a switch for users to switch between light and dark modes (with the page using local storage to remember the user&rsquo;s selection). I don&rsquo;t think a switch is needed unless a page has the potential for users to visit multiple times and the users need to interact with the page (not just read information). The user has already made their preference known (through the setting in the OS).</p>
+                    <h3>Dark mode favicon</h3>
+                    <p class="mb-1">Favicons are important for a website as they&rsquo;re used for identifying the site on the:</p>
+                    <ul>
+                        <li>Page tab</li>
+                        <li>Favorites menubar &amp; dropdown</li>
+                        <li>Address bar</li>
+                    </ul>
+                    <p>If there are more than ten or fifteen tabs open in a browser, the title in the tab becomes shorter, making the favicon the primary way to visually locate a tab.</p>
+                    <p>In light mode, the color for tabs (active, idle, or hover) and for bookmark lists runs from white (#ffffff) to a light-gray (#d6d6d6). In dark mode, the colors run from #444547 to #1c1b22. Designing a favicon that works well against light <em>and</em> dark backgrounds and matches with the site branding is not easy.</p>
+                    <p>The original favicon for this site was a person wearing a hardhat (in keeping with the construction theme). The hardhat was black and the person was yellow with a black outline. This works with light backgrounds, but isn&rsquo;t as good against dark backgrounds</p>
+                    <p><img class="border border-medium" src="../images/Favicon-ico-background-comparison.png" width="256" height="64" alt="Original favicon on different backgrounds"></p>
+                    <p>To have the icon more visible against light and dark backgrounds, I changed the outline from black (#000000) to gray (#808080) in the favicon.ico file.</p>
+                    <p><img class="border border-medium" src="../images/Favicon-ico-background-comparison-gray.png" width="256" height="64" alt="Favicon using a gray outline for better visibility against dark backgrounds"></p>
+                    <p>For browsers that use an SVG favicon file (i.e., modern browsers except Safari), I provide a favicon.svg file that has two versions, one with a black outline and one with a white outline for light and dark mode.</p>
+                    <p><img class="border border-medium" src="../images/Favicon-ico-background-comparison-both.png" width="256" height="64" alt="SVG favicon showing better visibility against light and dark backgrounds"></p>
+                    <h3>Touch icons</h3>
+                    <p>I include touch icons for Apple &amp; Android mobile devices. While most users will likely not save the site to their home screen, I like having the option available (especially for company sales people if it&rsquo;s a business website).</p>
+                    <p><img src="../apple-touch-icon.png" width="128" height="128" alt="Example of a touch icon for use on a mobile device"></p>
                 </div>
             </div>
         </div>
@@ -381,27 +334,20 @@ doc.documentElement.focus();</code></pre>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Image management</h2>
-                    <p>To improve page loading times, all images are compressed using an online compression application (<a href="https://compresspng.com/" title="Online PNG compression application">compresspng.com</a> for PNG files, <a href="https://compressjpeg.com/" title="Online JPEG compression application">compressjpg.com</a> for JPEG files, and <a href="https://www.ps2pdf.com/compress-webp" title="Online WEBP compression application">www.ps2pdf.com/compress-webp</a> for WEBP files). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the image files do need to be compressed for use on a website.</em></p>
-                    <p>Larger images that are used on multiple pages (e.g. the logo) are loaded as separate images. Smaller images that are used on multiple pages (e.g. the language flags) are embedded in the CSS file as Base64 background images.</p>
-                    <p>For images that are only used on one page, if there&rsquo;s just a few on the page, the images are embedded in the page as <a href="http://freeonlinetools24.com/base64-image" title="Online image-to-base64 converter">Base64</a> images.</p>
-                    <p>Embedding the image reduces the number of HTTP requests to the server, but it also makes the html page longer, which is more work to scroll through when troubleshooting. That&rsquo;s why I have a variable in the config.ini file, <code>imageEmbed</code>, that selects between a template file with the image Base64 code and a normal img tag with a source value.</p>
-                    <pre><code class="php hljs">&lt;check if=&quot;&#123;&lbrace; @imageEmbed &#125;&#125;&quot;&gt;&lt;true&gt;
-&lt;include href=&quot;image-FrontPageCard-Learn.html&quot; /&gt;&lt;/true&gt;&lt;false&gt;
-    &lt;img src=&quot;../images/FrontPageCard-Learn.png&quot; alt=&quot;Learning – computer
-        generated graphic of three textbooks on programming&quot;
-        width=&quot;180&quot; height=&quot;180&quot;&gt;&lt;/false&gt;
-&lt;/check&gt;</code></pre>
-                    <p>For pages with more images, I use David Walsh&rsquo;s <a href="https://davidwalsh.name/lazyload-image-fade" title="Simple Image Lazy Load and Fade">delayed image loading method</a>.</p>
-                    <pre><code class="php hljs">&lt;img class="base lazy-load"
-    src="../images/tmp-min.png" data-src="../images/NamingFlowTable.png"
-    alt="Table that shows the naming relationship between the configuration and
-    route data" width="730" height="361"&gt;</code></pre>
-    <p>For images that are in the page flow, I initially load a white image that&rsquo;s the correct size (Firefox, when linking to an anchor in the page, appears to not calculate the page size before positioning the page. Loading the images causes the page to jump.) For images that are not in the page flow, I initially embed a 1px image as the HTML validator wants a src value.</p>
-            <pre><code class="php hljs">&lt;img class="lazy-load"
-    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///
-    wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-    data-src="../images/NamingFlowTable-ctr-conn.png"
-    alt="Controller naming relationships" width="730" height="361"&gt;</code></pre>
+                    <p>To improve page loading times, all images are compressed using an online compression application (<a href="https://www.iloveimg.com/compress-image/compress-png" title="Online PNG compression application">iloveimg.com</a> for PNG files, <a href="https://compressjpeg.com/" title="Online JPEG compression application">compressjpg.com</a> for JPEG files, and <a href="https://www.ps2pdf.com/compress-webp" title="Online WEBP compression application">www.ps2pdf.com/compress-webp</a> for WEBP files). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the image files do need to be compressed for use on a website.</em></p>
+                    <!-- I originally used https://compresspng.com/ but iloveimg.com produces smaller files (at least for PNGs), so I switched -->
+                    <p>Larger images that are used on multiple pages (e.g. the logo) are loaded as separate images. Smaller images that are used on multiple pages (e.g. the language flags) are embedded in the CSS file as <a href="http://freeonlinetools24.com/base64-image" title="Online image-to-base64 converter">Base64</a> background images.</p>
+                    <p>I use the <code>loading="lazy"</code> attribute on the img tag to delay loading images that normally do not show when the page is first loaded.</p>
+                    <pre><code class="html hljs">&lt;picture&gt;
+    &lt;source srcset="../images/SassArchitecture-dark.png,
+        ../images/SassArchitecture-LG-dark.png 1.5x"
+        media="(prefers-color-scheme: dark)" /&gt;
+    &lt;source srcset="../images/SassArchitecture.png,
+        ../images/SassArchitecture-LG.png 1.5x" /&gt;
+    &lt;img class="scss-diagram mb-3" src="../images/SassArchitecture.png"
+        alt="Diagram of the Sass files used to construct the site CSS" 
+        width="540" height="374" loading="lazy"&gt;
+&lt;/picture&gt;</code></pre>
                 </div>
             </div>
         </div>
@@ -435,82 +381,113 @@ doc.documentElement.focus();</code></pre>
                     <p>Embedding a base64 image pretty much eliminates the flash of background color. It does make the page larger (in my case, the page, gzipped, went from 5.7kb to 70.3kb), but it eliminates downloading an image (67kb). Embedding the image does mean the image will be downloaded every time, but, since it&rsquo;s unlikely that people will visit the home page of an informational website that many times, it seems like a reasonable trade-off.</p>
                     <p>I did try preloading the image in the head section, but embedding the image was faster.</p>
                     <p>One other option I looked at was to embed a small version of the image that would load with the page. The small image would display quickly (albeit blurry), and then, when the full image was loaded, the browser would transition from the small image to the full image. While the technique (which is used on this <a href="https://mikeindustries.com/blog/" title="Mike Davidson, former VP of Design for Twitter, personal site">site</a> and the method explained on this <a href="https://www.perpetual-beta.org/weblog/silky-smooth-image-loading.html" title="Jonathan Hollin's Silky-Smooth Image Loading">site</a>) looks nice in some situations, I decided it was worth the page size penalty to get the full-size image there quickly.</p>
-                    <p>Note: The hero image used on the demo site is used under a Creative Commons license. The image used for the <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="Demo source files on GitHub">GitHub</a> files is a graphic to simulate the image, rather than the actual image.</p>
+                    <p><em>Note: The hero image used on the demo site is used under a Creative Commons license. The image used for the <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="Demo source files on GitHub">GitHub</a> files is a graphic to simulate the image, rather than the actual image.</em></p>
                 </div>
             </div>
         </div>
     </section>
     
     <section id="user-tracking" class="bg-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2>Privacy and tracking users</h2>
-                        <p>The European Union&rsquo;s General Data Protection Regulation (GDPR) defines how internet users&rsquo; personal data is to be handled by organizations that have European offices and non-European organizations that target European users for free or paid goods or services.</p>
-                        <p>While you should consult with your legal advisor, most sites need a <a href="{{ @schemeHost}}{{ @langSubdirectory.'_termsx' | alias }}" title="The privacy statement for this site">privacy statement</a> and a way for users to opt-out of tracking cookies.</p>
-                        <p>As I use <a href="https://analytics.google.com/analytics/web/" title="Google Analytics homepage">Google Analytics</a> (along with <a href="https://search.google.com/search-console/about" title="What used to be Google Webmaster Tools and is now Google Search Console">Google Search Console</a>) to understand how my sites are being used, I use the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out" title="Google Analytics User Opt-out">ga-disable cookie method</a> for users to opt-out of their data being sent to Google.</p>
-                        <p>I use three components to manage user tracking. The first is in the head section of the page:</p>
-                        <pre><code class="php hljs">// Disable tracking if the opt-out cookie exists.
-if (document.cookie.indexOf("ga-disable-UA-11155712-3=true") > -1) {
-    window["ga-disable-UA-11155712-3"] = true;
-}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Privacy and tracking users</h2>
+                    <p>The European Union&rsquo;s General Data Protection Regulation (GDPR) defines how internet users&rsquo; personal data is to be handled by organizations that have European offices as well as non-European organizations that target European users for free or paid goods or services.</p>
+                    <p>You should consult with your legal advisor on whether or not you need a cookie notice, a <a href="{{ @schemeHost}}{{ @langSubdirectory.'_termsx' | alias }}" title="The privacy statement for this site">privacy statement</a>, and/or a way for users to opt-out of tracking.</p>
+                    <h3>IP address privacy</h3>
+                    <p>In 2016, the Court of Justice of the European Union held that, in certain circumstances, <a href="https://curia.europa.eu/juris/document/document.jsf?text=&docid=184668&pageIndex=0&doclang=EN&mode=lst&dir=&occ=first&part=1&cid=1328710" title="Court judgement on InfoCuria">IP addresses are personal data</a>.</p>
+                    <p>This was followed in early 2022 by a decision from a <a href="https://www.theregister.com/2022/01/31/website_fine_google_fonts_gdpr/" title="Website fined by German court for leaking visitor's IP address via Google Fonts">court in Munich</a> that linking to a third-party without prior consent, such as to Google to use Google fonts, violated the EU privacy law.</p>
+                    <p>Based on the prohibition against sharing a user&rsquo;s IP address, I have:</p>
+                    <ul>
+                        <li>switched from using Google fonts to using system fonts;</li>
+                        <li>switched from sourcing framework and library files (i.e. Bootstrap and jQuery javascript) from content delivery networks (i.e. cdnjs) to self-hosting the files;</li>
+                        <li>and switched to downloading the JavaScript file for Google Analytics only if the user has agreed to accept tracking cookies.</li>
+                    </ul>
+                    <h3>Google analytics</h3>
+                    <p>I use <a href="https://analytics.google.com/analytics/web/" title="Google Analytics homepage">Google Analytics</a> (along with <a href="https://search.google.com/search-console/about" title="What used to be Google Webmaster Tools and is now Google Search Console">Google Search Console</a>) to understand how my sites are being used. Previously, to enable users to opt-out of their data being sent to Google, I used Google&rsquo;s <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out" title="Google Analytics User Opt-out">ga-disable cookie</a> method, <em>but</em> that method still required the browser to download a JavaScript file <em>from</em> Google to read the cookie that said whether the user had opted out or not. The browser was still sending the user&rsquo;s IP address to Google in order to get the JavaScript file.</p>
+                    <p>I switched from using Google&rsquo;s ga-disable cookie method to using either my own cookie or a sessionStorage value. When someone visits the site for the first time, they are presented with a cookie notice where they can either accept cookies (and allow the use of Google Analytics) or they can opt-out.</p>
+                    <p>If the visitor accepts the use of cookies (and the use of Google Analytics), I create a cookie, valid for one year, to record their choice. After that, when they visit the site, the page reads the cookie and does not display the cookie notice.</p>
+                    <p>If  the visitor rejects the use of cookies (and the use of Google Analytics), I store a value in sessionStorage to record their choice. After that, when the visitor views any other site page during the current browser session (the browser and the tab remain open), the pages will read the sessionStorage value and not display the cookie notice. If the visitor returns to the site in a different session, they will again be shown the cookie notice.</p>
+                    <p>To make this work, I use three JavaScript code components to manage user tracking. The first is in the head section of the page:</p>
+                    <pre><code class="php hljs">var gaScript;
+var googleAnalyticsID = "UA-11155712-3";
+gaScript = document.createElement("script");
+gaScript.async = true;
+gaScript.src = "https://www.googletagmanager.com/gtag/js?id=UA-11155712-3";
 
+// Until Google Tagmanager has been loaded, this code will have no effect
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
+gtag('config', 'UA-11155712-3', { "anonymize_ip": true });
 
-if (document.cookie.indexOf("eu-cookie-notice-accepted=true") > -1) {
-    // The notice has been accepted, so process tracking
-    gtag('config', 'UA-11155712-3', { 'anonymize_ip': true });
+if (document.cookie.indexOf("eu-cookie-notice=true") > -1) {
+    // User has accepted the terms, so load analytics (not opted out).
+    document.head.appendChild(gaScript);
 }</code></pre>
-                        <p>This code attaches a value to the window object if a user has opted out of tracking, sets up a dataLayer array for Google tag information, and, if the user has already accepted the cookie notice, passes a config array to the dataLayer array. It&rsquo;s the config array that triggers sending the tracking information. If there&rsquo;s no cookie, the tracking information won&rsquo;t be sent (yet).</p>
-                        <p>The second component is in the js-function file and handles the cookie notice:</p>
-                        <pre><code class="php hljs">$(document).ready(function () {
-    // Show the EU cookie notice (if first time to the site)
-    if (document.cookie.indexOf("eu-cookie-notice-accepted=true") &lt; 0) {
-        //Cookie not found, so show
+                    <p>This code creates a script tag to load the Google Tag Manager JavaScript, and, if the user has previously accepted cookies, the script tag is appended to the page head. This code also sets up a dataLayer array for Google tag information. If the user has or does accept cookies, the tracking information will be sent to Google. If the user rejects tracking, the Google JavaScript will not be downloaded and the tracking information will never be sent.</p>
+                    <p>The second component is in the <a href="{{ @schemeHost }}/js/js-functions.js" target="_blank" title="JavaScript file - link opens in a new tab">js-functions</a> file and handles the cookie notice:</p>
+                    <pre><code class="php hljs">// Show the EU cookie notice (if it's the first time to the site or a new session)
+if (document.cookie.indexOf("eu-cookie-notice") &lt; 0) { // no cookie
+    if (window.sessionStorage.getItem("eu-opt-out") !== "true") { //no session item
+        //Cookie not found and no current session, so show the banner
         $("#eu-cookie").slideDown();
         $(".detail-first-section").addClass("cookie-notice-margin");
-        $("#btn-cookie").on("click", function () {
+        $("#btn-cookie-accept").on("click", function() {
             var date = new Date();
+            // gaScript is defined in the head
             date.setTime(date.getTime() + 31536000000); // one year
-            document.cookie = "eu-cookie-notice-accepted=true; expires=" +
-                date.toGMTString() + ";path=/";
+            document.cookie = "eu-cookie-notice=true; expires=" 
+                + date.toGMTString() + ";path=/";
             $("#eu-cookie").slideUp();
             $(".detail-first-section").removeClass("cookie-notice-margin");
-            // Trigger tracking for this visit
-            gtag('config', 'UA-11155712-3', { 'anonymize_ip': true });
+            
+            // Enable tracking
+            document.head.appendChild(gaScript);
+        });
+        $("#btn-cookie-opt-out").on("click", function() {
+            try {
+                window.sessionStorage.setItem("eu-opt-out", "true");
+            } catch (error) {
+                console.error(error);
+            }
+            $("#eu-cookie").slideUp();
+            $(".detail-first-section").removeClass("cookie-notice-margin");
         });
     }
-});</code></pre>
-                        <p>This code shows a banner across the top of the webpage with information about the site using cookies and an &ldquo;Okay&rdquo; button for the user to acknowledge having read the notice.</p>
-                        <p>Clicking the Okay button stores a cookie that the user has accepted the notice, hides the notice, and triggers Google tracking for this visit. The cookie is good for one year, after which the user will need to reaccept cookies.</p>
-                        <p>The notice includes a link to the <a href="{{ @schemeHost}}{{ @langSubdirectory.'_termsx' | alias }}" title="The privacy statement for this site">Terms of Use</a> that includes privacy information and an Opt-out button, which is the third component:</p>
-                        <pre><code class="php hljs">&lt;button type="button" class="btn btn-dark center opt-out" onclick="gaOptOut()">
-    Opt-out
-&lt;/button>
-                            
-function gaOptOut() {
-    if (window.confirm("{{ @dictTermsOptOutQuestion}}")) {
-        document.cookie = "ga-disable-{{ @googleAnalyticsID }}=true;
-            expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
-        window["ga-disable-{{ @googleAnalyticsID }}"] = true;
-    }
 }</code></pre>
-                        <p>The Opt-out button stores a cookie that will be read any time a page from this site is loaded, causing the first script above to store a value that analytics is disabled.</p>
-                        <p>The head template includes code to conditionally load a polyfill for the string.trim JavaScript function. IE8 and older versions of Internet Explorer don&rsquo;t support the trim function, which is needed for the Google tag manager.</p>
-                    <pre><code class="javascript hljs">&lt;script&gt;
-    // Polyfill for old Internet Explorers
-    if (!String.prototype.trim) {
-        String.prototype.trim = function () {
-            return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, &apos;&apos;);
-        };
+                    <p>This code checks whether a visitor is new to the site, and if so, shows a banner across the top of the page with information about the site using cookies, with one button for the user to accept cookies and another for the user to opt-out of tracking.</p>
+                    <p>Accepting cookies stores a cookie that the user has accepted, hides the notice, and triggers Google tracking for this visit. The cookie is good for one year, after which the user will need to reaccept cookies.</p>
+                    <p>Opting out of cookies stores a session variable that the user has opted out and hides the notice.</p>
+                    <p>The notice includes a link to the <a href="{{ @schemeHost}}{{ @langSubdirectory.'_termsx' | alias }}" title="The privacy statement for this site">Terms of Use</a> page, which includes privacy information and its own opt-out button. This is the third JavaScript component:</p>
+                    <pre><code class="php hljs">&lt;button type="button" class="btn btn-dark center opt-out" onclick="gaOptOut()"&gt;
+    Opt-out of Cookies &amp; Analytics&lt;/button&gt;
+               
+function gaOptOut() {
+    try {
+        window.sessionStorage.setItem("eu-opt-out", "true");
+    } catch (error) {
+        console.error(error);
     }
+    document.cookie = "eu-cookie-notice=; expires=Thu, 01 Jan 1970 00:00:01 GMT;
+        path=/";
+    $("#eu-cookie").slideUp();
+    $(".detail-first-section").removeClass("cookie-notice-margin");
+}</code></pre>
+                    <p>The opt-out button stores a session variable that the user has opted out. If the cookie notice is visible, it is hidden, and if there was a cookie, it is removed.</p>
+                    <p>The head template includes code to conditionally load a polyfill for the string.trim JavaScript function. IE 8 and older versions of Internet Explorer don&rsquo;t support the trim function, which is needed for the Google tag manager. Loading the polyfill prevents any errors.</p>
+                <pre><code class="javascript hljs">&lt;script&gt;
+// Polyfill for old Internet Explorers
+if (!String.prototype.trim) {
+    String.prototype.trim = function () {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, &apos;&apos;);
+    };
+}
 &lt;/script&gt;</code></pre>
-                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     
     <section id="error-pages" class="bg-white">
         <div class="container">
@@ -530,6 +507,7 @@ function gaOptOut() {
                     <div class="col-lg-8 mx-auto">
                         <h2>Syntax highlighter</h2>
                         <p>I&rsquo;m using <a href="https://highlightjs.org/" title="Syntax highlighting for the Web">highlight.js</a> to highlight the code examples. Highlight.js&rsquo;s <a href="https://highlightjs.org/download/" title="Highlight.js download page">download page</a> builds a JavaScript file specific to the types of code to be highlighted, and includes all of the available CSS files in the download file (I went with the GitHub style with a few changes).</p>
+                        <p><em>Note: I use highlight.js Version 9 as that version is compatible with Internet Explorer 9, 10, &amp; 11. Newer versions of highlight.js work only with modern browsers.</em></p>
                         <p>The class names for the code types that I included in my build are:</p>
                         <ul>
                             <li>php</li>
@@ -540,7 +518,7 @@ function gaOptOut() {
                             <li>xml</li>
                             <li>javascript</li>
                         </ul>
-                        <p>I did convert the Highlight.js css file to Scss so I could include it in the CSS file for the site.</p>
+                        <p>I did convert the Highlight.js css file to Sass so I could include it in the CSS file for the site.</p>
                     </div>
                 </div>
             </div>
@@ -552,8 +530,8 @@ function gaOptOut() {
                 <div class="col-lg-8 mx-auto">
                     <h2>Language flags</h2>
                     <p>The websites I work with need two or more languages (at least English and Korean), which means a language switcher, and I wanted an indication near the top of the page that other languages are available (instead of in the footer).</p>
-                    <p>The easiest way to indicate the current language is to display a country flag (but don&rsquo;t imply that Taiwan or Hong Kong are countries). The source I use for flags is <a href="https://github.com/gosquared/flags" title="GitHub page for GoSquare">GoSquare&rsquo;s GitHub site</a>. GoSquare makes a complete set of flags available under the MIT license.</p>
-                    <p>I added a dark blue border to the flag images, compressed the PNG files, and converted to Base64 so the images can be embedded in the CSS file as background images.</p>
+                    <p>The easiest way to indicate the current language is to display a country flag (but be careful about implying that Taiwan or Hong Kong are countries). The source I use for flags is <a href="https://github.com/gosquared/flags" title="GitHub page for GoSquare">GoSquare&rsquo;s Flag Icon Set GitHub site</a>. GoSquare makes a complete set of flags available under the MIT license.</p>
+                    <p>I compressed the PNG files and converted them to Base64 so the images can be embedded in the CSS file as background images.</p>
                 </div>
             </div>
         </div>

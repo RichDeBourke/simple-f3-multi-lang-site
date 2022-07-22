@@ -1,8 +1,7 @@
 <head>
     <meta charset="utf-8">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
     <title>{{ @pageTitle }}</title>
     <meta name="description" content="{{ @pageDescription }}">
 
@@ -13,42 +12,36 @@
 </check>
 
     <script>
-        // Polyfill for IE9 and older browsers
+        // Polyfill for IE 9 and older browsers
         if (!("classList" in document.documentElement)) {
             document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
         }
-        // Polyfill for IE8 and older browsers
-        if (!String.prototype.trim) {
-            String.prototype.trim = function () {
-                return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
-            };
-        }
     </script>
 
-<check if="{{ @BASE }} !== '/f3'">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ @googleAnalyticsID }}"></script>
     <script>
-        // Disable tracking if the opt-out cookie exists.
-        if (document.cookie.indexOf("ga-disable-{{ @googleAnalyticsID }}=true") > -1) {
-            window["ga-disable-{{ @googleAnalyticsID }}"] = true;
-        }
+        var gaScript;
+        var googleAnalyticsID = "{{ @googleAnalyticsID }}";
+        gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id={{ @googleAnalyticsID }}";
 
+        // Until Google Tagmanager has been loaded, this code will have no effect
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        if (document.cookie.indexOf("eu-cookie-notice-accepted=true") > -1) {
-            // The notice has been seen and accepted, so process tracking
-            gtag('config', '{{ @googleAnalyticsID }}', { 'anonymize_ip': true });
+        gtag('config', '{{ @googleAnalyticsID }}', { "anonymize_ip": true });
+        
+        if (document.cookie.indexOf("eu-cookie-notice=true") > -1) {
+            // User has accepted the terms, so load analytics (not opted out).
+            document.head.appendChild(gaScript);
         }
     </script>
-</check>
 
 <check if="{{ !@googleNoIndex }}">
     <link rel="canonical" href="{{ @schemeHost }}{{ urldecode(@PATH) }}">
 </check>
-    <meta itemprop="url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}" />
+    <meta itemprop="url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
     <meta itemprop="name" content="{{ @siteOwner }}">
     <meta itemprop="description" content="{{ @pageDescription }}">
     <meta itemprop="image primaryImageOfPage" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
@@ -58,15 +51,15 @@
     <meta property="og:url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
     <meta property="og:site_name" content="{{ @siteOwner }}">
     <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="{{ @socialMedia.ogImage1alt }}" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ @socialMedia.ogImage1alt }}">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage2 }}">
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="400" />
-    <meta property="og:image:alt" content="{{ @socialMedia.ogImage2alt }}" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="{{ @socialMedia.ogImage2alt }}">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary">
 <check if="{{ @socialMedia.twitterID != 'none' }}">    <meta name="twitter:site" content="@{{ @socialMedia.twitterID }}">
 </check>
@@ -74,9 +67,23 @@
     <meta name="twitter:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
     <meta name="twitter:image" content="{{ @schemeHost }}/images/{{ @socialMedia.twitterImage }}">
 
+    <script type='application/ld+json'> 
+        {
+            "@context": "http://www.schema.org",
+            "@type": "WebSite",
+            "name": "Site Construction",
+            "description": "Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework."
+            "url": "http://sbf-testing.byethost7.com",
+            "creator": {
+                "@type": "organization",
+                "name": "SBF Consulting"
+            }
+        }
+    </script>
+
 <check if="{{ @isHomePage && !@imageEmbed }}">
     <!-- Preload the hero image to reduce the momentary flash of the background color-->
-    <link rel="preload" as="image" href="{{ @schemeHost }}/images/Building-gray.jpg">
+    <link rel="preload" as="image" href="{{ @schemeHost }}/images/HeroImage.jpg">
     
 </check>
 <check if="{{ !@googleNoIndex }}">
@@ -85,47 +92,32 @@
 </repeat>
 </check>
 
-    <!-- Load Google webfonts -->
-    <!--[if gte IE 9]><!-->
+    <!--[if !lte IE 8]><!-->
 <check if="{{ @langSubdirectory === 'ko' }}">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+KR&display=swap" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-kr.css?v=20220722a" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+SC&display=swap" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'tw' }}">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro%7CNoto+Sans+TC&display=swap" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.css?v=20220722a" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans%7CSource+Code+Pro&display=swap" rel="stylesheet">
-</check>
-
-<check if="{{ @langSubdirectory === 'ko' }}">
-    <link href="{{ @schemeHost }}/css/style-kr.css?v=20200113" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'zh' }}">
-    <link href="{{ @schemeHost }}/css/style-sc.css?v=20200113" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'tw' }}">
-    <link href="{{ @schemeHost }}/css/style-tc.css?v=20200113" rel="stylesheet">
-</check><check if="{{ @langSubdirectory === 'en' }}">
-    <link href="{{ @schemeHost }}/css/style-en.css?v=20200113" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.css?v=20220722a" rel="stylesheet">
 </check>
 <check if="{{ @pageCSS }}">
 <include href="{{ @pageCSS }}" />
 </check>
     <!--<![endif]-->
+
     <!--[if IE 9]>
-        <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/bootstrap-ie9.css" rel="stylesheet">
         <link href="{{ @schemeHost }}/css/ie9.css" rel="stylesheet">
     <![endif]-->
     <!--[if lte IE 8]>
-        <script src="{{ @schemeHost}}/js/html5shiv.min.js"></script>
+        <link href="{{ @schemeHost }}/css/bootstrap-ie8.css" rel="stylesheet">
         <link href="{{ @schemeHost }}/css/ie8.css" rel="stylesheet">
     <![endif]-->
-    <link rel="icon" type="image/x-icon" href="{{ @schemeHost }}/favicon.ico?20181005">
 
-    <!-- Mobile icons -->
-    <link href="{{ @schemeHost }}/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="{{ @schemeHost }}/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
-    <link href="{{ @schemeHost }}/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167">
-    <link href="{{ @schemeHost }}/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="{{ @schemeHost }}/icon-hires.png" rel="icon" sizes="192x192">
-    <link href="{{ @schemeHost }}/icon-normal.png" rel="icon" sizes="128x128">
+    <!-- Favicon / Mobile icons -->
+    <link rel="icon" href="{{ @schemeHost }}/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="{{ @schemeHost }}/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ @schemeHost }}/apple-touch-icon.png"><!-- 180×180 -->
+    <!-- <link rel="manifest" href="{{ @schemeHost }}/manifest.webmanifest"> -->
 
 </head>

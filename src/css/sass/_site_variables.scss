@@ -2,23 +2,31 @@ $h1-font-size:                2.25rem;
 $h2-font-size:                1.875rem;
 $h3-font-size:                1.5625rem;
 $h4-font-size:                1.25rem;
-$h5-font-size:                1rem;
-$h6-font-size:                1rem;
+$h5-font-size:                1.125rem;
+$h6-font-size:                1.125rem;
+
+$font-size-base:            1.125rem;
 
 $white-secondary: rgba(255,255,255,0.7);
 $white-hint: rgba(255,255,255,0.5);
+$black-primary: rgba(0,0,0,0.87);
 $black-secondary: rgba(0,0,0,0.54);
 $black-hint: rgba(0,0,0,0.38);
 $theme-dark-blue: #0024a7;
-$teal: #008080;
 $crimson: #dd1144;
-$berry: #990000;
-$east-bay: #445588;
-$navy: #000080;
-$forestgreen: #009926;
-$jazzberry-jam: #990055;
-$cerulean: #0086b3;
 $ie-warning-yellow: #fdf2ab;
+
+$dark-mode-base: #12161a;
+$dark-mode-level-1: #24282c;
+$dark-mode-level-1-accent: #2f3337;
+$dark-mode-level-2: #383b3f;
+$dark-mode-medium: #585b5f;
+
+/*$dark-mode-base: #121212;
+$dark-mode-level-1: #242424;
+$dark-mode-level-1-accent: #2f2f2f;
+$dark-mode-level-2: #383838;
+$dark-mode-medium: #585858; */
 
 $theme-colors: (
   "dark": #0024a7

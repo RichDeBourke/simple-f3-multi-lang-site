@@ -1,4 +1,4 @@
-        <section id="content" class="detail-first-section bg-white">
+        <section id="content" role="main" class="detail-first-section bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
@@ -7,11 +7,10 @@
                         <ul>
                             <li><a href="#layout" class="same-page-link">layout.html</a> &ndash; primary template that pulls in the other templates:<ul>
                                 <li><a href="#head" class="same-page-link">head.html</a> &ndash; the HTML head section &ndash; same template for all pages</li>
-                                <li><a href="#notifications-top" class="same-page-link">notifications-top.html</a> &ndash; conditional text for unsupported Internet Explorer notifications &ndash; same template for all pages</li>
+                                <li><a href="#notifications" class="same-page-link">notifications.html</a> &ndash; conditional text for unsupported versions of Internet Explorer &amp; the EU cookie notice &ndash; same template for all pages</li>
                                 <li><a href="#navigation" class="same-page-link">navigation.html</a> &ndash; logo and navbar &ndash; same template for all pages</li>
-                                <li><a href="#page-content" class="same-page-link"><em></em>content</em>.html</a> &ndash; page content and layout is supplied in these files (each page has a unique content file with a <em>unique file name</em>)</li>
+                                <li><a href="#page-content" class="same-page-link"><em>content</em>.html</a> &ndash; page content and layout is supplied in these files (each page has a unique content file with a <em>unique file name</em>)</li>
                                 <li><a href="#footer" class="same-page-link">footer.html</a> &ndash; same template for all pages</li>
-                                <li><a href="#notifications-bottom" class="same-page-link">notifications-bottom.html</a> &ndash; conditional text for EU cookie notifications &ndash; same template for all pages</li>
                                 <li><a href="#script" class="same-page-link">scripts.html</a> &ndash; same template for all pages</li>
                             </ul></li>
                             <li><a href="#sitemap" class="same-page-link">sitemap.xml</a></li>
@@ -35,13 +34,12 @@
     &apos; data-spy=&quot;scroll&quot; data-target=&quot;#mainNav&quot; data-offset=&quot;60&quot; id=&quot;page-top&quot;&apos;
     : &apos;&apos;  &#125;&#125;&gt;
     &lt;div class=&quot;offcanvas-right&quot;&gt;
-&lt;include href=&quot;notifications-top.html&quot; /&gt;
+&lt;include href=&quot;notifications.html&quot; /&gt;
 &lt;include href=&quot;navigation.html&quot; /&gt;
 &lt;include href=&quot;&#123;&#123; &commat;pageContent &#125;&#125;&quot; /&gt;
     &lt;/div&gt;&lt;!--offcanvas offcanvas-right--&gt;
     
 &lt;include href=&quot;footer.html&quot; /&gt;
-&lt;include href=&quot;notifications-bottom.html&quot; /&gt;
 &lt;include href=&quot;script.html&quot; /&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -58,33 +56,37 @@
                         <h2>head template</h2>
                         <p>The head template sets up:</p>
                         <ul>
-                            <li>DNS prefetches for CDNs</li>
-                            <li>site meta data</li>
+                            <li>dns-prefetch for Google Analytics</li>
+                            <li>Site meta data</li>
                             <li>Google analytics</li>
-                            <li>Load Google webfonts</li>
-                            <li>Load the CSS files</li>
-                            <li>Load the icons</li>
+                            <li>Loading the CSS files</li>
+                            <li>Loading the icons</li>
                         </ul>
-                        <p>The head template loads the required CSS file and fonts based on the language being used. The logic for selecting which CSS file and fonts to load is a series of separate <code>if</code> statements, which are easier to change than a series of nested if/true/false statements, but there is no default setting.</p>
+                        <p>The dns-prefetch contacts the Domain Name System to obtain the IP address to download the Google Analytics JavaScript file, <em>if</em> analytics is enabled. Doing a dns-prefetch <em>does not</em> make contact with the Google server, so there is no violation of the user&rsquo;s privacy. the Google Analytics JavaScript file is only loaded if the user has accepted cookies.</p>
+                        <p>The head template loads the required CSS file based on the language being used. The logic for selecting which CSS file to load is a series of separate <code>if</code> statements, which are easier to change than a series of nested if/true/false statements, but there is no default setting.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="notifications-top" class="bg-white">
+        <section id="notifications" class="bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h2>top notifications template</h2>
-                        <p>The top notifications template has the notice for older version of Internet Explorer and the skip-link:</p>
+                        <h2>Notifications template</h2>
+                        <p>The notifications template has the notice for older version of Internet Explorer, the EU cookie/privacy notice, and the skip-link:</p>
                         <ul>
-                            <li>IE 8 or lower: Notice that the site does not support older versions of Internet Explorer is displayed.<ul>
-                                <li>0.2% of the visitors to my business site use IE8 or older versions of Internet Explorer.</li>
-                                <li>I block the normal CSS and JavaScript files using IE conditionals, and instead supply those older browsers with Alexander Farkas&rsquo; <a href="https://github.com/aFarkas/html5shiv" title="Enable HTML5 sectioning elements in legacy Internet Explorer browsers">HTML5 Shiv</a> and a special CSS file as a way to enable all users to at least see the site content (although it&rsquo;s not pretty).</li>
-                                <li>IE 9 support: Bootstrap 4 supports IE10 or greater, but not IE9. For IE9, I add Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-ie8" title="CSS and JavaScript file to polyfill HTML5 element support">CSS</a> for IE9. The file is served from a CDN, so I just include a link in the head templates using an IE conditional. (<em>Note: Christian&rsquo;s package includes a polyfill for element.classList, which IE9 lacks. Since I was already loading, if needed, Eli Grey&rsquo;s <a href="https://github.com/eligrey/classList.js" title="A cross-browser JavaScript shim that fully implements element.classList">classList polyfill</a> at the start of the page for the font loader, I don&rsquo;t use Christian&rsquo;s polyfill.</em>) Currently, 12% of the visitors to my business site are using Internet Explorer (6.5%, 0.8%, and 4.8% of are using IE 9, 10, and 11, respectively), so supporting Internet Explorer is important.</li>
-                            </ul></li>
-                            <li>Skip-link: A link for users that are navigating with the tab key to skip over the navigation links and go directly to the content (for accessibility).</li>
-                        </ul>
+                            <li>IE 8 or older: Displays a notice that the site does not support older versions of Internet Explorer although the content is visible:<ul>
+                                <li>For IE 8 or older, I block the normal CSS and JavaScript files using IE conditionals, and instead supply those older browsers with Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-IE8" title="CSS to help IE 8 display Bootstrap 4">CSS</a> for IE 8 and a custom CSS file to hide some elements that don&rsquo;t display properly on IE 8.</li>
+                                </ul></li>
+                            <li>EU cookie/privacy: Notice to comply with the European requirement to let users know that the site uses cookies. The notice includes a way to opt-out of Google Analytics and a link to the Terms of Use/Privacy page.</li>
+                            <li>Skip-link: Link for users that are navigating with the tab key to skip over the navigation links and go directly to the content (for accessibility).</li>
+                        </ul>                            
+
+                        <h3><em>Note on support for Internet Explorer</em></h3>
+                        <p>Although Microsoft has <a href="https://docs.microsoft.com/en-us/lifecycle/announcements/internet-explorer-11-end-of-support" title="Microsoft ended support for Internet Explorer on June 15, 2022">discontinued support</a> for Internet Explorer, it is still in use. While less than 1% of the visitors to my business site use Internet Explorer (0.34% during Q2 2022), 5% of the visitors to an education related site I help support still use Internet Explorer, include a few using IE 7 (schools often do not have the budget to upgrade their systems).</p>
+                        <p>As every visitor is important, I use Bootstrap 4, which supports IE 10 &amp; 11, rather than making the switch to Bootstrap 5. For IE 9, I provide Christian Oliff&rsquo;s <a href="https://github.com/coliff/bootstrap-IE8" title="CSS and JavaScript file to polyfill HTML5 element support">CSS &amp; JavaScript for IE 9</a>.</p>
+                        <p><em>Note: Oliff does have a <a href="https://github.com/coliff/bootstrap-ie11" title="Christian Oliff bootstrap-ie11 repository on GitHub">CSS &amp; JavaScript package</a> to enable Bootstrap 5 to work with Internet Explorer 11.</em></p>
                     </div>
                 </div>
             </div>
@@ -95,7 +97,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>navigation template</h2>
-                        <p>The naviation.html template works for four types of files:</p>
+                        <p>The naviation.html template works for four types of pages:</p>
                         <ul>
                             <li>Home page: https://www.mysite.com/<wbr>en/home &ndash; has a single page structure</li>
                             <li>Detail pages: https://www.mysite.com/<wbr>en/fatfree &ndash; have a multiple page structure</li>
@@ -103,8 +105,8 @@
                             <li>Error pages: 404 and 5XX pages &ndash; the directory will vary</li>
                         </ul>
                         <p>All addresses (href and src) use absolute links as it avoids any problem with being in the wrong directory for a relative link to work (e.g. the 404 response page).</p>
-                        <p>One complication – when on the home page, the home page links need to be in the form href=&quot;#overview&quot; (just the page links). They can&rsquo;t be href=&quot;../en/home#overview&quot; or href=&quot;https://www.mysite.com/en/home#overview&quot; as Bootstrap 4&rsquo;s <a href="https://getbootstrap.com/docs/4.1/components/scrollspy/" title="Bootstrap 4 Scrollspy component">Scrollspy</a> seems to have a problem with anything other than just the page link. When on any other page, the home page links should be absolute links in the form href=&quot;https://www.mysite.com/en/home#overview&quot;.</p>
-                        <p>My solution is to set in index.php a hive variable, schemeHost, for the scheme and the host together (e.g. http:// <em>and</em> www.mysite.com) that I use for links to things like CSS files and images, and I assemble that value with the langSubdirectory variable (set in the language controllers) to form a base address for the language pages. When assembling addresses for the home pages, I use the isHomePage flag to control how the addresses are handled.</p>
+                        <p>One complication – when on the home page, the home page links need to be in the form <code>href=&quot;#overview&quot;</code> (just the page links). They can&rsquo;t be <code>href=&quot;../en/home#overview&quot;</code> or <code>href=&quot;https://www.mysite.com/en/home#overview&quot;</code> as Bootstrap 4&rsquo;s <a href="https://getbootstrap.com/docs/4.1/components/scrollspy/" title="Bootstrap 4 Scrollspy component">Scrollspy</a> seems to have a problem with anything other than just the page link. When on any other page, the home page links should be absolute links in the form <code>href=&quot;https://www.mysite.com/en/home#overview&quot;</code>.</p>
+                        <p>My solution is to set in index.php a hive variable, <code>schemeHost</code>, for the scheme and the host together (e.g. http:// <em>and</em> www.mysite.com) that I use for links to things like CSS files and images, and I assemble that value with the langSubdirectory variable (set in the language controllers) to form a base address for the language pages. When assembling addresses for the home pages, I use the isHomePage flag to control how the addresses are handled.</p>
                     </div>
                 </div>
             </div>
@@ -133,22 +135,8 @@
                             <li>Three footer sections (About this site, Contact, and About me) &ndash; the content for the sections comes from the language dictionary<ul>
                                 <li>Contact email address: I use Albion Research&rsquo;s <a href="https://www.albionresearch.com/misc/obfuscator.php" title="Free online obfuscator tool">email address obfuscator</a> to convert the contact email address to percent encoded, which can be read by the browser, but most spambots won&rsquo;t expend the energy to look for percent encoded strings and convert them to text to see if they represent an email address.</li>
                             </ul></li>
-                            <li>Link to the Terms of Use &ndash; the address for the related language terms page is assembled in the footer template.</li>
+                            <li>Link to the Terms of Use &ndash; the address for the related language terms page is assembled in the footer template. (<em>Note: As I use the English terms page for all three lanageus, the routes.ini file points to the same controller, but it could be different</em>.)</li>
                             <li>Copyright notice &ndash; the notice uses a PHP function to compare the current year to the yearBuilt value in config.ini for echoing the copyright string (using a function eliminates the need to update the copyright string each New Year&rsquo;s Eve).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="notifications-bottom" class="bg-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2>bottom notifications template</h2>
-                        <p>The bottom notifications template has the notice for the EU cookie/privacy notice:</p>
-                        <ul>
-                            <li>EU cookie/privacy: Notice to comply with the European requirement to let users know that the site uses cookies. The notice includes a link to the Terms of Use/Privacy page and that page includes a way to opt-out of Google Analytics.</li>
                         </ul>
                     </div>
                 </div>
@@ -160,7 +148,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>script template</h2>
-                        <p>The script template loads jQuery and Bootstrap 4&rsquo;s JavaScript files (from the <a href="https://cdnjs.com/" title="A free and open source Public Web CDN">cdnjs.com</a> content delivery network, with fallback to local copies) and calls any special JavaScript templates that are needed.</p>
+                        <p>The script template loads the JavaScript files, either as separate files (unminified versions for the files that I created for easier troubleshooting), or one bundled file and embedded JavaScript content for files that are used on just one page. I no longer use content delivery networks for supplying files due to <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#user-tracking">privacy concerns</a>.</p>
                     </div>
                 </div>
             </div>

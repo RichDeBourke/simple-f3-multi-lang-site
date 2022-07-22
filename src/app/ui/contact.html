@@ -1,54 +1,69 @@
-    <section id="content" class="detail-first-section bg-white">
+    <section id="content" role="main" class="detail-first-section bg-white">
         <div class="container">
             <div class="row">
                 <div class=" col-12 col-sm-10 col-md-8 col-lg-7 mx-auto">
                     <h1>{{ @dictContact01 }}</h1>
-                    <div class="alert alert-success alert-dismissible fade show{{ @contactSuccess ? '' : ' d-none' }}" role="alert">
-                        <p><strong>{{ @dictContact10 }}</strong></p>
-                        <p>{{ @dictContact11 }} </p>
+                    <div class="alert alert-success alert-dismissible align-items-center fade show{{ @contactSuccess ? ' d-flex' : ' d-none' }}" role="alert">
+                        <svg width="56" height="56" fill="currentColor" class="exclamation-triangle-fill flex-shrink-0 mr-4" viewBox="0 0 56 56" role="img" aria-label="Warning:">
+                            <circle cx="28" cy="28" r="28" fill="#f2c94c" />
+                            <path d="M 28.00,11.00
+                            C 28.00,11.00 32.00,11.00 32.00,15.00
+                              32.00,15.00 31.00,30.00 31.00,30.00
+                              31.00,33.00 28.00,33.00 28.00,33.00
+                              25.00,33.00 25.00,30.00 25.00,30.00
+                              25.00,30.00 24.00,15.00 24.00,15.00
+                              24.00,11.00 28.00,11.00 28.00,11.00 Z" fill="#fff" />
+                            <circle cx="28" cy="41" r="4" fill="#fff" />
+                        </svg>
+                        <div class="flex-grow-1">
+                            <p><strong>{{ @dictContact10 }}</strong></p>
+                            <p>{{ @dictContact11 }}</p>
+                        </div>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+
                     <div class="card">
                         <div class="contact-card-block">
                             <form class="form-horizontal" action="{{ @schemeHost.@PATH }}" method="post">
                                 <fieldset>
-                                <!-- Name input-->
+                                    <legend>Contact information</legend>
+                                    <!-- Name input-->
                                     <div class="row form-group">
-                                        <label class="col-md-3 control-label" for="name">{{ @dictContact02 }}&nbsp;<span class="contact-required">*</span></label>
+                                        <label class="col-md-3 control-label" for="name">{{ @dictContact02 }}&nbsp;<span class="contact-required" aria-hidden="true">*</span></label>
                                         <div class="col-md-9">
-                                            <input id="name" name="name" type="text" placeholder="{{ @dictContact03 }}" value="{{ @contactName }}" class="form-control" tabindex="1">
+                                            <input id="name" name="name" type="text" placeholder="{{ @dictContact03 }}" value="{{ @contactName }}" class="form-control" required="required">
                                             <span class="contact-error">{{ @contactNameError }}</span>
                                         </div>
                                     </div>
-                            
+
                                     <!-- E-mail input-->
                                     <div class="row form-group">
-                                        <label class="col-md-3 control-label" for="email">{{ @dictContact04 }}&nbsp;<span class="contact-required">*</span></label>
+                                        <label class="col-md-3 control-label" for="email">{{ @dictContact04 }}&nbsp;<span class="contact-required" aria-hidden="true">*</span></label>
                                         <div class="col-md-9">
-                                            <input id="email" name="email" type="text" placeholder="{{ @dictContact05 }}" value="{{ @contactEmail }}" class="form-control" tabindex="2">
+                                            <input id="email" name="email" type="text" placeholder="{{ @dictContact05 }}" value="{{ @contactEmail }}" class="form-control" required="required">
                                             <span class="contact-error">{{ @contactEmailError }}</span>
                                         </div>
                                     </div>
 
                                     <!-- Subject -->
                                     <div class="row form-group">
-                                        <label class="col-md-3 control-label" for="subject">{{ @dictContact06  }}&nbsp;<span class="contact-required">*</span></label>
+                                        <label class="col-md-3 control-label" for="subject">{{ @dictContact06  }}&nbsp;<span class="contact-required" aria-hidden="true">*</span></label>
                                         <div class="col-md-9">
-                                            <input id="subject" name="subject" type="text" placeholder="{{ @dictContact07 }}" value="{{ @contactSubject }}" class="form-control" tabindex="3">
+                                            <input id="subject" name="subject" type="text" placeholder="{{ @dictContact07 }}" value="{{ @contactSubject }}" class="form-control" required="required">
                                             <span class="contact-error">{{ @contactSubjectError }}</span>
                                         </div>
                                     </div>
-                            
+
                                     <!-- Message body -->
                                     <div class="row form-group">
                                         <label class="col-md-3 control-label" for="message">{{ @dictContact08 }}</label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" id="message" name="message" placeholder="{{ @dictContact09 }}..." rows="5" tabindex="4">{{ @contactMessage }}</textarea>
+                                            <textarea class="form-control" id="message" name="message" placeholder="{{ @dictContact09 }}..." rows="5">{{ @contactMessage }}</textarea>
                                         </div>
                                     </div>
-                            
+
                                     <!-- Form actions -->
                                     <div class="row form-group">
                                         <div class="col-md-9 offset-md-3 text-left">
@@ -57,7 +72,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-0"><span class="contact-required">*</span>&nbsp;{{ @dictContact16 }}</p>
+                                            <p class="mb-0" aria-hidden="true"><span class="contact-required">*</span>&nbsp;{{ @dictContact16 }}</p>
                                         </div>
                                     </div>
                                 </fieldset>
