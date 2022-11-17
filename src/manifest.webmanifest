@@ -1,0 +1,20 @@
+{
+    "short_name": "Site Demo",
+    "name": "Site Construction",
+    "icons": [{
+            "src": "/icon-196.png",
+            "type": "image/png",
+            "sizes": "196x196"
+        },
+        {
+            "src": "/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "http://sbf-testing.byethost7.com/en/home",
+    "background_color": "#000000",
+    "display": "browser",
+    "scope": "/",
+    "description": "Demo of a  Bootstrap site runnin on the Fat-Free Framework"
+}

@@ -11,26 +11,19 @@
     <meta name="robots" content="noindex,nofollow">
 </check>
 
-    <script>
-        // Polyfill for IE 9 and older browsers
-        if (!("classList" in document.documentElement)) {
-            document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
-        }
-    </script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
         var gaScript;
         var googleAnalyticsID = "{{ @googleAnalyticsID }}";
         gaScript = document.createElement("script");
         gaScript.async = true;
-        gaScript.src = "https://www.googletagmanager.com/gtag/js?id={{ @googleAnalyticsID }}";
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + googleAnalyticsID;
 
         // Until Google Tagmanager has been loaded, this code will have no effect
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ @googleAnalyticsID }}', { "anonymize_ip": true });
+        gtag('config', googleAnalyticsID, { "cookie_flags": "SameSite=None;" });
         
         if (document.cookie.indexOf("eu-cookie-notice=true") > -1) {
             // User has accepted the terms, so load analytics (not opted out).
@@ -38,18 +31,37 @@
         }
     </script>
 
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #12161a;
+            }
+        }
+    </style>
+
+    <script>
+        // Polyfill for IE 9 and older browsers
+        if (!("classList" in document.documentElement)) {
+            document.write('<script src="{{ @schemeHost }}/js/classListpolyfill.min.js"><\/script>');
+        }
+    </script>
+
 <check if="{{ !@googleNoIndex }}">
     <link rel="canonical" href="{{ @schemeHost }}{{ urldecode(@PATH) }}">
 </check>
+
+    <!-- Page microdata for use by search engines -->
     <meta itemprop="url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
-    <meta itemprop="name" content="{{ @siteOwner }}">
+    <meta itemprop="name" content="{{ @pageTitle }}">
     <meta itemprop="description" content="{{ @pageDescription }}">
     <meta itemprop="image primaryImageOfPage" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
+
+    <!-- Metadata for social media -->
+    <meta property="og:title" content="{{ @pageTitle }}">
     <meta property="og:description" content="{{ @pageDescription }}">
     <meta property="og:url" content="{{ @schemeHost }}{{ urldecode(@PATH) }}">
-    <meta property="og:site_name" content="{{ @siteOwner }}">
+    <meta property="og:site_name" content="{{ @siteName }}">
     <meta property="og:image" content="{{ @schemeHost }}/images/{{ @socialMedia.ogImage1 }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -67,16 +79,17 @@
     <meta name="twitter:title" content="{{ @siteOwner }} – {{ @pageTitle }}">
     <meta name="twitter:image" content="{{ @schemeHost }}/images/{{ @socialMedia.twitterImage }}">
 
+    <!-- Site microdata for use by search engines -->
     <script type='application/ld+json'> 
         {
             "@context": "http://www.schema.org",
             "@type": "WebSite",
-            "name": "Site Construction",
-            "description": "Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework."
+            "name": "{{ @siteName }}",
+            "description": "Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework.",
             "url": "http://sbf-testing.byethost7.com",
             "creator": {
                 "@type": "organization",
-                "name": "SBF Consulting"
+                "name": "{{ @siteOwner }}"
             }
         }
     </script>
@@ -94,11 +107,11 @@
 
     <!--[if !lte IE 8]><!-->
 <check if="{{ @langSubdirectory === 'ko' }}">
-        <link href="{{ @schemeHost }}/css/style-kr.css?v=20220722a" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-kr.css?v=20220908" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-        <link href="{{ @schemeHost }}/css/style-common.css?v=20220722a" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.css?v=20220908" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-        <link href="{{ @schemeHost }}/css/style-common.css?v=20220722a" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.css?v=20220908" rel="stylesheet">
 </check>
 <check if="{{ @pageCSS }}">
 <include href="{{ @pageCSS }}" />
@@ -113,11 +126,18 @@
         <link href="{{ @schemeHost }}/css/bootstrap-ie8.css" rel="stylesheet">
         <link href="{{ @schemeHost }}/css/ie8.css" rel="stylesheet">
     <![endif]-->
+    <meta name="color-scheme" content="light dark">
 
     <!-- Favicon / Mobile icons -->
     <link rel="icon" href="{{ @schemeHost }}/favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="icon" href="{{ @schemeHost }}/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ @schemeHost }}/apple-touch-icon.png"><!-- 180×180 -->
+    <!-- Note: The demo host does not support manifests, which is why it is commented out. -->
     <!-- <link rel="manifest" href="{{ @schemeHost }}/manifest.webmanifest"> -->
+
+    <script>
+        /*to prevent Firefox FOUC*/
+        var FF_FOUC_FIX;
+    </script>
 
 </head>

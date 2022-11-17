@@ -69,57 +69,65 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Site structure</h2>
-                    <p>The site structure is defined by two files, <a href="{{ @schemeHost }}{{ 'en_details3' | alias }}#config" title="Explanation for the config file">config.ini</a> and <a href="{{ @schemeHost }}{{ 'en_details3' | alias }}#routes" title="Explanation for the routes file">routes.ini</a>. This makes the information easy to see and modify, and it eliminates the need for a database (along with the code to support a database).</p>
+                    <p>Many websites use a Model-View-Controller (MVC) pattern with the data for the pages in the model (often in a database).</p>
+                    <p>This site does not utilize a model. Page content is coded directly into the templates (the views) and the controllers, rather than being stored in a database. As the content generally does not change, there is no benefit for defining a storage and retrieval structure for data and then entering the data into a database. It is easier to deal directly with the html style templates.</p>
+                    <p>This site follows (generally) a Supervising Controller Pattern as defined by Derek Greer in a paper published online in 2007 (the paper is now only available through the <a href="https://web.archive.org/web/20201107060523/https:/lostechies.com/derekgreer/2007/08/25/interactive-application-architecture/">Internet Wayback Machine</a>). A routing function defined by <a href="{{ @schemeHost }}{{ 'en_details3' | alias }}#routes" title="Explanation for the routes file">routes.ini</a> sends user requests for pages to the correct PHP controller class, which assembles the required template files with values stored in the controllers to build and deliver the webpage to the user.</p>
+                    <picture>
+                        <source srcset="../images/fatfree-sc-architecture-dark.webp, ../images/fatfree-sc-architecture-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                        <source srcset="../images/fatfree-sc-architecture.webp, ../images/fatfree-sc-architecture-lg.webp 2x">
+                        <img class="scss-diagram mb-3" src="../images/fatfree-sc-architecture.png" alt="Diagram of the supervising controller pattern used to organize the site" width="540" height="374" loading="lazy">
+                    </picture>
+                    <p>Values that are common to multiple pages are stored in a <a href="{{ @schemeHost }}{{ 'en_details3' | alias }}#config" title="Explanation for the config file">config.ini</a> file. This makes the information easy to see and modify, and it helps eliminate the need for a database (along with the code to support one).</p>
                     <p>Using files (rather than a database) does require discipline in adhering to the site logic and for entering the same information multiple times (e.g. the page slug), but if there is a typo, a page won&rsquo;t load correctly, so the error can be found and corrected.</p>
-                    <p>The structure for combining the information from the two files is illustrated below:</p>
+                    <p>The structure for using information from the config.ini and routes.ini files is illustrated below:</p>
                     <div aria-labelledby="customcarouselheading">
                         <h3 id="customcarouselheading">Custom image slider</h3>
                         <div id="overlay-slider">
                             <picture>
-                                <source srcset="../images/NamingFlowTable-dark.png, ../images/NamingFlowTable-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                <source srcset="../images/NamingFlowTable.png, ../images/NamingFlowTable-LG.png 1.5x"  />
-                                <img class="base" src="../images/NamingFlowTable.png" alt="Table that shows the naming relationship between the configuration and route data" width="730" height="361" loading="lazy">
+                                <source srcset="../images/fatfree-naming-table-dark.webp, ../images/fatfree-naming-table-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                <source srcset="../images/fatfree-naming-table.webp, ../images/fatfree-naming-table-LG.webp 2x">
+                                <img class="base" src="../images/fatfree-naming-table.png" alt="Table showing the naming relationship between the configuration and route data" width="730" height="361" loading="lazy">
                             </picture>
                             <ul>
                                 <li class="overlay">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-ctr-conn-dark.png, ../images/NamingFlowTable-ctr-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-ctr-conn.png, ../images/NamingFlowTable-ctr-conn-LG.png 1.5x"  />
-                                        <img src="../images/NamingFlowTable-ctr-conn.png" alt="Controller naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-controller-dark.webp, ../images/fatfree-naming-table-controller-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-controller.webp, ../images/fatfree-naming-table-controller-lg.webp 2x">
+                                        <img src="../images/fatfree-naming-table-controller.png" alt="Controller naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <span class="overlay-text">D) Controller function</span>
                                 </li>
                                 <li class="overlay">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-name-conn-dark.png, ../images/NamingFlowTable-name-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-name-conn.png, ../images/NamingFlowTable-name-conn-LG.png 1.5x"  />
-                                        <img src="../images/NamingFlowTable-name-conn.png" alt="Route naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-route-dark.webp, ../images/fatfree-naming-table-route-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-route.webp, ../images/fatfree-naming-table-route-lg.webp 2x">
+                                        <img src="../images/fatfree-naming-table-route.png" alt="Route naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <span class="overlay-text">C) Route name</span>
                                 </li>
                                 <li class="overlay">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-slug-conn-dark.png, ../images/NamingFlowTable-slug-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-slug-conn.png, ../images/NamingFlowTable-slug-conn-LG.png 1.5x"  />
-                                        <img src="../images/NamingFlowTable-slug-conn.png" alt="Page slug naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-slug-dark.webp, ../images/fatfree-naming-table-slug-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-slug.webp, ../images/fatfree-naming-table-slug-lg.webp 2x">
+                                        <img src="../images/fatfree-naming-table-slug.png" alt="Page slug naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <span class="overlay-text">B) Page slug</span>
                                 </li>
                                 <li class="overlay">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-en-paths-dark.png, ../images/NamingFlowTable-en-paths-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-en-paths.png, ../images/NamingFlowTable-en-paths-LG.png 1.5x"  />
-                                        <img src="../images/NamingFlowTable-en-paths.png" alt="Language prefix naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-language-dark.webp, ../images/fatfree-naming-table-language-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-language.webp, ../images/fatfree-naming-table-language-lg.webp 2x">
+                                        <img src="../images/fatfree-naming-table-language.png" alt="Language prefix naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <span class="overlay-text">A) Language prefix</span>
                                 </li>
                             </ul>
-                            <button id="prev" title="Previous route information" class="overlay-prev-next">
+                            <button id="prev" title="Previous route information" type="button" class="overlay-prev-next">
                                 <svg viewBox="0 0 50 100">
                                     <polyline class="line" points="40 10, 10 50, 40 90" stroke-linecap="round" stroke-linejoin="round"></polyline>
                                 </svg>
                             </button>
-                            <button id="next" title="Next route information" class="overlay-prev-next">
+                            <button id="next" title="Next route information" type="button" class="overlay-prev-next">
                                 <svg viewBox="0 0 50 100">
                                     <polyline class="line" points="10 10, 40 50, 10 90" stroke-linecap="round" stroke-linejoin="round"></polyline>
                                 </svg>
@@ -155,9 +163,9 @@
                     <p>The image slider above is a custom slider. The slider below is constructed using Bootstrap 4&rsquo;s carousel component. (<em>I put together the two slider configurations as a comparison.</em>)</p>
                     <div class="bootstrap-carousel-demo">
                         <picture>
-                            <source srcset="../images/NamingFlowTable-dark.png, ../images/NamingFlowTable-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                            <source srcset="../images/NamingFlowTable.png, ../images/NamingFlowTable-LG.png 1.5x"  />
-                            <img class="base1 d-block w-100 h-auto" src="../images/NamingFlowTable.png" alt="Table that shows the naming relationship between the configuration and route data" width="730" height="361" loading="lazy">
+                            <source srcset="../images/fatfree-naming-table-dark.webp, ../images/fatfree-naming-table-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                            <source srcset="../images/fatfree-naming-table.webp, ../images/fatfree-naming-table-lg.webp 2x">
+                            <img class="base1 d-block w-100 h-auto" src="../images/fatfree-naming-table.png" alt="Table showing the naming relationship between the configuration and route data" width="730" height="361" loading="lazy">
                         </picture>
                         <div id="bs-carousel" class="carousel slide carousel-fade" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -169,9 +177,9 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-en-paths-dark.png, ../images/NamingFlowTable-en-paths-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-en-paths.png, ../images/NamingFlowTable-en-paths-LG.png 1.5x"  />
-                                        <img class="d-block w-100 h-auto" src="../images/NamingFlowTable-en-paths.png" alt="Language prefix naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-language-dark.webp, ../images/fatfree-naming-table-language-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-language.webp, ../images/fatfree-naming-table-language-lg.webp 2x">
+                                        <img class="d-block w-100 h-auto" src="../images/fatfree-naming-table-language.png" alt="Language prefix naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <div class="carousel-caption d-none d-md-block">
                                         <h3 class="overlay-text">A) Language prefix</h3>
@@ -179,9 +187,9 @@
                                 </div>
                                 <div class="carousel-item">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-slug-conn-dark.png, ../images/NamingFlowTable-slug-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-slug-conn.png, ../images/NamingFlowTable-slug-conn-LG.png 1.5x"  />
-                                        <img class="d-block w-100 h-auto" src="../images/NamingFlowTable-slug-conn.png" alt="Page slug naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-slug-dark.webp, ../images/fatfree-naming-table-slug-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-slug.webp, ../images/fatfree-naming-table-slug-lg.webp 2x">
+                                        <img class="d-block w-100 h-auto" src="../images/fatfree-naming-table-slug.png" alt="Page slug naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <div class="carousel-caption d-none d-md-block">
                                         <h3 class="overlay-text">B) Page slug</h3>
@@ -189,9 +197,9 @@
                                 </div>
                                 <div class="carousel-item">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-name-conn-dark.png, ../images/NamingFlowTable-name-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-name-conn.png, ../images/NamingFlowTable-name-conn-LG.png 1.5x"  />
-                                        <img class="d-block w-100 h-auto" src="../images/NamingFlowTable-name-conn.png" alt="Route naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-route-dark.webp, ../images/fatfree-naming-table-route-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-route.webp, ../images/fatfree-naming-table-route-lg.webp 2x">
+                                        <img class="d-block w-100 h-auto" src="../images/fatfree-naming-table-route.png" alt="Route naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <div class="carousel-caption d-none d-md-block">
                                         <h3 class="overlay-text">C) Route name</h3>
@@ -199,9 +207,9 @@
                                 </div>
                                 <div class="carousel-item active">
                                     <picture>
-                                        <source srcset="../images/NamingFlowTable-ctr-conn-dark.png, ../images/NamingFlowTable-ctr-conn-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                        <source srcset="../images/NamingFlowTable-ctr-conn.png, ../images/NamingFlowTable-ctr-conn-LG.png 1.5x"  />
-                                        <img class="d-block w-100 h-auto" src="../images/NamingFlowTable-ctr-conn.png" alt="Controller naming relationships" width="730" height="361" loading="lazy">
+                                        <source srcset="../images/fatfree-naming-table-controller-dark.webp, ../images/fatfree-naming-table-controller-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                        <source srcset="../images/fatfree-naming-table-controller.webp, ../images/fatfree-naming-table-controller-lg.webp 2x">
+                                        <img class="d-block w-100 h-auto" src="../images/fatfree-naming-table-controller.png" alt="Controller naming relationships" width="730" height="361" loading="lazy">
                                     </picture>
                                     <div class="carousel-caption d-none d-md-block">
                                         <h3 class="overlay-text">D) Controller function</h3>
@@ -323,9 +331,9 @@ ko=ko,ko,한국어</code></pre>
                 <div class="col-lg-8 mx-auto">
                     <h2>Language selector</h2>
                     <picture>
-                        <source srcset="../images/LanguageMenu-dark.png, ../images/LanguageMenu-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                        <source srcset="../images/LanguageMenu.png, ../images/LanguageMenu-LG.png 1.5x"  />
-                        <img class="mb-3" src="../images/LanguageMenu.png" alt="Language dropdown menu screen capture" width="178" height="114" loading="lazy">
+                        <source srcset="../images/fatfree-lang-menu-dark.webp, ../images/fatfree-lang-menu-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                        <source srcset="../images/fatfree-lang-menu.webp, ../images/fatfree-lang-menu-lg.webp 2x">
+                        <img class="mb-3" src="../images/fatfree-lang-menu.png" alt="Language dropdown menu screen capture" width="178" height="114" loading="lazy">
                     </picture>
                     <p>The language selector displays a dropdown menu of links to corresponding pages in other languages.</p>
                     <p>The selector is always shown in the navbar so users will be aware that there are other language versions available. For large sites like Google or Wikipedia, people assume the site supports other languages, so they&rsquo;ll go looking for the language selector. For a small site, people may not make the same assumption, so it&rsquo;s a good idea to have the language selector visible.</p>

@@ -84,17 +84,15 @@ body {
 	}
 }
 
-@media screen and (max-width: 767px) {
-	.offcanvas-right.off-canvas-active .sidebar-offcanvas {
-		background-color: #2d2d2d;
-		border-left-color: #2d2d2d;
-	}
-}
-
 @media (prefers-color-scheme: dark) {
 	@media screen and (max-width: 767px) {
 		.sidebar-offcanvas {
 			background-color: #2d2d2d;
+		}
+
+		.offcanvas-right.off-canvas-active .sidebar-offcanvas {
+			background-color: #2d2d2d;
+			border-left-color: #2d2d2d;
 		}
 	}
 }

@@ -19,6 +19,7 @@
                         <li><a class="same-page-link" href="#error-pages">Error response pages</a></li>
                         <li><a class="same-page-link" href="#highlighter">Syntax highlighter</a></li>
                         <li><a class="same-page-link" href="#language-flags">Language flags</a></li>
+                        <li><a class="same-page-link" href="#firefox">Firefox flashs of unstyled content</a></li>
                     </ul>
                 </div>
             </div>
@@ -204,9 +205,9 @@
                     <div class="row mb-4">
                         <div class="col-12 col-md-6 mb-4">
                             <picture>
-                                <source srcset="../images/ScrollCalculation-dark.png, ../images/ScrollCalculation-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                                <source srcset="../images/ScrollCalculation.png, ../images/ScrollCalculation-LG.png 1.5x"  />
-                                <img class="float-left mw-100 h-auto" src="../images/ScrollCalculation.png" alt="Graphic showing the calculation for when to adjust the position of the scroll-to-top button" width="365" height="425" loading="lazy">
+                                <source srcset="../images/details-scroll-calc-dark.webp, ../images/details-scroll-calc-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                                <source srcset="../images/details-scroll-calc.webp, ../images/details-scroll-calc-lg.webp 2x">
+                                <img class="float-left mw-100 h-auto" src="../images/details-scroll-calc.png" alt="Graphic showing the calculation for when to adjust the position of the scroll-to-top button" width="365" height="425" loading="lazy">
                             </picture>
                         </div>
                         <div class="col-12 col-md-6">
@@ -301,7 +302,7 @@ doc.documentElement.focus();</code></pre>
                     <p>For browsers that use an SVG favicon file (i.e., modern browsers except Safari), I provide a favicon.svg file that has two versions, one with a black outline and one with a white outline for light and dark mode.</p>
                     <p><img class="border border-medium" src="../images/Favicon-ico-background-comparison-both.png" width="256" height="64" alt="SVG favicon showing better visibility against light and dark backgrounds"></p>
                     <h3>Touch icons</h3>
-                    <p>I include touch icons for Apple &amp; Android mobile devices. While most users will likely not save the site to their home screen, I like having the option available (especially for company sales people if it&rsquo;s a business website).</p>
+                    <p>I include touch icons for Apple &amp; Android mobile devices. While most users will likely not save the site to their home screen, I like having the option available (especially for company employees if it&rsquo;s a business website).</p>
                     <p><img src="../apple-touch-icon.png" width="128" height="128" alt="Example of a touch icon for use on a mobile device"></p>
                 </div>
             </div>
@@ -334,20 +335,21 @@ doc.documentElement.focus();</code></pre>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Image management</h2>
-                    <p>To improve page loading times, all images are compressed using an online compression application (<a href="https://www.iloveimg.com/compress-image/compress-png" title="Online PNG compression application">iloveimg.com</a> for PNG files, <a href="https://compressjpeg.com/" title="Online JPEG compression application">compressjpg.com</a> for JPEG files, and <a href="https://www.ps2pdf.com/compress-webp" title="Online WEBP compression application">www.ps2pdf.com/compress-webp</a> for WEBP files). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the image files do need to be compressed for use on a website.</em></p>
+                    <p>To improve page loading times, JEPG and PNG image files are compressed using an online compression application (<a href="https://tinypng.com/" title="Online compression application">tinypng.com</a>). I do not run the WEBP files through the online compression site as it adds JPEG type artifacts to the image (the file may be smaller, but I don&rsquo;t like the effect). <em>I use <a href="https://www.gimp.org/" title="Free and Open Source Image Editor">GIMP</a> for graphics work, which is free, but the JPEG &amp; PNG image files do need to be compressed for use on a website.</em></p>
                     <!-- I originally used https://compresspng.com/ but iloveimg.com produces smaller files (at least for PNGs), so I switched -->
                     <p>Larger images that are used on multiple pages (e.g. the logo) are loaded as separate images. Smaller images that are used on multiple pages (e.g. the language flags) are embedded in the CSS file as <a href="http://freeonlinetools24.com/base64-image" title="Online image-to-base64 converter">Base64</a> background images.</p>
                     <p>I use the <code>loading="lazy"</code> attribute on the img tag to delay loading images that normally do not show when the page is first loaded.</p>
                     <pre><code class="html hljs">&lt;picture&gt;
-    &lt;source srcset="../images/SassArchitecture-dark.png,
-        ../images/SassArchitecture-LG-dark.png 1.5x"
-        media="(prefers-color-scheme: dark)" /&gt;
-    &lt;source srcset="../images/SassArchitecture.png,
-        ../images/SassArchitecture-LG.png 1.5x" /&gt;
-    &lt;img class="scss-diagram mb-3" src="../images/SassArchitecture.png"
-        alt="Diagram of the Sass files used to construct the site CSS" 
-        width="540" height="374" loading="lazy"&gt;
+    &lt;source srcset="../images/bootstrap-sass-architecture-dark.webp,
+        ../images/bootstrap-sass-architecture-lg-dark.webp 2x"
+        media="(prefers-color-scheme: dark)"&gt;
+    &lt;source srcset="../images/bootstrap-sass-architecture.webp,
+        ../images/bootstrap-sass-architecture-lg.webp 2x" &gt;
+    &lt;img class="scss-diagram mb-3" src="../images/bootstrap-sass-architecture.png"
+        alt="Diagram of the Sass files used to construct the site CSS"
+        width="538" height="372" loading="lazy"&gt;
 &lt;/picture&gt;</code></pre>
+
                 </div>
             </div>
         </div>
@@ -532,6 +534,25 @@ if (!String.prototype.trim) {
                     <p>The websites I work with need two or more languages (at least English and Korean), which means a language switcher, and I wanted an indication near the top of the page that other languages are available (instead of in the footer).</p>
                     <p>The easiest way to indicate the current language is to display a country flag (but be careful about implying that Taiwan or Hong Kong are countries). The source I use for flags is <a href="https://github.com/gosquared/flags" title="GitHub page for GoSquare">GoSquare&rsquo;s Flag Icon Set GitHub site</a>. GoSquare makes a complete set of flags available under the MIT license.</p>
                     <p>I compressed the PNG files and converted them to Base64 so the images can be embedded in the CSS file as background images.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="firefox" class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Firefox flashs of unstyled content</h2>
+                    <p>I use the Firefox browser as I like its separate search bar. Firefox was showing a <em>flash of unstyled content (FOUC)</em> if I loaded the page with an empty cache. To fix the problem, I applied the hack from this <a href="https://stackoverflow.com/a/64158043/1011984">Stackoverflow answer</a> at the end of the head section to resolve the issue:</p>
+                    <pre><code class="css hljs">&lt;script&gt;
+    /*to prevent Firefox FOUC*/
+    var FF_FOUC_FIX;
+&lt;/script&gt;</code></pre>
+                    <p>Firefox was also displaying the alt text for the logo when the page was loaded for the first time (again, an empty cache). I fixed that by setting the text color to transparent:</p>
+                    <pre><code class="css hljs">.navbar-brand img {
+    color: transparent;
+}</code></pre>
                 </div>
             </div>
         </div>

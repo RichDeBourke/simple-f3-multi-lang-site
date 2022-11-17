@@ -3,8 +3,9 @@
             <div class="container">
                 <a id="logo" class="navbar-brand" href="{{ @schemeHost }}{{ @langSubdirectory.'_home' | alias }}">
                     <picture>
-                        <source srcset="{{ @schemeHost }}/images/Site-Construction-Logo-dark.png" media="(prefers-color-scheme: dark)" />
-                        <img class="d-inline-block align-top w-auto" src="{{ @schemeHost }}/images/Site-Construction-Logo.png" alt="Site Construction logo - a hardhat safety icon" title="Constructing a website with Bootstrap 4 and the Fat-Free Framework" width="180" height="180" loading="lazy">
+                        <source srcset="../images/site-logo-dark.webp, ../images/site-logo-lg-dark.webp 2x" type="image/webp" media="(prefers-color-scheme: dark)">
+                        <source srcset="../images/site-logo.webp, ../images/site-logo-lg.webp 2x" type="image/webp">
+                        <img class="d-inline-block align-top w-auto" src="../images/site-logo.png" alt="{{ @dictLogoAltText }}" width="180" height="180" loading="lazy">
                     </picture>
                 </a>
 
@@ -39,7 +40,7 @@
 </false>
 </check>
                         <li class="nav-item menu-item dropdown">
-                            <button class="nav-link dropdown-toggle{{ @isDetailPage ? ' active' : ''  }}" id="navbarDropdownDetailsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="nav-link dropdown-toggle{{ @isDetailPage ? ' active' : ''  }}" id="navbarDropdownDetailsMenu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ @dictNavDetails }}
                             </button>
                             <div class="dropdown-menu dropdown-menu-right ie-detail-menu" aria-labelledby="navbarDropdownDetailsMenu">

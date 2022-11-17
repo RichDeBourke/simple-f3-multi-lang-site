@@ -29,7 +29,7 @@ Note<sup>1</sup>: *The hosting service offers self-signed certificates, but I'm 
 
 ## Applying the setup
 
-All of my files for the demo site, Fat-Free configuration, controller, and template files, and the associated scss, image, and JavaScript files are in this GitHub repository. The Bootstrap and Fat-Free files are available from [Bootstrap](https://getbootstrap.com/) and [Fat-Free](https://fatfreeframework.com).
+All of my files for the demo site, Fat-Free configuration, controller, and template files, and the associated SCSS, image, and JavaScript files are in this GitHub repository. The Bootstrap and Fat-Free files are available from [Bootstrap](https://getbootstrap.com/) and [Fat-Free](https://fatfreeframework.com).
 
 It should be easy enough to replace my site specific content with content for a different website.
 
@@ -123,4 +123,6 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 
 **2020/07/05** – Validated the site works with Fat-Free 3.7.2, Bootstrap 4.5.0, and jQuery 3.5.1, eliminated the non-minified CSS files (just supplying minified CSS files on the website), and made some minor edits to the content (including an explanation about how I'm doing Sass in VS Code).
 
-**2022/07/23** – Validated the site works with Fat-Free 3.8.0, Bootstrap 4.6.1, and jQuery 3.6.0, switched from Google fonts to using system fonts, added support for reduced motion and dark mode, and updated the content.
+**2022/07/15** – Validated the site works with Fat-Free 3.8.0, Bootstrap 4.6.1, and jQuery 3.6.0, switched from Google fonts to using system fonts, added support for reduced motion and dark mode, and updated the content.
+
+**2022/11/17** – Validated the site works with jQuery 3.6.1 and switched to providing normal and high resolution WEBP images for light and dark modes using picture and source elements.

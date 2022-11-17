@@ -10,6 +10,7 @@ body {
 	overflow-x: hidden;
     text-size-adjust: none;
     min-width: 20rem;
+    font-size: 1.125rem;
 }
 
 li {
@@ -30,10 +31,11 @@ section a:not(.carousel-control) {
     color: #0000ee;
     border-bottom: 1px solid #0000ee;
     text-decoration: none;
+    transition: border-color 0.3s ease-in-out;
 
     &:visited {
-        color: #800080;
-        border-bottom: 1px solid #800080;
+        color: #551A8B;
+        border-bottom: 1px solid #551A8B;
     }
   
     &:hover {
@@ -46,6 +48,11 @@ section a:not(.carousel-control) {
     border-color: #787b7f;
 }
 
+.btn-primary {
+    background-color: #0071EB;
+}
+
+
 // notifications
 .eu-cookie {
     z-index: 1080;
@@ -57,6 +64,12 @@ section a:not(.carousel-control) {
     left: 0;
     width: 100%;
     display: none;
+    margin-top: 4.75rem;
+    transition: margin-top 500ms ease;
+}
+
+.small-logo .eu-cookie {
+    margin-top: 3.75rem;
 }
 
 section.eu-cookie a:not(.carousel-control) {
@@ -69,9 +82,50 @@ section.eu-cookie a:not(.carousel-control):visited {
     border-bottom: 1px solid #c58af9;
 }
 
+.eu-cookie h2 {
+    font-size: 1.625rem;
+}
+
 .cookie-notice-margin {
     margin-top: 0;
 }
+
+.eu-cookie .col-lg-6 {
+    max-height: 40vh;
+    overflow-y: auto;
+    scrollbar-color: #999 #333;
+    scrollbar-width: thin;
+}
+
+.eu-cookie .col-lg-6::-webkit-scrollbar {
+    width: 10px;
+}
+
+.eu-cookie .col-lg-6::-webkit-scrollbar-track {
+    background-color: darkgrey;
+    border-radius: 100px;
+}
+
+.eu-cookie .col-lg-6::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-clip: content-box;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
+}
+
+.eu-cookie .col-lg-2 {
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .small-logo .eu-cookie {
+        margin-top: 3.625rem;
+    }
+
+    .eu-cookie .col-lg-6 {
+        max-height: none;
+    }
+}
+
 
 #skippy {
     z-index: 1085;
@@ -97,14 +151,19 @@ section.eu-cookie a:not(.carousel-control):visited {
 		height: 3.5rem;
 		transition: height 500ms ease;
     }
-    &.small-logo img {
-        height: 2.5rem;
-    }
+}
+
+.small-logo #mainNav img {
+    height: 2.5rem;
 }
 
 .navbar-brand {
     margin-right: 0;
     order: 2;
+}
+
+.navbar-brand img {
+    color: transparent;
 }
 
 .menu-item {
@@ -116,17 +175,20 @@ section.eu-cookie a:not(.carousel-control):visited {
 }
 
 @include media-breakpoint-up(md) {
+    .eu-cookie {
+        position: fixed;
+    }
+
 	#mainNav {
         font-size: 1rem;
 		img {
 			height: 3.875rem;
 		}
 	}
-	#mainNav.small-logo {
-		img {
-			height: 2rem;
-		}
+	.small-logo #mainNav img {
+        height: 2rem;
     }
+
     .menu-item {
         border-bottom: none;
     }
@@ -136,7 +198,7 @@ section.eu-cookie a:not(.carousel-control):visited {
 .navbar-dark {
 	.navbar-toggler {
 		padding: 0.5rem;
-		border: 0.0625rem solid transparent;
+		border: 0.0625rem solid $white-hint;
 		border-radius: 0.25rem;
         font-size: 1rem;
         order: 3;
@@ -565,6 +627,7 @@ header {
 
 	.github-link {
 		margin-top: 1.5rem;
+        white-space: pre-line;
 	}
     
     .cookie-notice-margin {
@@ -603,7 +666,7 @@ header {
     }
 
     .navbar-dark .navbar-toggler:hover {
-        background-color: $dark-mode-level-2;
+        background-color: $dark-mode-medium;
     }
 
     header a.btn-outline-dark {
@@ -767,6 +830,10 @@ footer {
 	}
 }
 
+footer h2 {
+    font-size: 1.25rem;
+}
+
 .terms-link {
     border-top: 1px solid $gray-900;
 }
@@ -904,7 +971,7 @@ footer {
 	display: block;
 	border: 1px solid $gray-600;
 	border-radius: 0.1875rem;
-    box-sizing: border-box;
+    box-sizing: content-box;
     max-width: 100%;
     height: auto;
     
@@ -972,8 +1039,17 @@ footer {
 }
 .contact-required {
 	color: $crimson;
+    font-size: 2rem;
+    line-height: 0.5rem;
+    vertical-align: middle;
 }
 .contact-card-block {
 	flex: 1 1 auto;
 	padding: 1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .contact-error, .contact-required {
+        color: #FFA1A1;
+    }
 }

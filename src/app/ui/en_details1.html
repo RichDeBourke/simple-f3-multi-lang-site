@@ -24,12 +24,12 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h2>Sass organization</h2>
-                        <p>Most languages can be displayed using one of the standard <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#fonts">font-families</a> available on most systems, so I create a common CSS file for use with most languages. I create a special CSS file for Korean that includes a word-break: keep-all; setting. If an additional font family is needed, such as Meiryo and Osaka for Japanese, it would be easy enough to create an additional CSS file.</p>
+                        <p>Most languages can be displayed using one of the available system <a href="{{ @schemeHost }}{{ 'en_details5' | alias }}#fonts">font-families</a>, so I generally use a common CSS file. I created a special CSS file for Korean that includes a word-break: keep-all; setting as a way to demonstrate how to have multiple CSS files. If an additional font family is needed, such as Meiryo and Osaka for Japanese, it would be easy enough to create an additional CSS file. (<em>Note: setting word-break for Korean pages could also be done by using the lang atribute.</em>)</p>
                         <p>I also use Sass to generate the CSS file for the <a href="{{ @schemeHost }}{{ 'en_details2' | alias }}#structure" title="My overlay image slider that I use for the site structure section">overlay slider</a>.</p>
                         <picture>
-                            <source srcset="../images/SassArchitecture-dark.png, ../images/SassArchitecture-LG-dark.png 1.5x" media="(prefers-color-scheme: dark)" />
-                            <source srcset="../images/SassArchitecture.png, ../images/SassArchitecture-LG.png 1.5x"  />
-                            <img class="scss-diagram mb-3" src="../images/SassArchitecture.png" alt="Diagram of the Sass files used to construct the site CSS" width="540" height="374" loading="lazy">
+                            <source srcset="../images/bootstrap-sass-architecture-dark.webp, ../images/bootstrap-sass-architecture-lg-dark.webp 2x" media="(prefers-color-scheme: dark)">
+                            <source srcset="../images/bootstrap-sass-architecture.webp, ../images/bootstrap-sass-architecture-lg.webp 2x" >
+                            <img class="scss-diagram mb-3" src="../images/bootstrap-sass-architecture.png" alt="Diagram of the Sass files used to construct the site CSS" width="538" height="372" loading="lazy">
                         </picture>
                     </div>
                 </div>
@@ -58,8 +58,8 @@
                         </ol>
                         <p><a href="https://code.visualstudio.com/" title="Open source code editor">Visual Studio Code</a> (A.K.A. VS Code) for writing the code.</p>
 
-                        <p>Glenn Marks&rsquo; <a href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass" title="Sass compiler for VS Code.">Live Sass Compiler</a> &ndash; for compiling Sass code into CSS. I originally used Ritwick Dey&rsquo;s <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> extension for VS Code but I was getting errors with line numbers and source file references in the sourcemaps, so I switched to using <a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> as it generated correct sourcemaps. When doing an update recently, I found <a href="https://www.npmjs.com/package/node-sass" title="A C++ Sass CSS compiler">node-sass</a> has been depreciated, so I switched to Glenn Marks&rsquo; extension for VS Code.</p>
-                        <p><a href="https://webpack.js.org/" title="Module bundler">Webpack 5</a> for bundling multiple JavaScript files into a single file. As using CDNs for providing JavaScript files (e.g. jQuery) are out due to privacy concerns, I am now combining jQuery, Bootstrap, the jQuery easing plugin, and the site-specific common JavaScript into one file. Webpack could also combine the Sass files, but the Live Sass Compiler does what I need. <em>To build the bundled file, I run a build script in the package.json file using <code>npm run build</code>.</em></p>
+                        <p>Glenn Marks&rsquo; <a href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass" title="Sass compiler for VS Code.">Live Sass Compiler</a> &ndash; for compiling Sass code into CSS. I originally used Ritwick Dey&rsquo;s <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass" title="Sass complier for VS Code">Live Sass Compiler</a> extension for VS Code but I was getting errors with line numbers and source file references in the sourcemaps, so I switched to using <a href="https://www.npmjs.com/package/gulp-sass" title="Sass plugin for Gulp.">gulp-sass</a> as it generated correct sourcemaps. I recently found <a href="https://www.npmjs.com/package/node-sass" title="A C++ Sass CSS compiler">node-sass</a> has been depreciated, so I switched to Glenn Marks&rsquo; extension for VS Code.</p>
+                        <p><a href="https://webpack.js.org/" title="Module bundler">Webpack 5</a> for bundling multiple JavaScript files into a single file. As using CDNs for providing JavaScript files (e.g. jQuery) are out due to privacy concerns, I am now combining jQuery, Bootstrap, the jQuery easing plugin, and the site-specific common JavaScript into one file using Webpack. Webpack could also combine the Sass files, but the Live Sass Compiler does what I need.</p>
                     </div>
                 </div>
             </div>
@@ -83,11 +83,11 @@
                     <div class="col-lg-8 mx-auto">
                         <h2>Mobile menu toggler</h2>
                         <picture>
-                            <source srcset="../images/toggler-dark.png" media="(prefers-color-scheme: dark) and (prefers-reduced-motion: reduce)" />
-                            <source srcset="../images/toggler-dark.gif" media="(prefers-color-scheme: dark)" />
-                            <source srcset="../images/toggler.png" media="(prefers-reduced-motion: reduce)" />
-                            <source srcset="../images/toggler.gif" />
-                            <img class="mb-3 mw-100 h-auto" src="../images/toggler.gif" alt="Comparison of Bootstrap standard toggler vs more contrast vs animated togger." width="196" height="60" loading="lazy">
+                            <source srcset="../images/bootstrap-toggler-dark.png" media="(prefers-color-scheme: dark) and (prefers-reduced-motion: reduce)">
+                            <source srcset="../images/bootstrap-toggler-dark.gif" media="(prefers-color-scheme: dark)">
+                            <source srcset="../images/bootstrap-toggler.png" media="(prefers-reduced-motion: reduce)">
+                            <source srcset="../images/bootstrap-toggler.gif">
+                            <img class="mb-3 mw-100 h-auto" src="../images/bootstrap-toggler.gif" alt="Comparison of Bootstrap standard toggler vs more contrast vs animated togger." width="196" height="60" loading="lazy">
                         </picture>
                         <p>Bootstrap 4&rsquo;s menu toggler for mobile devices (shown on the left in the image above) has low color contrast and there&rsquo;s no animation.</p>
                         <p>I changed the color for <a href="http://www.sbwfc.co.kr/ColorChecker/" title="Online color contrast tool">more contrast</a> (shown in the middle in the image above) and animated the hamburger (shown on the right in the image above) to make it clearer to users that they need to tap the toggler again to close the menu (tapping a link or tapping anywhere on the page will also close the menu).</p>
