@@ -3,7 +3,7 @@ A simple, multi-language website using Fat-Free
 
 ## An almost complete (albeit simple) F3 setup
 
-A frontend / backend setup for a simple, multi-language website using Bootstrap with the Fat-Free PHP framework, but no database. 
+A frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework, but no database. 
 
 ## Overview
 
@@ -20,6 +20,8 @@ My choice was [Fat-Free](https://fatfreeframework.com) – *"a powerful yet easy
 To be sure that I could build a site, I created [one](http://sbf-testing.byethost7.com); a site about how I used Bootstrap and Fat-Free to create a site. *And the site is my record for what I did and why.*
 
 *This is not a CMS. There is no database. All of the content is in the configuration file, the controller files, and the content templates.*
+
+*Note: I have a similar repository for Bootstrap 5 at [https://github.com/RichDeBourke/simple-f3-bootstrap-5-multi-lang-site](https://github.com/RichDeBourke/simple-f3-bootstrap-5-multi-lang-site).
 
 ## Demo
 
@@ -67,7 +69,7 @@ Bootstrap is easy to structure with the available classes and using Sass. There 
 
 #### Multi-language support
 
-While the content for the [demo site](http://sbf-testing.byethost7.com) is in English, the demo does has Chinese and Korean pages to demonstrate the multi-language operation. The Chinese and Korean home pages were created from the English home page using Google Translate. The remainder of the Chinese and Korean pages, which are provided only to demonstrate the navigation, just have Google translations of the English pages' titles and descriptions.
+While the content for the [demo site](http://sbf-testing.byethost7.com) is in English, the demo does have Chinese and Korean pages to demonstrate the multi-language operation. The Chinese and Korean home pages were created from the English home page using Google Translate. The remainder of the Chinese and Korean pages, which are provided only to demonstrate the navigation, just have Google translations of the English pages' titles and descriptions.
 
 ## Additional features for 2022
 
@@ -126,3 +128,5 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2022/07/15** – Validated the site works with Fat-Free 3.8.0, Bootstrap 4.6.1, and jQuery 3.6.0, switched from Google fonts to using system fonts, added support for reduced motion and dark mode, and updated the content.
 
 **2022/11/17** – Validated the site works with jQuery 3.6.1 and switched to providing normal and high resolution WEBP images for light and dark modes using picture and source elements.
+
+**2023/07/09** – Add link to Bootstrap 5.3 with the Fat-Free PHP framework repository.
