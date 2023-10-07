@@ -216,7 +216,7 @@
         // Toggler function for showing the offcanvas menu on mobile devices
         $("[data-toggle='offcanvas']").on("click", function(event) {
             var tmp;
-    
+            event.stopPropagation();
             if (event.currentTarget.getAttribute("aria-expanded") === "false") {
                 event.currentTarget.setAttribute("aria-expanded", true);
                 if (document.body.style.transition !== undefined) { // only do for modern browsers

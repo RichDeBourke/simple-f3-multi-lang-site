@@ -31,14 +31,6 @@
         }
     </script>
 
-    <style>
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #12161a;
-            }
-        }
-    </style>
-
     <script>
         // Polyfill for IE 9 and older browsers
         if (!("classList" in document.documentElement)) {
@@ -85,7 +77,7 @@
             "@context": "http://www.schema.org",
             "@type": "WebSite",
             "name": "{{ @siteName }}",
-            "description": "Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework.",
+            "description": "{{ @dictSiteDescription }}",
             "url": "http://sbf-testing.byethost7.com",
             "creator": {
                 "@type": "organization",
@@ -107,11 +99,11 @@
 
     <!--[if !lte IE 8]><!-->
 <check if="{{ @langSubdirectory === 'ko' }}">
-        <link href="{{ @schemeHost }}/css/style-kr.css?v=20220908" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-kr.min.css?v=20230925" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'zh' }}">
-        <link href="{{ @schemeHost }}/css/style-common.css?v=20220908" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.min.css?v=20230925" rel="stylesheet">
 </check><check if="{{ @langSubdirectory === 'en' }}">
-        <link href="{{ @schemeHost }}/css/style-common.css?v=20220908" rel="stylesheet">
+        <link href="{{ @schemeHost }}/css/style-common.min.css?v=20230925" rel="stylesheet">
 </check>
 <check if="{{ @pageCSS }}">
 <include href="{{ @pageCSS }}" />
@@ -133,7 +125,7 @@
     <link rel="icon" href="{{ @schemeHost }}/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ @schemeHost }}/apple-touch-icon.png"><!-- 180×180 -->
     <!-- Note: The demo host does not support manifests, which is why it is commented out. -->
-    <!-- <link rel="manifest" href="{{ @schemeHost }}/manifest.webmanifest"> -->
+    <!--<link rel="manifest" href="{{ @schemeHost }}/manifest.webmanifest">-->
 
     <script>
         /*to prevent Firefox FOUC*/

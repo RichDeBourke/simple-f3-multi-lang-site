@@ -73,7 +73,7 @@ While the content for the [demo site](http://sbf-testing.byethost7.com) is in En
 
 ## Additional features for 2022
 
-For the July 2022 update, in addition to verifying the site works with the latest versions of Fat-Free, Bootstrap 4, and jquery, I also revised the site to:
+For the July 2022 update, in addition to verifying the site works with the latest versions of Fat-Free, Bootstrap 4, and jQuery, I also revised the site to:
 
 * Use system fonts – switched from using Google fonts to using `system-ui` fonts. Using Google fonts requires the user's browser to send a request to Google for the stylesheet and the needed font files.  That involves sending the user's IP address to Google, which the EU General Data Protection Regulation (GDPR) says is not allowed. `system-ui` instructs the browser to use the same font the operating system uses to display text. This provides a similar look to what the user sees on the system screens, and it speeds up page startup time as there are no fonts to download.
 
@@ -130,3 +130,5 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2022/11/17** – Validated the site works with jQuery 3.6.1 and switched to providing normal and high resolution WEBP images for light and dark modes using picture and source elements.
 
 **2023/07/09** – Add link to Bootstrap 5.3 with the Fat-Free PHP framework repository.
+
+**2023/10/07** – Validated the site works with Bootstrap 4.6.2, and jQuery 3.7.1. The host for the demo site is now running PHP 8.2, so the demo is now using Fat-Free 3.8.2.

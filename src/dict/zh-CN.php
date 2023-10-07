@@ -1,6 +1,7 @@
 <?php
 return array(
     'dictScrollTitleValue'=>'滚动到页面顶部',
+    'dictSiteDescription'=>'使用 Bootstrap 4 和 Fat-Free PHP 框架为简单的多语言网站构建前端/后端设置。',
     'dictMenuToggle'=>'菜单切换',
     'dictToggle'=>'toggle',
     'dictNavDetails'=>'细节',
@@ -18,8 +19,9 @@ return array(
     'dictNoticeEUcookie6a'=>'拒绝跟踪 cookie',
     'dictNoticeEUcookie6b'=>'选择退出',
     'dictNoticeSkipLink'=>'跳到主要内容',
+    'dictLogoAltText' =>'网站建设-标志是安全帽-首页链接',
     'dictFooterHeading1'=>'关于本网站',
-    'dictFooterContent1'=>'该网站是创建动态网站的实验。 这些文件在<a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="带有Fat-Free Framework和Bootstrap文件的GitHub存储库">GitHub</a>上可用，并且该站点的大部分逻辑都记录在其中。',
+    'dictFooterContent1'=>'该网站是创建动态网站的实验。 这些文件在<a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="带有Fat-Free Framework和Bootstrap文件的GitHub存储库">GitHub</a>上可用，并且该站点的大部分逻辑都记录在其中。使用 Fat-Free & Bootstrap 5 构建的类似网站位于 <a href="https://sbf-bootstrap5.alwaysdata.net/">sbf-bootstrap5.alwaysdata.net/</a>。',
     'dictFooterHeading2'=>'关于我',
     'dictFooterContent2'=>'我帮助韩国企业进行英语交流（演示文稿，网站内容和电子邮件）和网页设计.',
     'dictFooterHeading3'=>'联系',

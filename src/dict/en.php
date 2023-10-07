@@ -1,6 +1,7 @@
 <?php
 return array(
     'dictScrollTitleValue'=>'Scroll to the top of the page',
+    'dictSiteDescription'=>'Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework.',
     'dictMenuToggle'=>'Menu toggle',
     'dictToggle'=>'toggle',
     'dictNavDetails'=>'Details',
@@ -18,8 +19,9 @@ return array(
     'dictNoticeEUcookie6a'=>'Reject tracking cookies',
     'dictNoticeEUcookie6b'=>'Opt-out',
     'dictNoticeSkipLink'=>'Skip to main content',
+    'dictLogoAltText' =>'Site Construction – Logo is a safety helmet – link to the home page',
     'dictFooterHeading1'=>'About this site',
-    'dictFooterContent1'=>'This site is an experiment in creating a dynamic website. The files are available on <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="GitHub repository with the Fat-Free Framework and Bootstrap files">GitHub</a> and most of the logic for the site is documented within.',
+    'dictFooterContent1'=>'This site is an experiment in creating a dynamic website. The files are available on <a href="https://github.com/RichDeBourke/simple-f3-multi-lang-site" title="GitHub repository with the Fat-Free Framework and Bootstrap 4 files">GitHub</a> and most of the logic for the site is documented within. A similar website built with Fat-Free & Bootstrap 5 is at <a href="https://sbf-bootstrap5.alwaysdata.net/">sbf-bootstrap5.alwaysdata.net/</a>.',
     'dictFooterHeading2'=>'About me',
     'dictFooterContent2'=>'I help Korean businesses with their English com&shy;mu&shy;ni&shy;cation (presen&shy;tations, web content, and emails) and web design.',
     'dictFooterHeading3'=>'Contact',

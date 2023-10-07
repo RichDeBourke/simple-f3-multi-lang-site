@@ -2,19 +2,28 @@
     "short_name": "Site Demo",
     "name": "Site Construction",
     "icons": [{
-            "src": "/icon-196.png",
+            "src": "http://sbf-testing.byethost7.com/icon-196.png",
             "type": "image/png",
-            "sizes": "196x196"
+            "sizes": "196x196",
+            "purpose": "any"
         },
         {
-            "src": "/icon-512.png",
+            "src": "http://sbf-testing.byethost7.com/icon-196.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "196x196",
+            "purpose": "maskable"
+        },
+        {
+            "src": "http://sbf-testing.byethost7.com/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
         }
     ],
+    "id": "http://sbf-testing.byethost7.com/en/home",
     "start_url": "http://sbf-testing.byethost7.com/en/home",
-    "background_color": "#000000",
+    "background_color": "#0024a7",
     "display": "browser",
     "scope": "/",
-    "description": "Demo of a  Bootstrap site runnin on the Fat-Free Framework"
+    "description": "Building a frontend / backend setup for a simple, multi-language website using Bootstrap 4 with the Fat-Free PHP framework, but no database."
 }

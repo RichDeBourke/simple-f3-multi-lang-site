@@ -82,4 +82,15 @@ class enPageController extends Controller {
         $f3->set('pageContent',$f3->get('ALIAS').'.html');
     }
 
+    function webpack($f3) {
+        $this->loadCommonSettings($f3);
+        $f3->set('pageTitle','Using Webpack');
+        $f3->set('pageDescription','Details on how I\'m using Webpack to build pages');
+        $f3->set('googleNoIndex',true);
+        $f3->set('isDetailPage',false);
+        $f3->set('highlighterJavaScript',true);
+        // Set the content source
+        $f3->set('pageContent',$f3->get('ALIAS').'.html');
+    }
+
 }

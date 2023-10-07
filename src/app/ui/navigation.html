@@ -1,17 +1,17 @@
         <!-- Navigation -->
-        <nav id="mainNav" aria-label="Main" class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <nav id="main-nav" aria-label="Main" class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
             <div class="container">
                 <a id="logo" class="navbar-brand" href="{{ @schemeHost }}{{ @langSubdirectory.'_home' | alias }}">
                     <picture>
                         <source srcset="../images/site-logo-dark.webp, ../images/site-logo-lg-dark.webp 2x" type="image/webp" media="(prefers-color-scheme: dark)">
                         <source srcset="../images/site-logo.webp, ../images/site-logo-lg.webp 2x" type="image/webp">
-                        <img class="d-inline-block align-top w-auto" src="../images/site-logo.png" alt="{{ @dictLogoAltText }}" width="180" height="180" loading="lazy">
+                        <img class="d-inline-block align-top w-auto" src="../images/site-logo.png" alt="{{ @dictLogoAltText }}" width="188" height="62">
                     </picture>
                 </a>
 
                 <button class="navbar-toggler" type="button"
-                    data-toggle="offcanvas" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false"
+                    data-toggle="offcanvas" data-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="sr-only">({{ @dictMenuToggle }})</span>
                     <span class="navbar-toggle-icon">
@@ -22,7 +22,7 @@
                 </button>
 
                 <div id="offcanvas-overlay" class="offcanvas-overlay hide-overlay"></div>
-                <div class="sidebar-offcanvas ml-auto" id="navbarResponsive">
+                <div class="sidebar-offcanvas ml-auto" id="navbar">
                     <ul class="navbar-nav ml-auto">
 <check if="{{ @isHomePage }}"><true>
 <repeat group="@mainMenu" key="@slug" value="@title">
