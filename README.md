@@ -132,3 +132,5 @@ OffCanvas Navigation is provided under an [MIT license](https://github.com/RichD
 **2023/07/09** – Add link to Bootstrap 5.3 with the Fat-Free PHP framework repository.
 
 **2023/10/07** – Validated the site works with Bootstrap 4.6.2, and jQuery 3.7.1. The host for the demo site is now running PHP 8.2, so the demo is now using Fat-Free 3.8.2.
+
+**2026/09/26** – The host for the demo site is now running PHP 8.4.25, so the demo is now using Fat-Free 3.9.3.
